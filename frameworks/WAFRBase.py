@@ -137,7 +137,15 @@ class WAFRBase(Framework):
         if self.WATools is None or self.WATools.HASPERMISSION is False:
             return
 
-        self.WATools.createMilestoneIfNotExists()
+        # Only create a milestone once across all pillar runs.
+        # We use a Config key so the first pillar to finish creates it and
+        # subsequent pillars skip creation but still pick up the milestone number.
+        if not Config.get('_WAFR_MILESTONE_CREATED', False):
+            self.WATools.createMilestoneIfNotExists()
+            Config.set('_WAFR_MILESTONE_CREATED', True)
+        else:
+            # Re-use the milestone already created; just fetch its number
+            self.WATools._get_latest_milestone()
 
         # Generate Well-Architected Framework Review Report (PDF) and save it:
         # 1) Inside the account HTML folder so the page download button works

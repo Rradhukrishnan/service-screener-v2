@@ -169,14 +169,22 @@ class OutputGenerator:
             for framework in self.frameworks:
                 o = FrameworkPageBuilder.create(framework, api_result_array)
                 if o.getGateCheckStatus():
+                    # buildPage() internally calls generateMappingInformation() and
+                    # _hookPostItemsLoop() which writes answers to the WA Tool API.
+                    # We must NOT call generateMappingInformation() again afterwards
+                    # because that would re-run the hooks with an empty ResultCache,
+                    # overwriting the correct answers already submitted.
+                    # Instead, read back the data already computed and stored on the
+                    # framework object by buildPage().
                     o.buildPage()
-                    
+
                     # Add framework data to api_result_array for Cloudscape UI
+                    # using the cached stats/detail already produced by buildPage().
                     framework_key = f"framework_{framework}"
                     api_result_array[framework_key] = {
                         'metadata': o.framework.getMetaData(),
                         'summary': o.framework.generateGraphInformation(),
-                        'details': o.framework.generateMappingInformation()
+                        'details': o.framework.fwDetail if hasattr(o, 'fwDetail') else []
                     }
                     _info(f"Added framework data for {framework} to API")
                 else:
