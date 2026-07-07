@@ -79,7 +79,7 @@ The stack is automatically created at the start of each run with a unique name (
    source bin/activate
    python3.13 -m pip install --upgrade pip
    rm -rf service-screener-v2
-   git clone https://github.com/aws-samples/service-screener-v2.git
+   git clone https://github.com/Rradhukrishnan/service-screener-v2.git
    cd service-screener-v2
    pip install -r requirements.txt
    python3.13 unzip_botocore_lambda_runtime.py
@@ -217,7 +217,7 @@ screener --regions ap-southeast-1 --others '{"mpe": {"id": "aaaa-1111-cccc"}}'
 ```
 
 ### Well-Architected Tool Integration
-To create a workload and milestone in the Well-Architected Tool:
+To create a workload and answer **all 6 Well-Architected pillars** automatically:
 ``` json
 {
     "WA": {
@@ -236,10 +236,16 @@ Parameters:
    - Set to 1 to create a new milestone each time (Recommended)
    - Set to 0 to create a milestone only if none exists
 
-Usage:
+Usage (answers all 6 pillars — Security, Operational Excellence, Reliability, Performance, Cost, Sustainability):
 
 ``` bash
-screener --regions ap-southeast-1 --beta 1 --others '{"WA": {"region": "ap-southeast-1", "reportName": "SS_Report", "newMileStone": 1}}'
+screener --regions ap-southeast-1 --beta 1 --frameworks WAFS,WAFO,WARL,WAPE,WACO,WASU --others '{"WA": {"region": "ap-southeast-1", "reportName": "SS_Report", "newMileStone": 1}}'
+```
+
+To answer Security pillar only (original behaviour):
+
+``` bash
+screener --regions ap-southeast-1 --beta 1 --frameworks WAFS --others '{"WA": {"region": "ap-southeast-1", "reportName": "SS_Report", "newMileStone": 1}}'
 ```
 
 ### Combining Parameters
