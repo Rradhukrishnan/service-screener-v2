@@ -149,6 +149,298 @@
         "ec2.EC2TerminationProtection",
         "s3.ObjectLock"
       ]
+    },
+    "REL06": {
+      "BP01": [
+        "cloudwatch.alarmsWithoutSNS",
+        "cloudwatch.missingCompositeAlarms",
+        "rds.EventSubscriptionNotConfigured",
+        "opensearch.CloudWatchAlarms",
+        "lambda.lambdaNoCloudWatchAlarms",
+        "sqs.QueueMonitoring",
+        "apigateway.CloudWatchAlarms",
+        "redshift.EventNotifications",
+        "ec2.EC2DetailedMonitoringEnabled",
+        "rds.MonitoringIntervals"
+      ],
+      "BP02": [
+        "cloudwatch.missingCloudWatchDashboards",
+        "cloudwatch.missingCrossAccountDashboards",
+        "cloudwatch.missingVendedDashboards",
+        "cloudwatch.missingCustomMetrics",
+        "s3.StorageLens",
+        "rds.RDSRecommendationsActive",
+        "redshift.AdvisorRecommendations",
+        "ec2.CWMemoryMetrics",
+        "ec2.CWDiskMetrics"
+      ],
+      "BP03": [
+        "cloudwatch.alarmsWithoutSNS",
+        "cloudwatch.missingCompositeAlarms",
+        "cloudtrail.CloudWatchAlarmsConfigured"
+      ],
+      "BP04": [
+        "cloudwatch.logGroupsWithoutLogInsightsUsage",
+        "cloudwatch.missingXRayIntegration",
+        "cloudwatch.missingApplicationSignals",
+        "lambda.lambdaTracingEnabled",
+        "apigateway.PerformanceMonitoring"
+      ],
+      "BP05": [
+        "rds.HasEnhancedMonitoring",
+        "rds.HasPerformanceInsightsEnabled",
+        "lambda.lambdaEnhancedMonitor",
+        "elasticache.SlowLog",
+        "opensearch.SearchSlowLogs"
+      ]
+    },
+    "REL07": {
+      "BP01": [
+        "ec2.ASGTargetTrackingPolicy",
+        "ec2.ASGMultiAZ",
+        "ec2.ASGScalingCooldowns",
+        "dynamodb.AutoscalingStatus",
+        "rds.HasStorageAutoscaling",
+        "eks.NoAutoscaling",
+        "lambda.lambdaReservedConcurrencyForThrottling",
+        "lambda.lambdaProvisionedConcurrency"
+      ],
+      "BP02": [
+        "ec2.ELBHealthCheckEnabled",
+        "ec2.ELBMultiAZ",
+        "ec2.ASGTargetTrackingPolicy",
+        "cloudwatch.alarmsWithoutSNS"
+      ],
+      "BP03": [
+        "ec2.ASGTargetTrackingPolicy",
+        "dynamodb.AutoscalingStatus",
+        "eks.NoAutoscaling",
+        "rds.HasStorageAutoscaling"
+      ],
+      "BP04": [
+        "ec2.EC2HighUtilization",
+        "ec2.EC2SpikyUtilization",
+        "rds.CPUUtilization",
+        "rds.FreeMemory",
+        "cloudwatch.missingCustomMetrics"
+      ]
+    },
+    "REL08": {
+      "BP01": [
+        "iam.EnableConfigService",
+        "cloudtrail.NeedToEnableCloudTrail",
+        "cloudtrail.HasDataEventsCaptured"
+      ],
+      "BP02": [
+        "apigateway.CanaryDeployment",
+        "apigateway.StageLifecycle",
+        "lambda.lambdaFunctionInUsed"
+      ],
+      "BP03": [
+        "cloudtrail.NeedToEnableCloudTrail",
+        "iam.EnableConfigService",
+        "cloudwatch.alarmsWithoutSNS",
+        "cloudwatch.missingCompositeAlarms"
+      ],
+      "BP04": [
+        "cloudwatch.alarmsWithoutSNS",
+        "rds.EventSubscriptionNotConfigured",
+        "lambda.lambdaNoCloudWatchAlarms",
+        "cloudtrail.CloudWatchAlarmsConfigured"
+      ],
+      "BP05": [
+        "rds.AutoMinorVersionUpgrade",
+        "eks.ClusterVersion",
+        "elasticache.EngineVersion",
+        "opensearch.ServiceSoftwareVersion",
+        "lambda.lambdaRuntime"
+      ]
+    },
+    "REL09": {
+      "BP01": [
+        "rds.HasBackup",
+        "rds.CrossRegionBackup",
+        "dynamodb.PITRBackup",
+        "dynamodb.BackupStatus",
+        "s3.MfaDeleteAndVersioning",
+        "s3.BucketReplication",
+        "efs.BackupPolicy",
+        "efs.ReplicationEnabled",
+        "elasticache.BackupEnabled",
+        "s3.BucketVersioning",
+        "s3.ObjectLock"
+      ],
+      "BP02": [
+        "iam.AWSBackupPlans",
+        "rds.HasBackup",
+        "dynamodb.PITRBackup",
+        "efs.BackupPolicy",
+        "dynamodb.BackupStatus"
+      ],
+      "BP03": [
+        "rds.OldSnapshots",
+        "s3.Lifecycle",
+        "dynamodb.TrailDeleteBackup",
+        "s3.IntelligentTiering"
+      ],
+      "BP04": [
+        "rds.CrossRegionBackup",
+        "s3.BucketReplication",
+        "efs.ReplicationEnabled",
+        "dynamodb.GlobalTableVersion"
+      ],
+      "BP05": [
+        "cloudtrail.NeedToEnableCloudTrail",
+        "iam.EnableConfigService",
+        "cloudwatch.alarmsWithoutSNS"
+      ]
+    },
+    "REL10": {
+      "BP01": [
+        "ec2.VPCMultiAZ",
+        "ec2.ELBMultiAZ",
+        "rds.HasMultiAZ",
+        "rds.DBSubnet3AZ",
+        "elasticache.MultiAZEnabled",
+        "opensearch.AvailabilityZones",
+        "eks.NodeGroupSingleAZ",
+        "efs.SingleAZ"
+      ],
+      "BP02": [
+        "rds.HasMultiAZ",
+        "rds.CheckIfAurora",
+        "dynamodb.GlobalTableVersion",
+        "elasticache.GlobalDatastoreConfig",
+        "s3.BucketReplication"
+      ],
+      "BP03": [
+        "lambda.lambdaReservedConcurrencyForThrottling",
+        "sqs.DeadLetterQueue",
+        "sqs.MaxReceiveCountDetection",
+        "lambda.lambdaDeadLetterQueueDisabled"
+      ],
+      "BP04": [
+        "ec2.SGAllTCPOpen",
+        "ec2.SGAllUDPOpen",
+        "ec2.SGDefaultInUsed",
+        "rds.PubliclyAccessible",
+        "ec2.VPCFlowLogEnabled"
+      ]
+    },
+    "REL11": {
+      "BP01": [
+        "cloudwatch.alarmsWithoutSNS",
+        "cloudwatch.missingCompositeAlarms",
+        "rds.EventSubscriptionNotConfigured",
+        "lambda.lambdaNoCloudWatchAlarms",
+        "opensearch.CloudWatchAlarms",
+        "sqs.QueueMonitoring",
+        "ec2.ELBHealthCheckEnabled"
+      ],
+      "BP02": [
+        "rds.HasMultiAZ",
+        "rds.CheckIfAurora",
+        "ec2.ELBMultiAZ",
+        "ec2.ASGMultiAZ",
+        "elasticache.MultiAZEnabled",
+        "opensearch.AvailabilityZones"
+      ],
+      "BP03": [
+        "sqs.DeadLetterQueue",
+        "lambda.lambdaDeadLetterQueueDisabled",
+        "sqs.MaxReceiveCountDetection",
+        "lambda.lambdaReservedConcurrencyForThrottling"
+      ],
+      "BP04": [
+        "cloudwatch.missingXRayIntegration",
+        "cloudwatch.missingApplicationSignals",
+        "lambda.lambdaTracingEnabled",
+        "cloudwatch.logGroupsWithoutLogInsightsUsage"
+      ],
+      "BP05": [
+        "rds.HasBackup",
+        "dynamodb.PITRBackup",
+        "s3.BucketVersioning",
+        "efs.BackupPolicy"
+      ],
+      "BP06": [
+        "rds.DeleteProtection",
+        "dynamodb.DeleteProtection",
+        "ec2.EC2TerminationProtection",
+        "s3.ObjectLock"
+      ],
+      "BP07": [
+        "rds.HasMultiAZ",
+        "ec2.ELBMultiAZ",
+        "ec2.ASGMultiAZ",
+        "opensearch.AvailabilityZones",
+        "cloudwatch.alarmsWithoutSNS"
+      ]
+    },
+    "REL12": {
+      "BP01": [
+        "iam.EnableConfigService",
+        "cloudtrail.NeedToEnableCloudTrail",
+        "cloudtrail.HasInsightSelectors"
+      ],
+      "BP02": [
+        "cloudwatch.alarmsWithoutSNS",
+        "cloudwatch.missingCompositeAlarms",
+        "cloudtrail.CloudWatchAlarmsConfigured"
+      ],
+      "BP03": [
+        "ec2.EC2HighUtilization",
+        "ec2.EC2SpikyUtilization",
+        "rds.CPUUtilization",
+        "cloudwatch.missingCustomMetrics"
+      ],
+      "BP04": [
+        "cloudwatch.missingXRayIntegration",
+        "lambda.lambdaTracingEnabled",
+        "cloudwatch.missingApplicationSignals"
+      ],
+      "BP05": [
+        "rds.HasBackup",
+        "dynamodb.PITRBackup",
+        "efs.BackupPolicy",
+        "s3.BucketVersioning"
+      ]
+    },
+    "REL13": {
+      "BP01": [
+        "rds.CrossRegionBackup",
+        "s3.BucketReplication",
+        "efs.ReplicationEnabled",
+        "dynamodb.GlobalTableVersion",
+        "elasticache.GlobalDatastoreConfig"
+      ],
+      "BP02": [
+        "rds.HasMultiAZ",
+        "rds.CheckIfAurora",
+        "ec2.ELBMultiAZ",
+        "ec2.ASGMultiAZ",
+        "dynamodb.GlobalTableVersion"
+      ],
+      "BP03": [
+        "rds.HasBackup",
+        "rds.CrossRegionBackup",
+        "dynamodb.PITRBackup",
+        "s3.BucketReplication",
+        "efs.ReplicationEnabled",
+        "iam.AWSBackupPlans"
+      ],
+      "BP04": [
+        "cloudwatch.alarmsWithoutSNS",
+        "rds.EventSubscriptionNotConfigured",
+        "lambda.lambdaNoCloudWatchAlarms",
+        "cloudtrail.CloudWatchAlarmsConfigured"
+      ],
+      "BP05": [
+        "cloudwatch.missingXRayIntegration",
+        "cloudwatch.missingApplicationSignals",
+        "lambda.lambdaTracingEnabled",
+        "cloudwatch.logGroupsWithoutLogInsightsUsage"
+      ]
     }
   }
 }

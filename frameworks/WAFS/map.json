@@ -242,17 +242,45 @@
         "iam.enableGuardDuty",
         "lambda.lambdaQuotasNotMonitored",
         "ec2.EC2ServiceQuotas",
-        "sagemaker.ModelContainerImageSource"
+        "sagemaker.ModelContainerImageSource",
+        "ec2.EC2SSMManaged",
+        "eks.ClusterVersion",
+        "rds.AutoMinorVersionUpgrade",
+        "lambda.lambdaRuntime",
+        "elasticache.EngineVersion"
       ],
       "BP02": [
         "sagemaker.RootAccessDisabled",
-        "lambda.lambdaNoEnvironmentVariables"
+        "lambda.lambdaNoEnvironmentVariables",
+        "ec2.EC2IMDSv2",
+        "eks.PublicClusterEndpoint",
+        "sagemaker.NetworkIsolation",
+        "sagemaker.TrainingNetworkIsolation"
       ],
-      "BP03": [],
-      "BP04": [],
-      "BP05": [],
+      "BP03": [
+        "ec2.EC2SSMManaged",
+        "rds.AutoMinorVersionUpgrade",
+        "eks.ClusterVersion",
+        "lambda.lambdaRuntime",
+        "elasticache.EngineVersion",
+        "opensearch.ServiceSoftwareVersion"
+      ],
+      "BP04": [
+        "ec2.EBSEncrypted",
+        "ec2.EBSEncryptionByDefault",
+        "lambda.lambdaCMKEncryptionDisabled",
+        "sagemaker.EncryptionEnabled"
+      ],
+      "BP05": [
+        "sagemaker.NetworkIsolation",
+        "sagemaker.TrainingNetworkIsolation",
+        "sagemaker.RootAccessDisabled",
+        "glue.PublicAccessibility"
+      ],
       "BP06": [
-        "ec2.ComputeOptimizerEnhancedMetrics"
+        "ec2.ComputeOptimizerEnhancedMetrics",
+        "ec2.EC2ComputeOptimizerEnabled",
+        "lambda.lambdaMemoryOptimization"
       ]
     },
     "SEC07": {
@@ -357,23 +385,95 @@
       ]
     },
     "SEC10": {
-      "BP01": [],
-      "BP02": [],
-      "BP03": [],
-      "BP04": [],
-      "BP05": [],
-      "BP06": [],
-      "BP07": []
+      "BP01": [
+        "iam.enableGuardDuty",
+        "cloudtrail.GuardDutyIntegration",
+        "cloudtrail.SecurityHubIntegration",
+        "cloudtrail.NeedToEnableCloudTrail",
+        "cloudtrail.HasOneMultiRegionTrail"
+      ],
+      "BP02": [
+        "iam.EnableConfigService",
+        "cloudtrail.NeedToEnableCloudTrail",
+        "cloudwatch.alarmsWithoutSNS",
+        "cloudtrail.CloudWatchAlarmsConfigured"
+      ],
+      "BP03": [
+        "iam.InlinePolicyFullAdminAccess",
+        "iam.FullAdminAccess",
+        "iam.missingPermissionsBoundaries",
+        "iam.SCPEnabled"
+      ],
+      "BP04": [
+        "cloudwatch.alarmsWithoutSNS",
+        "cloudwatch.missingCompositeAlarms",
+        "cloudtrail.CloudWatchAlarmsConfigured",
+        "lambda.lambdaNoCloudWatchAlarms"
+      ],
+      "BP05": [
+        "cloudwatch.missingXRayIntegration",
+        "cloudwatch.missingApplicationSignals",
+        "lambda.lambdaTracingEnabled",
+        "cloudwatch.logGroupsWithoutLogInsightsUsage"
+      ],
+      "BP06": [
+        "cloudtrail.HasDataEventsCaptured",
+        "cloudtrail.HasInsightSelectors",
+        "ec2.VPCFlowLogEnabled"
+      ],
+      "BP07": [
+        "cloudwatch.alarmsWithoutSNS",
+        "cloudwatch.missingCompositeAlarms",
+        "rds.EventSubscriptionNotConfigured"
+      ]
     },
     "SEC11": {
-      "BP01": [],
-      "BP02": [],
-      "BP03": [],
-      "BP04": [],
-      "BP05": [],
-      "BP06": [],
-      "BP07": [],
-      "BP08": []
+      "BP01": [
+        "iam.EnableConfigService",
+        "cloudtrail.NeedToEnableCloudTrail",
+        "iam.SCPEnabled"
+      ],
+      "BP02": [
+        "iam.wildcardActionsDetection",
+        "iam.missingPolicyConditions",
+        "iam.missingPermissionsBoundaries",
+        "lambda.lambdaRoleTooPermissive",
+        "sqs.WildcardPrincipalDetection"
+      ],
+      "BP03": [
+        "apigateway.RequestValidation",
+        "apigateway.ResourcePolicy",
+        "apigateway.MutualTLS",
+        "apigateway.IAMAuthentication",
+        "apigateway.CognitoAuthorizer",
+        "apigateway.LambdaAuthorizer"
+      ],
+      "BP04": [
+        "lambda.lambdaCodeSigningDisabled",
+        "sagemaker.ModelContainerImageSource",
+        "eks.ClusterVersion",
+        "lambda.lambdaRuntime"
+      ],
+      "BP05": [
+        "cloudtrail.NeedToEnableCloudTrail",
+        "iam.EnableConfigService",
+        "cloudwatch.alarmsWithoutSNS"
+      ],
+      "BP06": [
+        "cloudwatch.missingXRayIntegration",
+        "cloudwatch.missingApplicationSignals",
+        "lambda.lambdaTracingEnabled"
+      ],
+      "BP07": [
+        "iam.EnableConfigService",
+        "cloudtrail.HasDataEventsCaptured",
+        "cloudtrail.CloudWatchAlarmsConfigured"
+      ],
+      "BP08": [
+        "iam.enableGuardDuty",
+        "cloudtrail.GuardDutyIntegration",
+        "cloudtrail.SecurityHubIntegration"
+      ]
     }
   }
 }

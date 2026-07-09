@@ -122,6 +122,49 @@
         "cloudwatch.missingApplicationSignals",
         "lambda.lambdaTracingEnabled"
       ]
+    },
+    "SUS06": {
+      "BP01": [
+        "iam.hasCostBudget",
+        "cloudwatch.missingBillingAlarms",
+        "iam.CURReport",
+        "iam.hasOrganization"
+      ],
+      "BP02": [
+        "rds.AutoMinorVersionUpgrade",
+        "eks.ClusterVersion",
+        "elasticache.EngineVersion",
+        "lambda.lambdaRuntime",
+        "opensearch.ServiceSoftwareVersion",
+        "glue.GlueVersionCurrent"
+      ],
+      "BP03": [
+        "ec2.EC2ComputeOptimizerEnabled",
+        "ec2.ComputeOptimizerEnhancedMetrics",
+        "ec2.ComputeOptimizerExportRecommendations",
+        "lambda.lambdaMemoryOptimization",
+        "lambda.lambdaTimeoutOptimization"
+      ],
+      "BP04": [
+        "ec2.EC2LowUtilization",
+        "ec2.LowEBSLowUtilization",
+        "rds.CPUUtilization",
+        "lambda.lambdaFunctionInUsed",
+        "sqs.unusedQueues",
+        "dynamodb.UnusedResourcesGSIRead",
+        "dynamodb.UnusedResourcesGSIWrite"
+      ],
+      "BP05": [
+        "s3.IntelligentTiering",
+        "s3.Lifecycle",
+        "dynamodb.TimeToLiveStatus",
+        "dynamodb.TableClassOptimization",
+        "opensearch.UltrawarmEnabled",
+        "opensearch.ColdStorage",
+        "ec2.EBSSnapshotFirstArchived",
+        "rds.OldSnapshots",
+        "efs.StorageOptimization"
+      ]
     }
   }
 }

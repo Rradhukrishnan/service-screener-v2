@@ -54,30 +54,24 @@
     },
     "OPS03": {
       "BP01": [
-        "cloudtrail.NeedToEnableCloudTrail",
-        "cloudtrail.HasDataEventsCaptured",
-        "cloudtrail.HasInsightSelectors"
+        "iam.hasOrganization",
+        "iam.SCPEnabled",
+        "iam.hasAlternateContact"
       ],
       "BP02": [
-        "cloudwatch.logGroupsWithoutLogInsightsUsage",
-        "cloudwatch.missingXRayIntegration",
-        "cloudwatch.missingApplicationSignals"
+        "iam.EnableConfigService",
+        "cloudtrail.NeedToEnableCloudTrail",
+        "cloudwatch.alarmsWithoutSNS"
       ],
       "BP03": [
         "cloudwatch.missingCloudWatchDashboards",
-        "cloudwatch.missingCrossAccountDashboards"
+        "cloudwatch.missingCrossAccountDashboards",
+        "cloudwatch.missingVendedDashboards"
       ],
       "BP04": [
-        "eks.eksClusterLogging",
-        "eks.eksClusterLoggingIncomplete",
-        "rds.EventSubscriptionNotConfigured",
-        "apigateway.ExecutionLogging",
-        "cloudfront.accessLogging",
-        "s3.BucketLogging",
-        "lambda.lambdaNoCloudWatchAlarms",
-        "glue.JobLoggingEnabled",
-        "redshift.AuditLogging",
-        "opensearch.ApplicationLogs"
+        "cloudwatch.logGroupsWithoutLogInsightsUsage",
+        "cloudwatch.missingXRayIntegration",
+        "cloudwatch.missingApplicationSignals"
       ]
     },
     "OPS04": {
@@ -98,16 +92,32 @@
         "cloudwatch.missingVendedDashboards",
         "s3.StorageLens",
         "rds.RDSRecommendationsActive",
-        "redshift.AdvisorRecommendations"
+        "redshift.AdvisorRecommendations",
+        "ec2.CWMemoryMetrics",
+        "ec2.CWDiskMetrics"
       ],
       "BP03": [
         "cloudwatch.missingXRayIntegration",
         "cloudwatch.missingApplicationSignals",
-        "apigateway.PerformanceMonitoring"
+        "apigateway.PerformanceMonitoring",
+        "lambda.lambdaTracingEnabled"
       ],
       "BP04": [
         "cloudwatch.missingCustomMetrics",
         "ec2.VPCFlowLogEnabled",
+        "cloudtrail.HasDataEventsCaptured",
+        "eks.eksClusterLogging",
+        "eks.eksClusterLoggingIncomplete",
+        "apigateway.ExecutionLogging",
+        "cloudfront.accessLogging",
+        "s3.BucketLogging",
+        "glue.JobLoggingEnabled",
+        "redshift.AuditLogging",
+        "opensearch.ApplicationLogs"
+      ],
+      "BP05": [
+        "cloudwatch.logGroupsWithoutLogInsightsUsage",
+        "cloudtrail.HasInsightSelectors",
         "cloudtrail.HasDataEventsCaptured"
       ]
     },
@@ -129,18 +139,196 @@
     },
     "OPS06": {
       "BP01": [
+        "cloudtrail.NeedToEnableCloudTrail",
+        "iam.EnableConfigService",
+        "cloudwatch.alarmsWithoutSNS",
+        "cloudwatch.missingCompositeAlarms"
+      ],
+      "BP02": [
+        "apigateway.CanaryDeployment",
+        "apigateway.StageLifecycle",
+        "apigateway.StageVariables"
+      ],
+      "BP03": [
+        "cloudwatch.alarmsWithoutSNS",
+        "rds.EventSubscriptionNotConfigured",
+        "lambda.lambdaNoCloudWatchAlarms",
+        "cloudtrail.CloudWatchAlarmsConfigured"
+      ],
+      "BP04": [
+        "cloudtrail.HasDataEventsCaptured",
+        "cloudwatch.logGroupsWithoutLogInsightsUsage",
+        "cloudtrail.CloudWatchAlarmsConfigured"
+      ],
+      "BP05": [
+        "rds.AutoMinorVersionUpgrade",
+        "eks.ClusterVersion",
+        "elasticache.EngineVersion",
+        "opensearch.ServiceSoftwareVersion",
+        "lambda.lambdaRuntime"
+      ]
+    },
+    "OPS07": {
+      "BP01": [
+        "iam.EnableConfigService",
+        "cloudtrail.NeedToEnableCloudTrail",
+        "cloudwatch.alarmsWithoutSNS"
+      ],
+      "BP02": [
+        "cloudwatch.missingCloudWatchDashboards",
+        "cloudwatch.missingCrossAccountDashboards",
+        "cloudwatch.alarmsWithoutSNS",
+        "cloudwatch.missingCompositeAlarms"
+      ],
+      "BP03": [
+        "cloudwatch.missingXRayIntegration",
+        "cloudwatch.missingApplicationSignals",
+        "lambda.lambdaTracingEnabled",
+        "apigateway.PerformanceMonitoring"
+      ],
+      "BP04": [
+        "ec2.EC2ServiceQuotas",
+        "lambda.lambdaQuotasNotMonitored",
+        "cloudwatch.missingServiceQuotaAlarms"
+      ],
+      "BP05": [
+        "rds.AutoMinorVersionUpgrade",
+        "eks.ClusterVersion",
+        "elasticache.EngineVersion",
+        "lambda.lambdaRuntime",
+        "opensearch.ServiceSoftwareVersion"
+      ]
+    },
+    "OPS08": {
+      "BP01": [
+        "cloudwatch.alarmsWithoutSNS",
+        "cloudwatch.missingCompositeAlarms",
+        "opensearch.CloudWatchAlarms",
+        "apigateway.CloudWatchAlarms",
+        "lambda.lambdaNoCloudWatchAlarms",
+        "rds.EventSubscriptionNotConfigured",
+        "sqs.QueueMonitoring",
+        "redshift.EventNotifications"
+      ],
+      "BP02": [
+        "cloudwatch.missingCloudWatchDashboards",
+        "cloudwatch.missingCrossAccountDashboards",
+        "cloudwatch.missingVendedDashboards",
+        "cloudwatch.missingCustomMetrics",
+        "s3.StorageLens",
+        "rds.RDSRecommendationsActive"
+      ],
+      "BP03": [
+        "cloudwatch.missingXRayIntegration",
+        "cloudwatch.missingApplicationSignals",
+        "lambda.lambdaTracingEnabled",
+        "cloudwatch.logGroupsWithoutLogInsightsUsage"
+      ],
+      "BP04": [
+        "cloudtrail.HasDataEventsCaptured",
+        "cloudtrail.HasInsightSelectors",
+        "cloudtrail.CloudWatchAlarmsConfigured",
+        "ec2.VPCFlowLogEnabled"
+      ],
+      "BP05": [
+        "ec2.CWMemoryMetrics",
+        "ec2.CWDiskMetrics",
+        "ec2.EC2DetailedMonitoringEnabled",
+        "rds.HasEnhancedMonitoring",
+        "rds.HasPerformanceInsightsEnabled",
+        "lambda.lambdaEnhancedMonitor",
+        "elasticache.SlowLog",
+        "opensearch.SearchSlowLogs"
+      ]
+    },
+    "OPS09": {
+      "BP01": [
+        "cloudwatch.alarmsWithoutSNS",
+        "cloudwatch.missingCompositeAlarms",
+        "cloudwatch.missingServiceQuotaAlarms",
+        "cloudwatch.missingBillingAlarms"
+      ],
+      "BP02": [
+        "cloudwatch.missingCloudWatchDashboards",
+        "cloudwatch.missingCrossAccountDashboards",
+        "cloudwatch.missingVendedDashboards",
+        "cloudwatch.missingCustomMetrics"
+      ],
+      "BP03": [
+        "cloudtrail.CloudWatchAlarmsConfigured",
+        "cloudwatch.logGroupsWithoutLogInsightsUsage",
+        "cloudtrail.HasInsightSelectors"
+      ],
+      "BP04": [
+        "cloudwatch.missingXRayIntegration",
+        "cloudwatch.missingApplicationSignals",
+        "lambda.lambdaTracingEnabled",
+        "apigateway.PerformanceMonitoring"
+      ]
+    },
+    "OPS10": {
+      "BP01": [
         "cloudwatch.alarmsWithoutSNS",
         "cloudwatch.missingCompositeAlarms",
         "rds.EventSubscriptionNotConfigured",
         "opensearch.CloudWatchAlarms",
-        "apigateway.CloudWatchAlarms",
-        "lambda.lambdaNoCloudWatchAlarms"
+        "lambda.lambdaNoCloudWatchAlarms",
+        "sqs.QueueMonitoring",
+        "apigateway.CloudWatchAlarms"
       ],
       "BP02": [
         "cloudtrail.CloudWatchAlarmsConfigured",
-        "cloudwatch.logGroupsWithoutLogInsightsUsage"
+        "cloudwatch.logGroupsWithoutLogInsightsUsage",
+        "cloudtrail.HasDataEventsCaptured"
       ],
-      "BP03": []
+      "BP03": [
+        "cloudwatch.missingXRayIntegration",
+        "cloudwatch.missingApplicationSignals",
+        "lambda.lambdaTracingEnabled"
+      ],
+      "BP04": [
+        "cloudwatch.alarmsWithoutSNS",
+        "cloudwatch.missingCompositeAlarms",
+        "cloudtrail.CloudWatchAlarmsConfigured"
+      ],
+      "BP05": [
+        "cloudwatch.missingCloudWatchDashboards",
+        "cloudwatch.missingCrossAccountDashboards",
+        "cloudwatch.missingVendedDashboards"
+      ]
+    },
+    "OPS11": {
+      "BP01": [
+        "iam.EnableConfigService",
+        "cloudtrail.NeedToEnableCloudTrail",
+        "cloudwatch.alarmsWithoutSNS"
+      ],
+      "BP02": [
+        "cloudwatch.logGroupsWithoutLogInsightsUsage",
+        "cloudtrail.HasInsightSelectors",
+        "cloudwatch.missingXRayIntegration",
+        "cloudwatch.missingApplicationSignals"
+      ],
+      "BP03": [
+        "cloudwatch.missingCloudWatchDashboards",
+        "cloudwatch.missingCustomMetrics",
+        "rds.RDSRecommendationsActive",
+        "redshift.AdvisorRecommendations",
+        "ec2.EC2ComputeOptimizerEnabled"
+      ],
+      "BP04": [
+        "rds.AutoMinorVersionUpgrade",
+        "eks.ClusterVersion",
+        "elasticache.EngineVersion",
+        "lambda.lambdaRuntime",
+        "opensearch.ServiceSoftwareVersion",
+        "glue.GlueVersionCurrent"
+      ],
+      "BP05": [
+        "cloudwatch.alarmsWithoutSNS",
+        "cloudwatch.missingCompositeAlarms",
+        "cloudtrail.CloudWatchAlarmsConfigured"
+      ]
     }
   }
 }
