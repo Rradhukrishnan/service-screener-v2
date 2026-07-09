@@ -1,0 +1,82 @@
+{
+  "InspectorEC2ScanDisabled": {
+    "category": "S",
+    "^description": "Amazon Inspector EC2 scanning is not enabled. Inspector automatically discovers and scans EC2 instances for software vulnerabilities and unintended network exposure. Without EC2 scanning, vulnerabilities in your compute fleet may go undetected, increasing the risk of exploitation.",
+    "shortDesc": "Enable Inspector EC2 scanning",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": [
+      "[Amazon Inspector EC2 Scanning]<https://docs.aws.amazon.com/inspector/latest/user/scanning-ec2.html>",
+      "[Getting Started with Inspector v2]<https://docs.aws.amazon.com/inspector/latest/user/getting_started_tutorial.html>"
+    ]
+  },
+  "InspectorECRScanDisabled": {
+    "category": "S",
+    "^description": "Amazon Inspector ECR container image scanning is not enabled. Inspector scans container images stored in ECR for OS and programming language package vulnerabilities. Without this, vulnerable container images may be deployed to production environments.",
+    "shortDesc": "Enable Inspector ECR image scanning",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": [
+      "[Inspector ECR Scanning]<https://docs.aws.amazon.com/inspector/latest/user/scanning-ecr.html>"
+    ]
+  },
+  "InspectorLambdaScanDisabled": {
+    "category": "S",
+    "^description": "Amazon Inspector Lambda function scanning is not enabled. Inspector scans Lambda functions and their layers for software vulnerabilities in application packages. Enabling Lambda scanning helps identify vulnerable dependencies in serverless workloads.",
+    "shortDesc": "Enable Inspector Lambda scanning",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": [
+      "[Inspector Lambda Scanning]<https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html>"
+    ]
+  },
+  "InspectorCriticalFindings": {
+    "category": "S",
+    "^description": "Amazon Inspector has detected active CRITICAL severity findings in your environment. Critical findings represent vulnerabilities with a CVSS score of 9.0 or above that are actively exploitable. These should be prioritized and remediated immediately to reduce the risk of compromise.",
+    "shortDesc": "Remediate critical Inspector findings",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 1,
+    "ref": [
+      "[Remediating Findings]<https://docs.aws.amazon.com/inspector/latest/user/findings-remediating.html>",
+      "[Understanding Inspector Severity]<https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-severity.html>"
+    ]
+  },
+  "InspectorHighFindings": {
+    "category": "S",
+    "^description": "Amazon Inspector has detected active HIGH severity findings in your environment. High findings represent significant vulnerabilities with CVSS scores between 7.0 and 8.9. These should be scheduled for remediation in your next patch cycle.",
+    "shortDesc": "Remediate high severity Inspector findings",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 1,
+    "ref": [
+      "[Remediating Findings]<https://docs.aws.amazon.com/inspector/latest/user/findings-remediating.html>"
+    ]
+  },
+  "InspectorNoSuppressionRules": {
+    "category": "O",
+    "^description": "No Amazon Inspector suppression rules are defined. Suppression rules allow you to suppress known-acceptable findings so your team can focus on actionable vulnerabilities. Defining suppression rules for accepted risks or false positives reduces noise and improves the signal-to-noise ratio of your vulnerability management process.",
+    "shortDesc": "Define Inspector suppression rules for known exceptions",
+    "criticality": "L",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": [
+      "[Inspector Suppression Rules]<https://docs.aws.amazon.com/inspector/latest/user/findings-suppressing.html>"
+    ]
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "ECSContainerInsightsDisabled": {
+    "category": "O",
+    "^description": "Container Insights is not enabled on this ECS cluster. Container Insights collects, aggregates, and summarizes metrics and logs from your containerized applications and microservices. Without it, you have limited visibility into CPU, memory, disk, and network utilization of your containers, making troubleshooting and capacity planning difficult.",
+    "shortDesc": "Enable ECS Container Insights",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": [
+      "[Container Insights for ECS]<https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContainerInsights.html>",
+      "[Enabling Container Insights]<https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html>"
+    ]
+  },
+  "ECSRunningEC2Tasks": {
+    "category": "S",
+    "^description": "This cluster has tasks running on EC2 launch type. AWS Fargate provides better security isolation by running each task in its own kernel runtime environment, removing the need to manage EC2 instances and reducing the attack surface. Consider migrating workloads to Fargate where possible.",
+    "shortDesc": "Consider migrating ECS tasks to Fargate",
+    "criticality": "L",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 1,
+    "ref": [
+      "[AWS Fargate]<https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html>",
+      "[ECS Security Best Practices]<https://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/security.html>"
+    ]
+  },
+  "ECSExecLoggingDisabled": {
+    "category": "S",
+    "^description": "ECS Exec logging is not configured for this cluster. ECS Exec allows interactive shell access to running containers for debugging. Without logging, all interactive sessions are unaudited, creating a security and compliance risk. Enable logging to CloudWatch Logs or S3 to maintain an audit trail of all exec sessions.",
+    "shortDesc": "Enable ECS Exec logging",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": [
+      "[ECS Exec Logging]<https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html#ecs-exec-logging>"
+    ]
+  },
+  "ECSExecNoKMSEncryption": {
+    "category": "S",
+    "^description": "ECS Exec sessions are not encrypted with a KMS key. ECS Exec uses AWS Systems Manager Session Manager under the hood. Encrypting session data with KMS ensures that interactive container access is protected at rest and in transit.",
+    "shortDesc": "Encrypt ECS Exec sessions with KMS",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": [
+      "[ECS Exec Encryption]<https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html>"
+    ]
+  },
+  "ECSHardcodedSecretInEnvVar": {
+    "category": "S",
+    "^description": "A container definition has environment variables whose names suggest they contain secrets (password, token, key, etc.). Hardcoding secrets as plain-text environment variables is a security risk as they are visible in task definitions, CloudTrail logs, and ECS console. Use AWS Secrets Manager or SSM Parameter Store with the ECS secrets integration instead.",
+    "shortDesc": "Remove hardcoded secrets from ECS environment variables",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 1,
+    "ref": [
+      "[ECS Secrets Management]<https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html>",
+      "[Using Secrets Manager with ECS]<https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html>"
+    ]
+  },
+  "ECSTaskMissingTaskRole": {
+    "category": "S",
+    "^description": "One or more ECS task definitions do not have a task IAM role assigned. Without a task role, tasks must use the EC2 instance role or have no AWS API access. Assigning a dedicated least-privilege task role per service enforces the principle of least privilege and prevents tasks from inheriting unnecessary permissions.",
+    "shortDesc": "Assign IAM task role to ECS task definitions",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": [
+      "[ECS Task IAM Role]<https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html>"
+    ]
+  },
+  "ECSContainerNoReadonlyRootFS": {
+    "category": "S",
+    "^description": "One or more container definitions do not use a read-only root filesystem. Enabling read-only root filesystem prevents containers from writing to the root filesystem, reducing the risk of malicious code modifying system files or persisting malware. Use volume mounts for directories that require write access.",
+    "shortDesc": "Enable read-only root filesystem for ECS containers",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 1,
+    "ref": [
+      "[ECS Security Best Practices]<https://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/security-tasks-containers.html>"
+    ]
+  }
+}

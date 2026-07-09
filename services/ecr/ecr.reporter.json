@@ -1,0 +1,108 @@
+{
+  "ECRScanOnPushDisabled": {
+    "category": "S",
+    "^description": "Image scan-on-push is not enabled for this ECR repository. Without scan-on-push, container images are not automatically scanned for OS vulnerabilities when pushed. Enabling this ensures every image is scanned immediately after upload, preventing vulnerable images from being deployed without a vulnerability assessment.",
+    "shortDesc": "Enable ECR scan-on-push",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": [
+      "[ECR Image Scanning]<https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html>",
+      "[Configuring Scan on Push]<https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning-basic.html>"
+    ]
+  },
+  "ECRMutableImageTags": {
+    "category": "S",
+    "^description": "Image tag mutability is not set to IMMUTABLE for this ECR repository. Mutable tags allow image tags (including 'latest') to be overwritten, which can lead to supply chain attacks where a known-good image tag is replaced with a malicious one. Setting tag mutability to IMMUTABLE prevents this.",
+    "shortDesc": "Set ECR image tag mutability to IMMUTABLE",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 1,
+    "ref": [
+      "[Image Tag Mutability]<https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html>"
+    ]
+  },
+  "ECRNoKMSEncryption": {
+    "category": "S",
+    "^description": "This ECR repository is using the default AES-256 encryption instead of AWS KMS. Using a customer-managed KMS key provides greater control over encryption, including the ability to audit key usage, rotate keys, and revoke access to images by disabling the key.",
+    "shortDesc": "Use KMS encryption for ECR repository",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": [
+      "[ECR Encryption at Rest]<https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html>"
+    ]
+  },
+  "ECRNoRepositoryPolicy": {
+    "category": "S",
+    "^description": "No resource-based policy is attached to this ECR repository. A repository policy allows you to control which IAM principals and AWS accounts can access the repository. Without a policy, access is controlled only by IAM identity policies, which may be overly permissive. Define a repository policy to explicitly restrict pull and push access.",
+    "shortDesc": "Add resource policy to ECR repository",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": [
+      "[ECR Repository Policies]<https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html>"
+    ]
+  },
+  "ECRNoLifecyclePolicy": {
+    "category": "CO",
+    "^description": "No lifecycle policy is configured for this ECR repository. Without lifecycle policies, old and untagged images accumulate indefinitely, increasing storage costs and making it harder to manage your image inventory. Define lifecycle rules to automatically expire old images and untagged layers.",
+    "shortDesc": "Add ECR lifecycle policy to manage image retention",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": -1,
+    "needFullTest": 0,
+    "ref": [
+      "[ECR Lifecycle Policies]<https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html>"
+    ]
+  },
+  "ECRCriticalVulnerabilities": {
+    "category": "S",
+    "^description": "The latest image in this ECR repository has CRITICAL severity vulnerabilities. Critical vulnerabilities represent actively exploitable issues with a CVSS score of 9.0 or above. These images should not be deployed to production and the underlying packages should be updated immediately.",
+    "shortDesc": "Remediate critical vulnerabilities in ECR images",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 1,
+    "ref": [
+      "[ECR Vulnerability Remediation]<https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html>",
+      "[Amazon Inspector for ECR]<https://docs.aws.amazon.com/inspector/latest/user/scanning-ecr.html>"
+    ]
+  },
+  "ECRHighVulnerabilities": {
+    "category": "S",
+    "^description": "The latest image in this ECR repository has HIGH severity vulnerabilities (CVSS 7.0-8.9). These should be scheduled for remediation. Consider using Amazon Inspector enhanced scanning for continuous monitoring and automatic re-scanning when new CVEs are published.",
+    "shortDesc": "Remediate high severity vulnerabilities in ECR images",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 1,
+    "ref": [
+      "[ECR Image Scanning]<https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html>"
+    ]
+  },
+  "ECRPublicAccessAllowed": {
+    "category": "S",
+    "^description": "This ECR repository policy allows public access (Principal: *). Making a private ECR repository publicly accessible exposes your container images to anyone on the internet, risking intellectual property theft and enabling attackers to analyse your images for vulnerabilities. Restrict access to specific IAM principals or accounts.",
+    "shortDesc": "Remove public access from ECR repository policy",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 1,
+    "ref": [
+      "[ECR Repository Policies]<https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html>"
+    ]
+  }
+}

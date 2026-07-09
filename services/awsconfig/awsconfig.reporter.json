@@ -1,0 +1,121 @@
+{
+  "ConfigRecorderMissing": {
+    "category": "S",
+    "^description": "AWS Config is not enabled in this region. AWS Config provides a detailed view of the configuration of AWS resources in your AWS account. Without Config, you cannot track configuration changes, evaluate resource configurations against desired settings, or maintain a configuration history for security and compliance auditing.",
+    "shortDesc": "Enable AWS Config recorder",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": [
+      "[Getting Started with AWS Config]<https://docs.aws.amazon.com/config/latest/developerguide/getting-started.html>",
+      "[AWS Config Best Practices]<https://docs.aws.amazon.com/config/latest/developerguide/best-practices.html>"
+    ]
+  },
+  "ConfigRecorderNotRecording": {
+    "category": "O",
+    "^description": "An AWS Config recorder exists but is not currently recording. Without active recording, configuration changes are not tracked, compliance checks are not evaluated, and the configuration history is incomplete. This creates gaps in your audit trail and compliance posture.",
+    "shortDesc": "Start AWS Config recording",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": [
+      "[Managing Config Recorder]<https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html>"
+    ]
+  },
+  "ConfigDeliveryChannelMissing": {
+    "category": "O",
+    "^description": "No AWS Config delivery channel is configured. A delivery channel is required to deliver configuration snapshots and change notifications to an S3 bucket. Without it, configuration history cannot be stored for long-term analysis or compliance auditing.",
+    "shortDesc": "Configure AWS Config delivery channel",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": [
+      "[Managing Delivery Channel]<https://docs.aws.amazon.com/config/latest/developerguide/manage-delivery-channel.html>"
+    ]
+  },
+  "ConfigDeliveryChannelNoS3": {
+    "category": "O",
+    "^description": "The AWS Config delivery channel does not have an S3 bucket configured. Without S3, configuration snapshots and history cannot be stored for long-term retention, compliance, or forensic analysis.",
+    "shortDesc": "Set S3 bucket for Config delivery channel",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": [
+      "[Configure Delivery Channel S3]<https://docs.aws.amazon.com/config/latest/developerguide/manage-delivery-channel.html>"
+    ]
+  },
+  "ConfigDeliveryChannelNoSNS": {
+    "category": "O",
+    "^description": "The AWS Config delivery channel does not have an SNS topic configured. Without SNS notifications, teams are not alerted when configuration changes occur or when compliance evaluations complete, delaying response to non-compliant resources.",
+    "shortDesc": "Add SNS topic to Config delivery channel",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": [
+      "[Config SNS Notifications]<https://docs.aws.amazon.com/config/latest/developerguide/manage-delivery-channel.html>"
+    ]
+  },
+  "ConfigNotRecordingAllResources": {
+    "category": "S",
+    "^description": "AWS Config is not configured to record all supported resource types. Recording only specific resource types creates blind spots in your configuration audit trail. It is recommended to record all supported resource types including global resources to ensure complete compliance coverage.",
+    "shortDesc": "Record all resource types in AWS Config",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": [
+      "[Selecting Resources to Record]<https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html>"
+    ]
+  },
+  "ConfigNoConformancePacks": {
+    "category": "O",
+    "^description": "No AWS Config conformance packs are deployed. Conformance packs are collections of Config rules and remediation actions that can be easily deployed as a single entity. AWS provides managed conformance packs for common compliance frameworks such as CIS Benchmarks, NIST, PCI-DSS, and AWS Foundational Security Best Practices.",
+    "shortDesc": "Deploy AWS Config conformance packs",
+    "criticality": "L",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": [
+      "[Conformance Packs]<https://docs.aws.amazon.com/config/latest/developerguide/conformance-packs.html>",
+      "[Sample Conformance Packs]<https://docs.aws.amazon.com/config/latest/developerguide/conformancepack-sample-templates.html>"
+    ]
+  },
+  "ConfigNoRules": {
+    "category": "S",
+    "^description": "No AWS Config rules are defined. Config rules represent your desired configuration settings for AWS resources. Without rules, non-compliant resources are not automatically detected. AWS provides managed rules for common compliance checks including security, reliability, and cost optimization best practices.",
+    "shortDesc": "Define AWS Config rules for compliance",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": [
+      "[AWS Config Managed Rules]<https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html>"
+    ]
+  },
+  "ConfigNoRetentionConfiguration": {
+    "category": "O",
+    "^description": "No custom retention configuration is set for AWS Config. The default retention period is 7 years. If your compliance requirements demand a specific retention period, you should set an explicit retention configuration to ensure configuration history is available for audits and investigations.",
+    "shortDesc": "Set explicit AWS Config retention period",
+    "criticality": "L",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": [
+      "[Config Retention]<https://docs.aws.amazon.com/config/latest/developerguide/setting-up-aws-config-with-the-console.html>"
+    ]
+  }
+}
