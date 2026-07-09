@@ -181,6 +181,8 @@ class WAFRBase(Framework):
         return match.group() if match else None
 
     def getDescription(self, titleNum, paired):
-        titleStr = self.WATools.answerSets.get(titleNum, [None])[1]
-        sectStr  = self.WATools.answerSets.get(paired,    [None])[1]
+        titleEntry = self.WATools.answerSets.get(titleNum, [None, None])
+        pairedEntry = self.WATools.answerSets.get(paired, [None, None])
+        titleStr = titleEntry[1] if len(titleEntry) > 1 else titleEntry[0]
+        sectStr  = pairedEntry[1] if len(pairedEntry) > 1 else pairedEntry[0]
         return f"{titleStr} - {sectStr}"

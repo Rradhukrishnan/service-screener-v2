@@ -179,12 +179,15 @@ class OutputGenerator:
                     o.buildPage()
 
                     # Add framework data to api_result_array for Cloudscape UI
-                    # using the cached stats/detail already produced by buildPage().
+                    # fwDetail is set on the PageBuilder by buildContentSummary()
+                    # generateGraphInformation() is safe to call again as it only
+                    # reads self.stats which was populated by generateMappingInformation()
+                    # during buildPage() — it does NOT re-run hooks.
                     framework_key = f"framework_{framework}"
                     api_result_array[framework_key] = {
                         'metadata': o.framework.getMetaData(),
                         'summary': o.framework.generateGraphInformation(),
-                        'details': o.framework.fwDetail if hasattr(o, 'fwDetail') else []
+                        'details': o.fwDetail if hasattr(o, 'fwDetail') else []
                     }
                     _info(f"Added framework data for {framework} to API")
                 else:
