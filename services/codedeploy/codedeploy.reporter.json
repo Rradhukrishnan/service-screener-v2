@@ -1,0 +1,46 @@
+{
+  "CDAllAtOnceDeployment": {
+    "category": "R",
+    "^description": "This CodeDeploy deployment group uses the AllAtOnce deployment configuration. AllAtOnce deploys to all instances simultaneously — if the deployment fails, the entire fleet is affected. Use Canary or Linear deployment configurations to reduce blast radius.",
+    "shortDesc": "Use Canary or Linear deployment config instead of AllAtOnce",
+    "criticality": "H",
+    "downtime": 1,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 1,
+    "ref": ["[CodeDeploy Configs]<https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html>"]
+  },
+  "CDAutoRollbackDisabled": {
+    "category": "R",
+    "^description": "Automatic rollback is not enabled for this deployment group. Without auto-rollback, failed deployments require manual intervention to restore the previous version, increasing MTTR and potential downtime.",
+    "shortDesc": "Enable automatic rollback for CodeDeploy",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[CodeDeploy Rollback]<https://docs.aws.amazon.com/codedeploy/latest/userguide/deployments-rollback-and-redeploy.html>"]
+  },
+  "CDNoAlarms": {
+    "category": "O",
+    "^description": "No CloudWatch alarms are configured for this deployment group. Alarm-based automatic rollback can stop deployments and roll back when monitored metrics breach thresholds, providing an additional safety net beyond deployment health checks.",
+    "shortDesc": "Configure CloudWatch alarms for CodeDeploy",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": ["[CodeDeploy Alarms]<https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-groups-configure-advanced-options.html>"]
+  },
+  "CDNoLoadBalancer": {
+    "category": "R",
+    "^description": "No load balancer is associated with this deployment group. Without a load balancer, CodeDeploy cannot perform in-place traffic shifting during deployments, meaning instances serve traffic while being updated which can cause errors for end users.",
+    "shortDesc": "Associate load balancer with CodeDeploy group",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 1,
+    "ref": ["[CodeDeploy Load Balancer]<https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-elastic-load-balancing.html>"]
+  }
+}

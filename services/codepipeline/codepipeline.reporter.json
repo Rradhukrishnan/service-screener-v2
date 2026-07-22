@@ -1,0 +1,24 @@
+{
+  "CPNoArtifactEncryption": {
+    "category": "S",
+    "^description": "This CodePipeline pipeline is using the default S3 SSE-S3 encryption for artifacts instead of a customer-managed KMS key. Using a customer-managed KMS key provides greater control over artifact encryption, access auditing, and the ability to revoke access.",
+    "shortDesc": "Use customer-managed KMS key for pipeline artifacts",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": ["[CodePipeline Encryption]<https://docs.aws.amazon.com/codepipeline/latest/userguide/encryption-at-rest.html>"]
+  },
+  "CPNoSourceStage": {
+    "category": "O",
+    "^description": "This CodePipeline pipeline does not have a source stage configured. A source stage is required to trigger the pipeline from a code change event in CodeCommit, S3, ECR, or a third-party provider.",
+    "shortDesc": "Configure source stage for CodePipeline",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[CodePipeline Source]<https://docs.aws.amazon.com/codepipeline/latest/userguide/action-types.html>"]
+  }
+}

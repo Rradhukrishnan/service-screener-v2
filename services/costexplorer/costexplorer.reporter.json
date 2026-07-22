@@ -1,0 +1,57 @@
+{
+  "CENoAnomalyMonitors": {
+    "category": "CO",
+    "^description": "No AWS Cost Anomaly Detection monitors are configured. Anomaly Detection uses machine learning to identify unusual spend patterns and alerts you before costs become significant. Without monitors, unexpected cost spikes may go unnoticed until the billing cycle.",
+    "shortDesc": "Create Cost Anomaly Detection monitors",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[Cost Anomaly Detection]<https://docs.aws.amazon.com/cost-management/latest/userguide/getting-started-ad.html>"]
+  },
+  "CENoAnomalySubscriptions": {
+    "category": "CO",
+    "^description": "No anomaly alert subscriptions are configured. Without subscriptions, cost anomaly alerts are not delivered to anyone. Create subscriptions to receive email or SNS notifications when anomalies are detected.",
+    "shortDesc": "Create anomaly alert subscriptions",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[Anomaly Subscriptions]<https://docs.aws.amazon.com/cost-management/latest/userguide/getting-started-ad.html>"]
+  },
+  "CENoBudgets": {
+    "category": "CO",
+    "^description": "No AWS Budgets are configured for this account. Budgets allow you to set custom cost and usage thresholds and receive alerts when your spending approaches or exceeds those thresholds, helping prevent bill shock.",
+    "shortDesc": "Create AWS Budgets for cost control",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[AWS Budgets]<https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html>"]
+  },
+  "CEBudgetNoAlerts": {
+    "category": "CO",
+    "^description": "One or more AWS Budgets do not have alert thresholds configured. Without alerts, budgets track spending but do not notify you when limits are approached or exceeded.",
+    "shortDesc": "Add alerts to AWS Budgets",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[Budget Alerts]<https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-create.html>"]
+  },
+  "CELowSavingsPlansCoverage": {
+    "category": "CO",
+    "^description": "Savings Plans coverage is low. Savings Plans provide significant discounts (up to 72%) on compute usage in exchange for a 1 or 3 year commitment. Low coverage means you are paying on-demand rates for workloads that could be covered by a Savings Plan.",
+    "shortDesc": "Increase Savings Plans coverage",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": -1,
+    "needFullTest": 0,
+    "ref": ["[Savings Plans]<https://docs.aws.amazon.com/savingsplans/latest/userguide/what-is-savings-plans.html>"]
+  }
+}

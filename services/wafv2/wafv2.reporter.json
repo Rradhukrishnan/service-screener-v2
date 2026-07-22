@@ -1,0 +1,46 @@
+{
+  "WAFLoggingDisabled": {
+    "category": "S",
+    "^description": "Logging is not enabled for this WAFv2 Web ACL. Without logging, you cannot analyze web traffic patterns, investigate security incidents, or monitor for attack attempts. Enable logging to CloudWatch Logs, S3, or Kinesis Firehose.",
+    "shortDesc": "Enable WAFv2 Web ACL logging",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": ["[WAF Logging]<https://docs.aws.amazon.com/waf/latest/developerguide/logging.html>"]
+  },
+  "WAFNoManagedRuleGroups": {
+    "category": "S",
+    "^description": "This Web ACL has no AWS Managed Rule Groups. Managed rule groups provide pre-built protection against common threats including OWASP Top 10, known bad inputs, SQL injection, and XSS without requiring custom rule writing.",
+    "shortDesc": "Add AWS Managed Rule Groups to WAF Web ACL",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[Managed Rule Groups]<https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups.html>"]
+  },
+  "WAFNoRateLimiting": {
+    "category": "R",
+    "^description": "No rate-based rules are configured in this Web ACL. Rate limiting protects your application from DDoS attacks, brute force attempts, and excessive API calls by blocking sources that exceed defined request thresholds.",
+    "shortDesc": "Add rate-based rules to WAF Web ACL",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[Rate-based Rules]<https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-rate-based.html>"]
+  },
+  "WAFDefaultActionAllow": {
+    "category": "S",
+    "^description": "The default action for this Web ACL is Allow. This means any request not matched by a rule is allowed through. For stricter security posture, consider using a default action of Block and explicitly allowing known-good traffic patterns.",
+    "shortDesc": "Review WAF default action - consider Block",
+    "criticality": "L",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 1,
+    "ref": ["[WAF Default Action]<https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-default-action.html>"]
+  }
+}

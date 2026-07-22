@@ -1,0 +1,57 @@
+{
+  "SecurityHubNotEnabled": {
+    "category": "S",
+    "^description": "AWS Security Hub is not enabled in this region. Security Hub provides a centralized view of security alerts and compliance status across AWS accounts and services, aggregating findings from GuardDuty, Inspector, Macie, IAM Access Analyzer, and other services.",
+    "shortDesc": "Enable AWS Security Hub",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": ["[Enabling Security Hub]<https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html>"]
+  },
+  "SecurityHubNoStandardsEnabled": {
+    "category": "S",
+    "^description": "No compliance standards are enabled in Security Hub. Standards such as CIS AWS Foundations Benchmark, AWS Foundational Security Best Practices, and PCI DSS provide automated compliance checks against your AWS resources.",
+    "shortDesc": "Enable Security Hub compliance standards",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": ["[Security Hub Standards]<https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html>"]
+  },
+  "SecurityHubStandardsNotReady": {
+    "category": "S",
+    "^description": "Security Hub standards are subscribed but not in READY state. Standards must be READY to actively evaluate controls against your resources. Check for subscription errors or pending enablement.",
+    "shortDesc": "Resolve Security Hub standards subscription issues",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[Security Hub Standards]<https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html>"]
+  },
+  "SecurityHubCriticalFindings": {
+    "category": "S",
+    "^description": "There are unresolved CRITICAL severity findings in Security Hub. Critical findings represent the most severe security issues detected by integrated services and should be investigated and remediated immediately.",
+    "shortDesc": "Remediate critical Security Hub findings",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 1,
+    "ref": ["[Security Hub Findings]<https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings.html>"]
+  },
+  "SecurityHubAutoEnableControlsOff": {
+    "category": "O",
+    "^description": "Auto-enable controls is turned off in Security Hub. When enabled, new controls added to enabled standards are automatically activated, ensuring your compliance coverage stays current without manual intervention.",
+    "shortDesc": "Enable auto-enable controls in Security Hub",
+    "criticality": "L",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[Auto-enable Controls]<https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-auto-enable-controls.html>"]
+  }
+}

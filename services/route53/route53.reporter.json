@@ -1,0 +1,46 @@
+{
+  "R53QueryLoggingDisabled": {
+    "category": "S",
+    "^description": "DNS query logging is not enabled for this hosted zone. Query logs record all DNS queries that Route 53 receives, which is valuable for security investigations, troubleshooting DNS issues, and detecting DNS-based attacks such as data exfiltration via DNS tunnelling.",
+    "shortDesc": "Enable Route 53 DNS query logging",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": ["[Route 53 Query Logging]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html>"]
+  },
+  "R53DNSSECNotEnabled": {
+    "category": "S",
+    "^description": "DNSSEC signing is not enabled for this public hosted zone. DNSSEC protects against DNS spoofing and cache poisoning attacks by cryptographically signing DNS responses, allowing resolvers to verify the authenticity of DNS records.",
+    "shortDesc": "Enable DNSSEC for Route 53 hosted zone",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": ["[Route 53 DNSSEC]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html>"]
+  },
+  "R53NoHealthChecks": {
+    "category": "R",
+    "^description": "No health checks or failover routing is configured for this hosted zone. Without health checks, Route 53 will continue routing traffic to unhealthy endpoints, causing service disruptions. Use health checks with failover, weighted, or latency routing to improve availability.",
+    "shortDesc": "Configure Route 53 health checks and failover",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": ["[Route 53 Health Checks]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html>"]
+  },
+  "R53PrivateZoneNoVPC": {
+    "category": "O",
+    "^description": "This private hosted zone has no VPC associations. A private hosted zone with no VPC associations is inaccessible and cannot resolve DNS queries. Associate it with the appropriate VPCs or delete it if no longer needed.",
+    "shortDesc": "Associate private hosted zone with VPC",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[Private Hosted Zones]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-private.html>"]
+  }
+}

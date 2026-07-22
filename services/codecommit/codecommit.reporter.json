@@ -1,0 +1,35 @@
+{
+  "CCNoTags": {
+    "category": "O",
+    "^description": "This CodeCommit repository has no tags. Tagging repositories enables cost allocation, access control via tag-based IAM policies, and better resource organization across your CI/CD infrastructure.",
+    "shortDesc": "Add tags to CodeCommit repository",
+    "criticality": "L",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[CodeCommit Tagging]<https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-tag-repository.html>"]
+  },
+  "CCNoApprovalRules": {
+    "category": "O",
+    "^description": "No approval rule templates are defined in this region. Approval rule templates enforce peer review requirements on pull requests, preventing direct merges to protected branches without the required number of approvals.",
+    "shortDesc": "Define approval rule templates for CodeCommit",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[Approval Rules]<https://docs.aws.amazon.com/codecommit/latest/userguide/approval-rule-templates.html>"]
+  },
+  "CCNoDefaultBranch": {
+    "category": "O",
+    "^description": "This CodeCommit repository has no default branch configured. A default branch is required for pull request workflows and is used as the base branch for merge operations. This may indicate an empty or misconfigured repository.",
+    "shortDesc": "Set a default branch for CodeCommit repository",
+    "criticality": "L",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[CodeCommit Branches]<https://docs.aws.amazon.com/codecommit/latest/userguide/branches.html>"]
+  }
+}

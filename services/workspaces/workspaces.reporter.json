@@ -1,0 +1,57 @@
+{
+  "WSRootVolumeNotEncrypted": {
+    "category": "S",
+    "^description": "The root volume of this WorkSpace is not encrypted. The root volume contains the operating system and installed applications. Without encryption, data on the root volume is at risk if the underlying storage is accessed outside of normal WorkSpaces operations.",
+    "shortDesc": "Enable root volume encryption for WorkSpace",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[WorkSpaces Encryption]<https://docs.aws.amazon.com/workspaces/latest/adminguide/encrypt-workspaces.html>"]
+  },
+  "WSUserVolumeNotEncrypted": {
+    "category": "S",
+    "^description": "The user volume of this WorkSpace is not encrypted. The user volume stores the user's personal files and data (D: drive on Windows). Without encryption, user data including documents, downloads, and personal files are unprotected at rest.",
+    "shortDesc": "Enable user volume encryption for WorkSpace",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[WorkSpaces Encryption]<https://docs.aws.amazon.com/workspaces/latest/adminguide/encrypt-workspaces.html>"]
+  },
+  "WSAlwaysOnRunningMode": {
+    "category": "CO",
+    "^description": "This WorkSpace is configured with ALWAYS_ON running mode. ALWAYS_ON WorkSpaces are billed by the month and run continuously even when not in use. Consider switching to AUTO_STOP mode which stops the WorkSpace after a period of inactivity, reducing costs for infrequent users.",
+    "shortDesc": "Consider AUTO_STOP mode to reduce WorkSpace cost",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": -1,
+    "needFullTest": 1,
+    "ref": ["[WorkSpaces Running Modes]<https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html>"]
+  },
+  "WSUnhealthyState": {
+    "category": "R",
+    "^description": "This WorkSpace is in an unhealthy or error state. Users cannot connect to WorkSpaces in ERROR, UNHEALTHY, or STOPPED states. Investigate the cause and rebuild or restart the WorkSpace if necessary.",
+    "shortDesc": "Investigate and fix unhealthy WorkSpace",
+    "criticality": "H",
+    "downtime": 1,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[WorkSpaces Troubleshooting]<https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-troubleshooting.html>"]
+  },
+  "WSNoIPAccessControl": {
+    "category": "S",
+    "^description": "No IP access control groups are associated with this WorkSpaces directory. IP access control groups restrict which IP addresses can connect to WorkSpaces, preventing unauthorized access from unknown networks. Without this control, WorkSpaces can be accessed from any internet-connected location.",
+    "shortDesc": "Configure IP access control for WorkSpaces directory",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[IP Access Control]<https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-ip-access-control-groups.html>"]
+  }
+}

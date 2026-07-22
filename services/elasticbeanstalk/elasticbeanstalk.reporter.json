@@ -1,0 +1,57 @@
+{
+  "EBManagedUpdatesDisabled": {
+    "category": "S",
+    "^description": "Managed platform updates are not enabled for this Elastic Beanstalk environment. Managed updates automatically apply platform patches during a weekly maintenance window, keeping your environment secure with the latest patches without manual intervention.",
+    "shortDesc": "Enable Elastic Beanstalk managed platform updates",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[Managed Platform Updates]<https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-platform-update-managed.html>"]
+  },
+  "EBEnhancedHealthDisabled": {
+    "category": "O",
+    "^description": "This Elastic Beanstalk environment is using basic health reporting instead of enhanced. Enhanced health reporting provides detailed instance and environment health data including request metrics, latency, and cause information for health transitions.",
+    "shortDesc": "Enable enhanced health reporting",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[Enhanced Health Reporting]<https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html>"]
+  },
+  "EBLogStreamingDisabled": {
+    "category": "O",
+    "^description": "CloudWatch Logs streaming is not enabled for this Elastic Beanstalk environment. Without log streaming, application and platform logs are only available on the instance and are lost when instances are replaced. Streaming to CloudWatch Logs enables persistent log storage, searching, and alerting.",
+    "shortDesc": "Enable CloudWatch Logs streaming for Elastic Beanstalk",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": ["[EB CloudWatch Logs]<https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.cloudwatchlogs.html>"]
+  },
+  "EBSingleInstanceEnvironment": {
+    "category": "R",
+    "^description": "This Elastic Beanstalk web server environment is running as a single instance without a load balancer. Single-instance environments have no redundancy — if the instance fails, the application is unavailable until a replacement is launched. Use load-balanced environments for production workloads.",
+    "shortDesc": "Use load-balanced environment for production",
+    "criticality": "H",
+    "downtime": 1,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 1,
+    "ref": ["[EB Environment Types]<https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features-managing-env-types.html>"]
+  },
+  "EBIMDSv1Enabled": {
+    "category": "S",
+    "^description": "IMDSv1 is not disabled for this Elastic Beanstalk environment. IMDSv1 is vulnerable to SSRF attacks that can expose EC2 instance credentials. Disabling IMDSv1 forces all metadata requests to use the more secure session-oriented IMDSv2.",
+    "shortDesc": "Disable IMDSv1 on Elastic Beanstalk instances",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[EB IMDSv2]<https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-cfg-ec2-imds.html>"]
+  }
+}

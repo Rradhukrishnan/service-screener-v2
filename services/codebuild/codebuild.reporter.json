@@ -1,0 +1,57 @@
+{
+  "CBPrivilegedModeEnabled": {
+    "category": "S",
+    "^description": "Privileged mode is enabled for this CodeBuild project. Privileged mode grants the build container root-level access to the Docker daemon, which is required for building Docker images but creates a significant security risk. Only enable privileged mode when absolutely necessary and use it with caution.",
+    "shortDesc": "Disable privileged mode in CodeBuild unless required",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 1,
+    "ref": ["[CodeBuild Security]<https://docs.aws.amazon.com/codebuild/latest/userguide/security.html>"]
+  },
+  "CBArtifactsNotEncrypted": {
+    "category": "S",
+    "^description": "Build artifacts encryption is disabled for this CodeBuild project. Build artifacts may contain compiled binaries, test results, or other sensitive data. Encrypting artifacts with KMS ensures they are protected at rest in S3.",
+    "shortDesc": "Enable encryption for CodeBuild artifacts",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[CodeBuild Artifacts]<https://docs.aws.amazon.com/codebuild/latest/userguide/build-artifacts.html>"]
+  },
+  "CBLoggingDisabled": {
+    "category": "O",
+    "^description": "Neither CloudWatch Logs nor S3 logging is enabled for this CodeBuild project. Build logs are essential for debugging failures, auditing build activity, and detecting anomalies in your CI/CD pipeline.",
+    "shortDesc": "Enable logging for CodeBuild project",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": ["[CodeBuild Logging]<https://docs.aws.amazon.com/codebuild/latest/userguide/cloudwatch-logs.html>"]
+  },
+  "CBNoVPCConfig": {
+    "category": "S",
+    "^description": "This CodeBuild project is not configured with a VPC. Without VPC configuration, the build environment has direct internet access and cannot securely access resources in your VPC such as private databases or internal services.",
+    "shortDesc": "Configure VPC for CodeBuild project",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 1,
+    "ref": ["[CodeBuild VPC]<https://docs.aws.amazon.com/codebuild/latest/userguide/vpc-support.html>"]
+  },
+  "CBHardcodedSecrets": {
+    "category": "S",
+    "^description": "A CodeBuild environment variable with a name suggesting it contains a secret is stored as plain-text. Plain-text environment variables are visible in the CodeBuild console and CloudTrail logs. Use Parameter Store or Secrets Manager parameter types instead.",
+    "shortDesc": "Move secrets to Parameter Store or Secrets Manager",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[CodeBuild Environment Variables]<https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-env-vars.html>"]
+  }
+}

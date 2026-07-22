@@ -1,0 +1,79 @@
+{
+  "CTNoLandingZone": {
+    "category": "S",
+    "^description": "No AWS Control Tower landing zone is configured. Control Tower provides a pre-configured, secure multi-account AWS environment based on best practices. Without it, governance, compliance, and security controls must be manually configured for each account.",
+    "shortDesc": "Set up AWS Control Tower landing zone",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[Control Tower Setup]<https://docs.aws.amazon.com/controltower/latest/userguide/getting-started-with-control-tower.html>"]
+  },
+  "CTLandingZoneDrifted": {
+    "category": "O",
+    "^description": "The Control Tower landing zone has drifted from its expected configuration. Drift occurs when resources managed by Control Tower are modified outside of Control Tower. Run the landing zone repair process to restore the expected configuration.",
+    "shortDesc": "Repair Control Tower landing zone drift",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[Detect and Repair Drift]<https://docs.aws.amazon.com/controltower/latest/userguide/drift.html>"]
+  },
+  "CTAccessDenied": {
+    "category": "O",
+    "^description": "Insufficient permissions to check Control Tower status. The IAM role used by Service Screener does not have permission to call Control Tower APIs. Add controltower:ListLandingZones and related permissions to fully assess Control Tower configuration.",
+    "shortDesc": "Grant permissions to check Control Tower",
+    "criticality": "L",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[Control Tower IAM]<https://docs.aws.amazon.com/controltower/latest/userguide/access-control-overview.html>"]
+  },
+  "CTFewControlsEnabled": {
+    "category": "S",
+    "^description": "Very few Control Tower controls (guardrails) are enabled. Controls enforce governance policies across your AWS organization. Review the available preventive and detective controls and enable those relevant to your compliance requirements.",
+    "shortDesc": "Enable more Control Tower controls",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[Control Tower Controls]<https://docs.aws.amazon.com/controltower/latest/userguide/controls.html>"]
+  },
+  "CTOrgNotAllFeatures": {
+    "category": "S",
+    "^description": "AWS Organizations is not configured with all features enabled. Control Tower requires Organizations with all features to enforce SCPs and other governance controls across member accounts.",
+    "shortDesc": "Enable all features in AWS Organizations",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[Organizations Features]<https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html>"]
+  },
+  "CTNoOrganization": {
+    "category": "S",
+    "^description": "AWS Organizations is not enabled for this account. Organizations is a prerequisite for Control Tower and provides centralized governance, consolidated billing, and the ability to apply SCPs across multiple AWS accounts.",
+    "shortDesc": "Enable AWS Organizations",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[Create Organization]<https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_create.html>"]
+  },
+  "CTNoSecurityOU": {
+    "category": "S",
+    "^description": "No Security OU was found in the organization. Control Tower best practices recommend a dedicated Security OU containing the Log Archive and Audit accounts to centralize security logging and access.",
+    "shortDesc": "Create a Security OU in AWS Organizations",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[Control Tower OUs]<https://docs.aws.amazon.com/controltower/latest/userguide/organizations.html>"]
+  }
+}
