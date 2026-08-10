@@ -14,7 +14,14 @@ class ExcelBuilder:
         'Type',
         'ResourceID',
         'Severity',
-        'Status'
+        'Status',
+        'Description',
+        'Current_Type_or_Class',
+        'Recommended_Type_or_Class',
+        'Current_Price_Per_Month',
+        'Recommended_Price_Per_Month',
+        'Monthly_Saving',
+        'Yearly_Saving'
     ]]
     
     def __init__(self, accountId, ssParams):
@@ -201,15 +208,43 @@ class ExcelBuilder:
                 self.recommendations[service] = {}
                 
             self.recommendations[service][check] = [detail['shortDesc'], detail['__links']]
+
+            short_desc = detail.get('shortDesc', '')
+
             for region, resources in detail['__affectedResources'].items():
                 for resource in resources:
+                    # Parse current/recommended type from result value if present
+                    # Result value format: "Current: m5.xlarge | Recommended AMD: m5a.xlarge"
+                    current_type     = ''
+                    recommended_type = ''
+                    resource_id      = resource
+
+                    if isinstance(resource, str) and '|' in resource and 'Current:' in resource:
+                        # Extract type info from the result detail value
+                        parts = resource.split('|')
+                        for part in parts:
+                            part = part.strip()
+                            if part.startswith('Current:'):
+                                current_type = part.replace('Current:', '').strip()
+                            elif 'Recommended' in part:
+                                recommended_type = part.split(':', 1)[-1].strip()
+                        # Resource ID is stored separately — use check name context
+                        resource_id = resource
+
                     arr.append([
                         region,
                         check,
                         self._getPillarName(detail['__categoryMain']),
-                        resource,
+                        resource_id,
                         self._getCriticallyName(detail['criticality']),
-                        'New'
+                        'New',
+                        short_desc,
+                        current_type,
+                        recommended_type,
+                        '',   # Current_Price_Per_Month — populated by post-processing
+                        '',   # Recommended_Price_Per_Month
+                        '',   # Monthly_Saving
+                        ''    # Yearly_Saving
                     ])
         return arr
     
@@ -223,10 +258,17 @@ class ExcelBuilder:
             if not service in self.recommendations:
                 self.recommendations[service] = {}
                 
-            # Add to recommendations if not already there
             if check not in self.recommendations[service]:
                 self.recommendations[service][check] = [detail['shortDesc'], detail['__links']]
-                
+
+            current_type      = detail.get('__current_type', '')
+            recommended_type  = detail.get('__recommended_type', '')
+            current_price     = detail.get('__current_price_month', '')
+            recommended_price = detail.get('__recommended_price_month', '')
+            monthly_saving    = detail.get('__monthly_saving', '')
+            yearly_saving     = detail.get('__yearly_saving', '')
+            short_desc        = detail.get('shortDesc', '')
+
             for region, resources in detail['__affectedResources'].items():
                 for resource in resources:
                     arr.append([
@@ -235,7 +277,14 @@ class ExcelBuilder:
                         self._getPillarName(detail['__categoryMain']),
                         resource,
                         self._getCriticallyName(detail['criticality']),
-                        'Suppressed'  # Set status to Suppressed
+                        'Suppressed',
+                        short_desc,
+                        current_type,
+                        recommended_type,
+                        current_price,
+                        recommended_price,
+                        monthly_saving,
+                        yearly_saving
                     ])
         return arr
     

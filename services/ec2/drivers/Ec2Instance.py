@@ -521,12 +521,18 @@ class Ec2Instance(Evaluator):
         prefixDetail = instanceArr['prefixDetail']
 
         if 'a' not in prefixDetail['attributes']:
-            amdInstanceType = prefixDetail['family'] + prefixDetail['version'] + 'a.' + instanceArr['suffix']
-            nextVersion = str(int(prefixDetail['version']) + 1)
+            amdInstanceType     = prefixDetail['family'] + prefixDetail['version'] + 'a.' + instanceArr['suffix']
+            nextVersion         = str(int(prefixDetail['version']) + 1)
             nextVerInstanceType = prefixDetail['family'] + nextVersion + 'a.' + instanceArr['suffix']
             
             if self.checkInstanceTypeAvailable(amdInstanceType) or self.checkInstanceTypeAvailable(nextVerInstanceType):
-                self.results['EC2AMD'] = [-1, self.ec2InstanceData['InstanceType']]
+                recommended = amdInstanceType if self.checkInstanceTypeAvailable(amdInstanceType) else nextVerInstanceType
+                current     = self.ec2InstanceData['InstanceType']
+                detail_msg  = f"Current: {current} | Recommended AMD: {recommended}"
+                self.results['EC2AMD'] = [-1, detail_msg]
+                # Store pricing metadata for ExcelBuilder
+                self.results['__EC2AMD_current_type']     = current
+                self.results['__EC2AMD_recommended_type'] = recommended
                 
         return
     
@@ -539,12 +545,18 @@ class Ec2Instance(Evaluator):
         prefixDetail = instanceArr['prefixDetail']
 
         if 'g' not in prefixDetail['attributes']:
-            gInstanceType = prefixDetail['family'] + prefixDetail['version'] + 'g.' + instanceArr['suffix']
-            nextVersion = str(int(prefixDetail['version']) + 1)
+            gInstanceType       = prefixDetail['family'] + prefixDetail['version'] + 'g.' + instanceArr['suffix']
+            nextVersion         = str(int(prefixDetail['version']) + 1)
             nextVerInstanceType = prefixDetail['family'] + nextVersion + 'g.' + instanceArr['suffix']
             
             if self.checkInstanceTypeAvailable(gInstanceType) or self.checkInstanceTypeAvailable(nextVerInstanceType):
-                self.results['EC2Graviton'] = [-1, self.ec2InstanceData['InstanceType']]
+                recommended = gInstanceType if self.checkInstanceTypeAvailable(gInstanceType) else nextVerInstanceType
+                current     = self.ec2InstanceData['InstanceType']
+                detail_msg  = f"Current: {current} | Recommended Graviton: {recommended}"
+                self.results['EC2Graviton'] = [-1, detail_msg]
+                # Store pricing metadata for ExcelBuilder
+                self.results['__EC2Graviton_current_type']     = current
+                self.results['__EC2Graviton_recommended_type'] = recommended
                 
         return
     

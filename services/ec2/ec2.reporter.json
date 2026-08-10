@@ -265,15 +265,15 @@
     },
     "EC2AMD": {
         "category": "CP",
-        "^description": "EC2 instance family with AMD chips: {$COUNT} of your instances can change to intance type powered by AMD chips",
+        "^description": "EC2 instance family with AMD chips: {$COUNT} of your instances can change to instance type powered by AMD chips",
         "downtime": 1,
         "slowness": 0,
         "additionalCost": 0,
         "criticality": "I",
         "needFullTest": 0,
-        "shortDesc": "EC2 with AMD chips",
+        "shortDesc": "Your instances can change to AMD-powered type. See Current_Type_or_Class and Recommended_Type_or_Class columns for details. AMD instances cost ~10-15% less than equivalent Intel.",
         "ref": [
-            "[Auto Change (With AWS SUpport)]<https://repost.aws/knowledge-center/ec2-auto-change-instance-to-amd>",
+            "[Auto Change (With AWS Support)]<https://repost.aws/knowledge-center/ec2-auto-change-instance-to-amd>",
             "[Resize Instance]<https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html>"
         ]
     },
@@ -285,7 +285,7 @@
         "additionalCost": 0,
         "criticality": "I",
         "needFullTest": 0,
-        "shortDesc": "EC2 with AMD chips",
+        "shortDesc": "Your instances can change to Graviton-powered type. See Current_Type_or_Class and Recommended_Type_or_Class columns for details. Graviton instances cost ~20-40% less than equivalent Intel.",
         "ref": [
             "[EC2 Linux Migrate to Graviton]<https://repost.aws/knowledge-center/ec2-linux-migrate-to-graviton>",
             "[What is AWS Graviton]<https://docs.aws.amazon.com/whitepapers/latest/aws-graviton-performance-testing/what-is-aws-graviton.html>"
