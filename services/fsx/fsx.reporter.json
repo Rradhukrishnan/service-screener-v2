@@ -1,0 +1,79 @@
+{
+  "FSxNoEncryption": {
+    "category": "S",
+    "^description": "This FSx file system is not encrypted at rest with a KMS key. Without encryption, data stored on the file system is unprotected if the underlying storage is compromised. Enable encryption with a KMS key for data-at-rest protection.",
+    "shortDesc": "Enable KMS encryption for FSx file system",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[FSx Encryption]<https://docs.aws.amazon.com/fsx/latest/WindowsGuide/encryption-at-rest.html>"]
+  },
+  "FSxBackupDisabled": {
+    "category": "R",
+    "^description": "Automatic backups are disabled for this FSx file system. Without backups, data loss from accidental deletion, corruption, or ransomware cannot be recovered. Enable automatic backups with an appropriate retention period.",
+    "shortDesc": "Enable automatic backups for FSx file system",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": ["[FSx Backups]<https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html>"]
+  },
+  "FSxSingleAZ": {
+    "category": "R",
+    "^description": "This FSx for Windows file system is deployed in Single-AZ mode. Single-AZ file systems have no automatic failover — an AZ failure means data is unavailable until the AZ recovers. Use Multi-AZ for production workloads requiring high availability.",
+    "shortDesc": "Use Multi-AZ deployment for FSx production workloads",
+    "criticality": "H",
+    "downtime": 1,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 1,
+    "ref": ["[FSx Multi-AZ]<https://docs.aws.amazon.com/fsx/latest/WindowsGuide/multi-az-deployments.html>"]
+  },
+  "FSxLowStorage": {
+    "category": "CO",
+    "^description": "This FSx file system has very low storage capacity and may be unused or underutilized. Review if this file system is still needed. Unused file systems incur ongoing charges for provisioned storage.",
+    "shortDesc": "Review low-capacity FSx file system for potential cleanup",
+    "criticality": "L",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": -1,
+    "needFullTest": 0,
+    "ref": ["[FSx Pricing]<https://aws.amazon.com/fsx/pricing/>"]
+  },
+  "FSxUnhealthyLifecycle": {
+    "category": "R",
+    "^description": "This FSx file system is in a MISCONFIGURED or FAILED lifecycle state. The file system may not be functioning correctly. Investigate the cause and take corrective action to restore normal operation.",
+    "shortDesc": "FSx file system is in unhealthy state — investigate",
+    "criticality": "H",
+    "downtime": 1,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[FSx Troubleshooting]<https://docs.aws.amazon.com/fsx/latest/WindowsGuide/troubleshooting.html>"]
+  },
+  "FSxNoTags": {
+    "category": "O",
+    "^description": "This FSx file system has no tags. Tags enable cost allocation, access control via tag-based policies, and resource organization. Add tags for Name, environment, owner, and application.",
+    "shortDesc": "Add tags to FSx file system",
+    "criticality": "L",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[FSx Tagging]<https://docs.aws.amazon.com/fsx/latest/WindowsGuide/tag-resources.html>"]
+  },
+  "FSxNoSubnet": {
+    "category": "S",
+    "^description": "This FSx file system has no subnet configuration detected. FSx file systems should be deployed in specific subnets with appropriate security group controls to limit network access.",
+    "shortDesc": "Verify FSx network configuration",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": ["[FSx VPC Configuration]<https://docs.aws.amazon.com/fsx/latest/WindowsGuide/aws-fsx-vpc.html>"]
+  }
+}

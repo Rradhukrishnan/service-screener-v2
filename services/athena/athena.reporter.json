@@ -1,0 +1,119 @@
+{
+  "AthenaNoEncryption": {
+    "category": "S",
+    "^description": "Query results are not encrypted for this Athena workgroup. Without encryption, query results stored in S3 are readable by anyone with access to the output bucket. Enable SSE_KMS or CSE_KMS encryption to protect query results at rest.",
+    "shortDesc": "Enable encryption for Athena query results",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": [
+      "[Athena Encryption]<https://docs.aws.amazon.com/athena/latest/ug/encryption.html>"
+    ]
+  },
+  "AthenaNoKMSEncryption": {
+    "category": "S",
+    "^description": "This Athena workgroup uses SSE_S3 encryption instead of KMS. While SSE_S3 provides encryption, KMS gives you control over key rotation, access auditing, and the ability to revoke access by disabling the key.",
+    "shortDesc": "Use KMS encryption instead of SSE_S3 for Athena",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": [
+      "[Athena KMS Encryption]<https://docs.aws.amazon.com/athena/latest/ug/encryption.html#encryption-kms>"
+    ]
+  },
+  "AthenaNoOutputLocation": {
+    "category": "O",
+    "^description": "No default output location is configured for this Athena workgroup. Without a default output location, users must specify one for every query, which can lead to inconsistent result storage and makes it harder to manage query results centrally.",
+    "shortDesc": "Set default output location for Athena workgroup",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": [
+      "[Athena Workgroup Settings]<https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings.html>"
+    ]
+  },
+  "AthenaNotEnforced": {
+    "category": "S",
+    "^description": "Workgroup configuration is not enforced. When not enforced, individual users can override workgroup settings including encryption, output location, and query limits. Enforcing workgroup configuration ensures consistent security and cost controls.",
+    "shortDesc": "Enforce Athena workgroup configuration",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": [
+      "[Enforce Workgroup Settings]<https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html>"
+    ]
+  },
+  "AthenaNoCloudWatchMetrics": {
+    "category": "O",
+    "^description": "CloudWatch metrics publishing is disabled for this Athena workgroup. Without metrics, you cannot monitor query performance, data scanned, or set alarms on query costs. Enable metrics for operational visibility.",
+    "shortDesc": "Enable CloudWatch metrics for Athena workgroup",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 1,
+    "needFullTest": 0,
+    "ref": [
+      "[Athena CloudWatch Metrics]<https://docs.aws.amazon.com/athena/latest/ug/query-metrics-viewing.html>"
+    ]
+  },
+  "AthenaRequesterPaysDisabled": {
+    "category": "CO",
+    "^description": "Requester pays is not enabled for this workgroup. If querying data in requester-pays S3 buckets, this setting must be enabled otherwise queries will fail. This is informational for workgroups that access requester-pays buckets.",
+    "shortDesc": "Consider enabling requester pays if accessing such buckets",
+    "criticality": "L",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": [
+      "[Athena Requester Pays]<https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings.html>"
+    ]
+  },
+  "AthenaNoBytesScannedLimit": {
+    "category": "CO",
+    "^description": "No bytes scanned cutoff is configured for this workgroup. Without a limit, a single poorly written query can scan terabytes of data and incur significant costs ($5 per TB scanned). Set a cutoff to prevent expensive runaway queries.",
+    "shortDesc": "Set bytes scanned limit to prevent costly Athena queries",
+    "criticality": "H",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": [
+      "[Athena Cost Controls]<https://docs.aws.amazon.com/athena/latest/ug/workgroups-setting-control-limits-cloudwatch.html>"
+    ]
+  },
+  "AthenaOldEngineVersion": {
+    "category": "P",
+    "^description": "This workgroup is using Athena engine version 2. Athena engine version 3 provides better query performance, additional SQL features, and improved cost efficiency. Consider upgrading for better performance.",
+    "shortDesc": "Upgrade to Athena engine version 3",
+    "criticality": "M",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 1,
+    "ref": [
+      "[Athena Engine Versions]<https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html>"
+    ]
+  },
+  "AthenaWorkgroupDisabled": {
+    "category": "O",
+    "^description": "This Athena workgroup is not in ENABLED state. Disabled workgroups cannot run queries. If this workgroup is no longer needed, consider deleting it. If it should be active, enable it.",
+    "shortDesc": "Athena workgroup is disabled",
+    "criticality": "L",
+    "downtime": 0,
+    "slowness": 0,
+    "additionalCost": 0,
+    "needFullTest": 0,
+    "ref": [
+      "[Manage Athena Workgroups]<https://docs.aws.amazon.com/athena/latest/ug/workgroups-create-update-delete.html>"
+    ]
+  }
+}
