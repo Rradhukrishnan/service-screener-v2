@@ -22,6 +22,9 @@ class Config:
         'TITLE': 'AdminLTE.io'
     }
 
+    CURRENT_REGION = 'us-east-1'
+
+    ## Services that are global, not region specific
     GLOBAL_SERVICES = [
         'iam',
         'cloudfront',
@@ -29,17 +32,35 @@ class Config:
         'costexplorer'
     ]
     
+    ## Services with special keyword handling
     KEYWORD_SERVICES = [
         'lambda'    
     ]
     
-    CURRENT_REGION = 'us-east-1'
-    
+    ## Define services supported for each Well-Architected Pillar
+    PILLAR_SERVICES = {
+        'security': [
+            'iam', 'kms', 'cloudtrail', 'config', 'guardduty',
+            'cloudwatch', 'waf', 'shield', 'inspector'
+        ],
+        'reliability': [
+            'ec2', 's3', 'ebs', 'rds', 'autoscaling',
+            'elasticloadbalancing', 'route53', 'backup'
+        ],
+        'cost_optimization': [
+            'ec2', 'rds', 's3', 'elasticache', 'dynamodb',
+            'lambda', 'cloudwatch', 'compute-optimizer'
+        ]
+    }
+
+    ## Optional: Set default report structure or pillar list
+    SUPPORTED_PILLARS = ['security', 'reliability', 'cost_optimization']
+
     @staticmethod
     def init():
         global cache
         cache = {}
-    
+
     @staticmethod
     def setAccountInfo(__AWS_CONFIG):
         print(" -- Acquiring identify info...")
@@ -62,14 +83,13 @@ class Config:
         
         Config.set('HTML_ACCOUNT_FOLDER_FULLPATH', _C.ROOT_DIR + '/' + adir)
         Config.set('HTML_ACCOUNT_FOLDER_PATH', adir)
-       
+
     @staticmethod 
     def set(key, val):
         cache[key] = val
 
     @staticmethod
     def get(key, defaultValue = False):
-        ## <TODO>, fix the DEBUG variable
         DEBUG = False
         if key in cache:
             return cache[key]
@@ -84,9 +104,7 @@ class Config:
     def retrieveAllCache():
         return cache
         
-    
-    ## do checking for prefix=cloud, if found, use first 8character instead
-    ## other than that, first 3 prefix should be unique
+    ## Get dynamic driver name for service classes
     @staticmethod
     def getDriversClassPrefix(driver):
         name = Config.extractDriversClassPrefix(driver)
@@ -94,7 +112,6 @@ class Config:
     
     @staticmethod
     def extractDriversClassPrefix(driver):
-        ## handling for S3
         if driver[:2].lower() == 's3':
             return 's3'
             
@@ -106,7 +123,9 @@ class Config:
                 classPrefix = driver[:8]
             
         return classPrefix
+        
 
+# Initialize config only once
 try:
     if configHasInit:
         pass
