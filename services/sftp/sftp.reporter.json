@@ -1,0 +1,211 @@
+{
+    "PublicEndpoint": {
+        "category": "S",
+        "^description": "The Transfer Family server uses a public endpoint, which is reachable from the internet and cannot be restricted with security groups. Use a VPC-hosted endpoint and limit source IPs with security groups.",
+        "downtime": 1,
+        "slowness": 0,
+        "additionalCost": 1,
+        "criticality": "H",
+        "needFullTest": 1,
+        "shortDesc": "Use a VPC endpoint instead of a public endpoint",
+        "ref": [
+            "[Create a server in a VPC]<https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html>",
+            "[Transfer Family security best practices]<https://docs.aws.amazon.com/transfer/latest/userguide/security-best-practices.html>"
+        ]
+    },
+    "FtpEnabled": {
+        "category": "S",
+        "^description": "The server has the FTP protocol enabled. FTP sends credentials and data unencrypted. Use SFTP or FTPS instead.",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "criticality": "H",
+        "needFullTest": 1,
+        "shortDesc": "Disable FTP and use SFTP or FTPS",
+        "ref": [
+            "[Transfer Family protocols]<https://docs.aws.amazon.com/transfer/latest/userguide/transfer-file.html>"
+        ]
+    },
+    "SecurityPolicy": {
+        "category": "S",
+        "^description": "The server uses a legacy security policy that allows older cryptographic algorithms. Switch to a current policy such as TransferSecurityPolicy-2024-01 or later. Confirm client compatibility first.",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "criticality": "M",
+        "needFullTest": 1,
+        "shortDesc": "Update the server security policy",
+        "ref": [
+            "[Security policies for Transfer Family]<https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html>"
+        ]
+    },
+    "Logging": {
+        "category": "S",
+        "^description": "The server has no logging configured. Without logs you cannot audit file transfers or investigate failed logins. Enable CloudWatch logging with a logging role or structured log destination.",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 1,
+        "criticality": "M",
+        "needFullTest": 0,
+        "shortDesc": "Enable CloudWatch logging for the server",
+        "ref": [
+            "[Log activity with CloudWatch]<https://docs.aws.amazon.com/transfer/latest/userguide/monitoring.html>"
+        ]
+    },
+    "VpcSecurityGroups": {
+        "category": "S",
+        "^description": "The VPC-hosted server has no security groups attached. Attach security groups that allow inbound access only from trusted source IPs.",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "criticality": "H",
+        "needFullTest": 0,
+        "shortDesc": "Attach security groups to the VPC endpoint",
+        "ref": [
+            "[Create a server in a VPC]<https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html>"
+        ]
+    },
+    "FtpsCertificate": {
+        "category": "S",
+        "^description": "The server has FTPS enabled but no certificate is configured. FTPS requires a valid ACM certificate to encrypt connections.",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "criticality": "H",
+        "needFullTest": 0,
+        "shortDesc": "Attach an ACM certificate to the FTPS server",
+        "ref": [
+            "[Transfer Family FTPS]<https://docs.aws.amazon.com/transfer/latest/userguide/supported-protocols.html>"
+        ]
+    },
+    "ServiceManagedIdentity": {
+        "category": "S",
+        "^description": "The server stores users in Transfer Family (service managed). A custom identity provider such as Directory Service, Lambda or API Gateway lets you centralize authentication, enforce MFA and apply your password policy.",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "criticality": "L",
+        "needFullTest": 1,
+        "shortDesc": "Consider a centralized identity provider",
+        "ref": [
+            "[Working with identity providers]<https://docs.aws.amazon.com/transfer/latest/userguide/authentication-methods.html>"
+        ]
+    },
+    "LoginBanner": {
+        "category": "S",
+        "^description": "No pre-authentication login banner is configured. A banner can state acceptable use and legal notices to users before they log in, which some compliance standards require.",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "criticality": "I",
+        "needFullTest": 0,
+        "shortDesc": "Configure a pre-authentication login banner",
+        "ref": [
+            "[Transfer Family server options]<https://docs.aws.amazon.com/transfer/latest/userguide/create-server.html>"
+        ]
+    },
+    "UserHomeDirectory": {
+        "category": "S",
+        "^description": "Some users do not use logical home directories. Logical directories hide the real bucket or file system structure and keep users inside their own path.",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "criticality": "M",
+        "needFullTest": 1,
+        "shortDesc": "Use logical home directories for users",
+        "ref": [
+            "[Implement logical directories]<https://docs.aws.amazon.com/transfer/latest/userguide/logical-dir-mappings.html>"
+        ]
+    },
+    "SingleAzEndpoint": {
+        "category": "R",
+        "^description": "The VPC endpoint is attached to a single subnet, so it is not resilient to the loss of an Availability Zone. Attach subnets in at least two Availability Zones.",
+        "downtime": 1,
+        "slowness": 0,
+        "additionalCost": 1,
+        "criticality": "M",
+        "needFullTest": 1,
+        "shortDesc": "Attach subnets in multiple Availability Zones",
+        "ref": [
+            "[Create a server in a VPC]<https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html>"
+        ]
+    },
+    "NoUsers": {
+        "category": "C",
+        "^description": "The server has no users but is still billed hourly for each enabled protocol. Delete it if it is no longer needed.",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "criticality": "M",
+        "needFullTest": 1,
+        "shortDesc": "Delete unused servers",
+        "ref": [
+            "[Transfer Family pricing]<https://aws.amazon.com/aws-transfer-family/pricing/>"
+        ]
+    },
+    "MultipleProtocols": {
+        "category": "C",
+        "^description": "The server has more than one protocol enabled. Each protocol is billed hourly, so disable protocols your clients do not use.",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "criticality": "L",
+        "needFullTest": 1,
+        "shortDesc": "Disable unused protocols",
+        "ref": [
+            "[Transfer Family pricing]<https://aws.amazon.com/aws-transfer-family/pricing/>"
+        ]
+    },
+    "ServerOffline": {
+        "category": "C",
+        "^description": "The server is offline or stopped. Review whether it is still needed and delete it if not. Check the pricing page for how stopped servers are billed.",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "criticality": "I",
+        "needFullTest": 0,
+        "shortDesc": "Review offline servers for deletion",
+        "ref": [
+            "[Transfer Family pricing]<https://aws.amazon.com/aws-transfer-family/pricing/>"
+        ]
+    },
+    "DirectoryListing": {
+        "category": "P",
+        "^description": "Directory listing optimization is disabled on this S3-backed server. Enabling it speeds up listings of large directories.",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "criticality": "L",
+        "needFullTest": 0,
+        "shortDesc": "Enable directory listing optimization",
+        "ref": [
+            "[S3 storage options]<https://docs.aws.amazon.com/transfer/latest/userguide/create-server-s3.html>"
+        ]
+    },
+    "ResourceTags": {
+        "category": "O",
+        "^description": "The server has no tags. Tags help with cost allocation, ownership and access control.",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "criticality": "L",
+        "needFullTest": 0,
+        "shortDesc": "Tag your Transfer Family servers",
+        "ref": [
+            "[Tagging AWS resources]<https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html>"
+        ]
+    },
+    "StructuredLogging": {
+        "category": "O",
+        "^description": "Structured JSON logging is not configured. Structured logs are easier to query and alert on than the legacy logging role format.",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 1,
+        "criticality": "L",
+        "needFullTest": 0,
+        "shortDesc": "Enable structured logging",
+        "ref": [
+            "[Structured logging for Transfer Family]<https://docs.aws.amazon.com/transfer/latest/userguide/structured-logging.html>"
+        ]
+    }
+}
