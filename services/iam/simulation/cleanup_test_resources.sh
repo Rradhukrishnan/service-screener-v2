@@ -6,7 +6,7 @@
 set -e
 
 echo "=========================================="
-echo "IAM Service Screener - Cleanup Test Resources"
+echo "IAM Quadra Recon - Cleanup Test Resources"
 echo "=========================================="
 echo ""
 

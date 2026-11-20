@@ -1,6 +1,6 @@
 # SQS Test Resources Simulation
 
-This directory contains scripts to create and cleanup test SQS queues for validating the 3 new Service Screener checks:
+This directory contains scripts to create and cleanup test SQS queues for validating the 3 new Quadra Recon checks:
 
 1. **LongPollingConfiguration** - Detects queues using short polling (cost optimization)
 2. **WildcardPrincipalDetection** - Detects queues with wildcard principals in policies (security)
@@ -30,7 +30,7 @@ This creates 12 test queues:
 - 4 Wildcard Principal test queues (no policy, wildcard, wildcard with conditions, specific)
 - 4 MaxReceiveCount test queues (1, 2, 3, 5)
 
-### 2. Run Service Screener
+### 2. Run Quadra Recon
 
 ```bash
 cd ../../..  # Back to service-screener-v2 root
@@ -160,7 +160,7 @@ set -e
 # Create test resources
 ./create_test_resources.sh
 
-# Run Service Screener
+# Run Quadra Recon
 cd ../../..
 python screener.py --regions us-east-1 --services sqs --output-format json > results.json
 
@@ -188,7 +188,7 @@ If you prefer to test individual checks manually:
 aws sqs create-queue --queue-name test-short-polling \
   --attributes '{"ReceiveMessageWaitTimeSeconds":"0"}'
 
-# Run Service Screener
+# Run Quadra Recon
 python screener.py --regions us-east-1 --services sqs
 
 # Cleanup
@@ -206,7 +206,7 @@ QUEUE_URL=$(aws sqs create-queue --queue-name test-wildcard \
 aws sqs set-queue-attributes --queue-url $QUEUE_URL \
   --attributes 'Policy={"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":"*","Action":"sqs:SendMessage","Resource":"*"}]}'
 
-# Run Service Screener
+# Run Quadra Recon
 python screener.py --regions us-east-1 --services sqs
 
 # Cleanup
@@ -226,7 +226,7 @@ DLQ_ARN=$(aws sqs get-queue-attributes --queue-url $DLQ_URL \
 aws sqs create-queue --queue-name test-max-receive-1 \
   --attributes "{\"RedrivePolicy\":\"{\\\"deadLetterTargetArn\\\":\\\"$DLQ_ARN\\\",\\\"maxReceiveCount\\\":1}\"}"
 
-# Run Service Screener
+# Run Quadra Recon
 python screener.py --regions us-east-1 --services sqs
 
 # Cleanup
@@ -238,7 +238,7 @@ aws sqs delete-queue --queue-url $DLQ_URL
 
 For issues or questions:
 1. Check the troubleshooting section above
-2. Review the Service Screener documentation
+2. Review the Quadra Recon documentation
 3. Check AWS SQS documentation for queue configuration details
 
 ## References

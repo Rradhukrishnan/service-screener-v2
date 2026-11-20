@@ -1,6 +1,6 @@
 #!/bin/bash
 # Script to create intentionally insecure Glue resources for testing
-# These resources will trigger FAIL (-1) status in Service Screener checks
+# These resources will trigger FAIL (-1) status in Quadra Recon checks
 
 REGION="us-east-1"
 ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)

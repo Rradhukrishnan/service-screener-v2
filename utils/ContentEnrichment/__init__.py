@@ -2,7 +2,7 @@
 Content Enrichment Module
 
 This module provides content aggregation and processing functionality for the
-AWS Service Screener dashboard enrichment feature. It fetches curated AWS
+Quadra Recon dashboard enrichment feature. It fetches curated AWS
 content during scan execution and embeds it in generated HTML files for
 complete offline compatibility.
 
@@ -32,7 +32,7 @@ from .base_interfaces import (
 )
 
 __version__ = "1.0.0"
-__author__ = "AWS Service Screener Team"
+__author__ = "Quadra Recon Team"
 
 __all__ = [
     'ContentAggregator',

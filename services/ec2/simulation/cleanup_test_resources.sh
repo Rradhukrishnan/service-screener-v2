@@ -1,6 +1,6 @@
 #!/bin/bash
 ###############################################################################
-# EC2 Service Screener - Simulation Resource Cleanup
+# EC2 Quadra Recon - Simulation Resource Cleanup
 #
 # Removes ALL resources created by create_test_resources.sh.
 # Uses the ServiceScreenerTest=ec2-simulation tag to find resources,

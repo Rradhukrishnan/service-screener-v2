@@ -1,7 +1,7 @@
 ## Context
 
 <service_screener_results_tree>
-Results from Service Screener scan follow a directory tree like below:
+Results from Quadra Recon scan follow a directory tree like below:
 
 ```
 aws
@@ -50,13 +50,13 @@ aws
 
 <navigating_service_screener_data>
 
-The global summary report `aws/<acount_id>/index.html` contains a summary of findings based on the Service Screener check results (e.g. High, Medium, Low and Informational)
+The global summary report `aws/<acount_id>/index.html` contains a summary of findings based on the Quadra Recon check results (e.g. High, Medium, Low and Informational)
 
-Be mindful that there is a distinct separation on the Service Screener HTML files:
+Be mindful that there is a distinct separation on the Quadra Recon HTML files:
    * Compliance and Framework related results: The CIS (CIS Amazon Web Services Foundations Benchmark), FTR (Foundational Technical Review), MSR (MSR baseline checks), NIST (National Institute of Standards and Technology), RBI (Reserve Bank of India (RBI) Cloud Computing Guidelines), RMIT (Bank Negara Malaysia (BNM) Risk Management in Technology (RMiT)), SPIP (AWS Security Posture Improvement Program(SPIP)), SSB (AWS Startup Security Baseline) and WAFS (AWS Well-Architected Framework - Security Pillar).
    * Service specific findings: Any of the other HTMLs, with the exception of "index.html", "CPFindings.html", "CPModernize.html" and "CPTA.html".
 
-Use below bash command to get a summary of number of resources scanned and findings from Service Screener results:
+Use below bash command to get a summary of number of resources scanned and findings from Quadra Recon results:
 
 ```bash
 for account in <acount_id>; do echo "=== Account $account ==="; echo "=== Global Summary ==="; echo "Overall Severity Distribution:"; HIGH=$(grep -A1 'fa-ban.*High' "$account/index.html" 2>/dev/null | grep -o 'text-align: right.*[0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); MEDIUM=$(grep -A1 'fa-exclamation-triangle.*Medium' "$account/index.html" 2>/dev/null | grep -o 'text-align: right.*[0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); LOW=$(grep -A1 'fa-eye.*Low' "$account/index.html" 2>/dev/null | grep -o 'text-align: right.*[0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); INFO=$(grep -A1 'fa-info-circle.*Informational' "$account/index.html" 2>/dev/null | grep -o 'text-align: right.*[0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); echo "  High: $HIGH"; echo "  Medium: $MEDIUM"; echo "  Low: $LOW"; echo "  Informational: $INFO"; echo "AWS Well-Architected Framework Pillars:"; SEC_BLOCK=$(grep -A30 'CPFindings.html#Security' "$account/index.html" 2>/dev/null || echo ""); SEC_TOTAL=$(echo "$SEC_BLOCK" | grep -o '<h3>[0-9]\+</h3>' | head -1 | sed 's/<[^>]*>//g' || echo "N/A"); SEC_HIGH=$(echo "$SEC_BLOCK" | grep -o '<i class="fas fa-ban"></i> [0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); SEC_MED=$(echo "$SEC_BLOCK" | grep -o '<i class="fas fa-exclamation-triangle"></i> [0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); SEC_LOW=$(echo "$SEC_BLOCK" | grep -o '<i class="fas fa-eye"></i> [0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); SEC_INFO=$(echo "$SEC_BLOCK" | grep -o '<i class="fas fa-info-circle"></i> [0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); echo "  Security: Total=$SEC_TOTAL (High=$SEC_HIGH, Medium=$SEC_MED, Low=$SEC_LOW, Info=$SEC_INFO)"; REL_BLOCK=$(grep -A30 'CPFindings.html#Reliability' "$account/index.html" 2>/dev/null || echo ""); REL_TOTAL=$(echo "$REL_BLOCK" | grep -o '<h3>[0-9]\+</h3>' | head -1 | sed 's/<[^>]*>//g' || echo "N/A"); REL_HIGH=$(echo "$REL_BLOCK" | grep -o '<i class="fas fa-ban"></i> [0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); REL_MED=$(echo "$REL_BLOCK" | grep -o '<i class="fas fa-exclamation-triangle"></i> [0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); REL_LOW=$(echo "$REL_BLOCK" | grep -o '<i class="fas fa-eye"></i> [0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); REL_INFO=$(echo "$REL_BLOCK" | grep -o '<i class="fas fa-info-circle"></i> [0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); echo "  Reliability: Total=$REL_TOTAL (High=$REL_HIGH, Medium=$REL_MED, Low=$REL_LOW, Info=$REL_INFO)"; COST_BLOCK=$(grep -A30 'CPFindings.html#Cost Optimization' "$account/index.html" 2>/dev/null || echo ""); COST_TOTAL=$(echo "$COST_BLOCK" | grep -o '<h3>[0-9]\+</h3>' | head -1 | sed 's/<[^>]*>//g' || echo "N/A"); COST_HIGH=$(echo "$COST_BLOCK" | grep -o '<i class="fas fa-ban"></i> [0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); COST_MED=$(echo "$COST_BLOCK" | grep -o '<i class="fas fa-exclamation-triangle"></i> [0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); COST_LOW=$(echo "$COST_BLOCK" | grep -o '<i class="fas fa-eye"></i> [0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); COST_INFO=$(echo "$COST_BLOCK" | grep -o '<i class="fas fa-info-circle"></i> [0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); echo "  Cost Optimization: Total=$COST_TOTAL (High=$COST_HIGH, Medium=$COST_MED, Low=$COST_LOW, Info=$COST_INFO)"; PERF_BLOCK=$(grep -A30 'CPFindings.html#Performance Efficiency' "$account/index.html" 2>/dev/null || echo ""); PERF_TOTAL=$(echo "$PERF_BLOCK" | grep -o '<h3>[0-9]\+</h3>' | head -1 | sed 's/<[^>]*>//g' || echo "N/A"); PERF_HIGH=$(echo "$PERF_BLOCK" | grep -o '<i class="fas fa-ban"></i> [0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); PERF_MED=$(echo "$PERF_BLOCK" | grep -o '<i class="fas fa-exclamation-triangle"></i> [0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); PERF_LOW=$(echo "$PERF_BLOCK" | grep -o '<i class="fas fa-eye"></i> [0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); PERF_INFO=$(echo "$PERF_BLOCK" | grep -o '<i class="fas fa-info-circle"></i> [0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); echo "  Performance Efficiency: Total=$PERF_TOTAL (High=$PERF_HIGH, Medium=$PERF_MED, Low=$PERF_LOW, Info=$PERF_INFO)"; OP_BLOCK=$(grep -A30 'CPFindings.html#Operation Excellence' "$account/index.html" 2>/dev/null || echo ""); OP_TOTAL=$(echo "$OP_BLOCK" | grep -o '<h3>[0-9]\+</h3>' | head -1 | sed 's/<[^>]*>//g' || echo "N/A"); OP_HIGH=$(echo "$OP_BLOCK" | grep -o '<i class="fas fa-ban"></i> [0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); OP_MED=$(echo "$OP_BLOCK" | grep -o '<i class="fas fa-exclamation-triangle"></i> [0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); OP_LOW=$(echo "$OP_BLOCK" | grep -o '<i class="fas fa-eye"></i> [0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); OP_INFO=$(echo "$OP_BLOCK" | grep -o '<i class="fas fa-info-circle"></i> [0-9]\+' | grep -o '[0-9]\+' || echo "N/A"); echo "  Operational Excellence: Total=$OP_TOTAL (High=$OP_HIGH, Medium=$OP_MED, Low=$OP_LOW, Info=$OP_INFO)"; echo "=== COMPLIANCE FRAMEWORKS ==="; echo "CIS (CIS Amazon Web Services Foundations Benchmark):"; grep -o "Summary: \[.*\]" "$account/CIS.html" 2>/dev/null || echo "No CIS data"; echo "FTR (Foundational Technical Review):"; grep -o "Summary: \[.*\]" "$account/FTR.html" 2>/dev/null || echo "No FTR data"; echo "MSR (MSR baseline checks):"; grep -o "Summary: \[.*\]" "$account/MSR.html" 2>/dev/null || echo "No MSR data"; echo "NIST (National Institute of Standards and Technology):"; grep -o "Summary: \[.*\]" "$account/NIST.html" 2>/dev/null || echo "No NIST data"; echo "RBI (Reserve Bank of India Cloud Computing Guidelines):"; grep -o "Summary: \[.*\]" "$account/RBI.html" 2>/dev/null || echo "No RBI data"; echo "RMiT (Bank Negara Malaysia Risk Management in Technology):"; grep -o "Summary: \[.*\]" "$account/RMiT.html" 2>/dev/null || echo "No RMiT data"; echo "SPIP (AWS Security Posture Improvement Program):"; grep -o "Summary: \[.*\]" "$account/SPIP.html" 2>/dev/null || echo "No SPIP data"; echo "SSB (AWS Startup Security Baseline):"; grep -o "Summary: \[.*\]" "$account/SSB.html" 2>/dev/null || echo "No SSB data"; echo "WAFS (AWS Well-Architected Framework - Security Pillar):"; grep -o "Summary: \[.*\]" "$account/WAFS.html" 2>/dev/null || echo "No WAFS data"; echo "=== SERVICE-SPECIFIC FINDINGS ==="; for svc in apigateway cloudfront cloudtrail cloudwatch dynamodb ec2 efs eks elasticache guardduty iam kms lambda opensearch rds redshift s3 sqs; do SVC_UPPER=$(echo $svc | tr '[:lower:]' '[:upper:]'); echo "$SVC_UPPER:"; grep -o "<h3>[0-9]*</h3>" "$account/$svc.html" 2>/dev/null | head -2 | sed 's/<[^>]*>//g' | paste - - | awk '{print "Resources: " $1 ", Findings: " $2}' || echo "No $SVC_UPPER data"; done; echo; done
@@ -70,7 +70,7 @@ For any of the service related HTML files (e.g. `aws/<account_id>/iam.html`) exc
    * Check on line above `<p>Total Findings</p>` for the number of total findings for that particular service.
    * Check on line above `<p>Resources</p>` for the number of total service specific resources scanned.
    * For in-depth details:
-     * Check and review all lines that contains `<dl><dt>Description</dt><dd class='detail-desc'>` for Service Screener check detail and flagged resources grouped by Service Screener Check.
+     * Check and review all lines that contains `<dl><dt>Description</dt><dd class='detail-desc'>` for Quadra Recon check detail and flagged resources grouped by Quadra Recon Check.
      * Also, you can review anything from `</div><h5 class="mt-4 mb-2">Detail</h5>` until `<footer class='main-footer'>` finding grouped by flagged resources.
   
 For GuardDuty related results, in file `aws/<account_id>/guardduty.html`:
@@ -80,7 +80,7 @@ For GuardDuty related results, in file `aws/<account_id>/guardduty.html`:
 You can use below bash script to get a full markdown-formatted table of the `aws/<account_id>/CPFindings.html` file. Useful to get resources flagged per Type (Security, Reliability, Cost Optimization, Performance Efficiency, Operation Excellence) or Severity (High, Medium, Low, and Informational):
 
 ```bash
-cat <acount_id>/CPFindings.html | grep -o '<tr><td>[^<]*</td><td>[^<]*</td><td>[^<]*</td><td>[^<]*</td><td>[^<]*</td><td>[^<]*</td><td>[^<]*</td></tr>' | sed 's/<tr><td>//g; s/<\/td><td>/|/g; s/<\/td><\/tr>//g' | awk -F'|' -v type="$1" -v severity="$2" 'BEGIN {print "# AWS Service Screener Findings\n\n"; print "| Service | Region | Check | Type | ResourceID | Severity | Status |"; print "|---------|--------|-------|------|-----------|----------|--------|";} {if ((type=="" || $4==type) && (severity=="" || $6==severity)) print "| " $1 " | " $2 " | " $3 " | " $4 " | " $5 " | " $6 " | " $7 " |";}'
+cat <acount_id>/CPFindings.html | grep -o '<tr><td>[^<]*</td><td>[^<]*</td><td>[^<]*</td><td>[^<]*</td><td>[^<]*</td><td>[^<]*</td><td>[^<]*</td></tr>' | sed 's/<tr><td>//g; s/<\/td><td>/|/g; s/<\/td><\/tr>//g' | awk -F'|' -v type="$1" -v severity="$2" 'BEGIN {print "# Quadra Recon Findings\n\n"; print "| Service | Region | Check | Type | ResourceID | Severity | Status |"; print "|---------|--------|-------|------|-----------|----------|--------|";} {if ((type=="" || $4==type) && (severity=="" || $6==severity)) print "| " $1 " | " $2 " | " $3 " | " $4 " | " $5 " | " $6 " | " $7 " |";}'
 ```
 
 </navigating_service_screener_data>
@@ -92,7 +92,7 @@ cat <acount_id>/CPFindings.html | grep -o '<tr><td>[^<]*</td><td>[^<]*</td><td>[
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AWS Service Screener Well-Architected Framework Analysis Report</title>
+    <title>Quadra Recon Well-Architected Framework Analysis Report</title>
     <style>
         :root {
             --aws-squid-ink: #232F3E;
@@ -973,7 +973,7 @@ cat <acount_id>/CPFindings.html | grep -o '<tr><td>[^<]*</td><td>[^<]*</td><td>[
                 
                 <!-- ==================== HEADER SECTION START ==================== -->
                 <div class="header" id="overview">
-                    <h1>🏗️ AWS Service Screener Well-Architected Framework Analysis Report</h1>
+                    <h1>🏗️ Quadra Recon Well-Architected Framework Analysis Report</h1>
                     <p>Account ID: 123456789012 | Generated: July 21, 2025 07:50:41 (UTC)</p>
                 </div>
                 <!-- ==================== HEADER SECTION END ==================== -->
@@ -981,7 +981,7 @@ cat <acount_id>/CPFindings.html | grep -o '<tr><td>[^<]*</td><td>[^<]*</td><td>[
                 <!-- ==================== DASHBOARD SECTION START ==================== -->
                 <div class="summary-dashboard">
                     <div class="summary-card">
-                        <h3>📊 Service Screener Issues Found</h3>
+                        <h3>📊 Quadra Recon Issues Found</h3>
                         <div class="metric">
                             <span class="metric-label">High Severity</span>
                             <span class="metric-value high">433</span>
@@ -1093,7 +1093,7 @@ cat <acount_id>/CPFindings.html | grep -o '<tr><td>[^<]*</td><td>[^<]*</td><td>[
 
                 <!-- ==================== SCREENER ANALYSIS SECTION START ==================== -->
                 <div class="section" id="screener-analysis">
-                    <h2>🔍 Service Screener Results Analysis</h2>
+                    <h2>🔍 Quadra Recon Results Analysis</h2>
                     
                     <div class="issue-item">
                         <div class="issue-header">
@@ -1763,7 +1763,7 @@ aws s3api put-bucket-lifecycle-configuration --bucket mydw-prod-front --lifecycl
                     <div class="conclusion">
                         <div class="conclusion-summary">
                             <h3>📋 Current State Summary</h3>
-                            <p>The Service Screener analysis of AWS account 123456789012 identified <strong>1,694 improvement opportunities</strong>. 
+                            <p>The Quadra Recon analysis of AWS account 123456789012 identified <strong>1,694 improvement opportunities</strong>. 
                             Particularly, 706 issues were found in the security domain, requiring immediate action.</p>
                             
                             <div class="key-findings">
@@ -1881,7 +1881,7 @@ aws s3api put-bucket-lifecycle-configuration --bucket mydw-prod-front --lifecycl
                         <ul>
                             <li><strong>Generated:</strong> July 21, 2025 07:50:41 (UTC)</li>
                             <li><strong>Analysis Target:</strong> AWS Account 123456789012</li>
-                            <li><strong>Service Screener Version:</strong> Latest</li>
+                            <li><strong>Quadra Recon Version:</strong> Latest</li>
                             <li><strong>Report Version:</strong> v1.0</li>
                         </ul>
                     </div>
@@ -1890,7 +1890,7 @@ aws s3api put-bucket-lifecycle-configuration --bucket mydw-prod-front --lifecycl
 
                 <!-- ==================== FOOTER SECTION START ==================== -->
                 <div class="footer">
-                    <p><strong>AWS Service Screener Well-Architected Framework Analysis Report</strong></p>
+                    <p><strong>Quadra Recon Well-Architected Framework Analysis Report</strong></p>
                     <p>Generated: July 21, 2025 07:50:41 (UTC) | Account: 123456789012</p>
                     <p>This report provides a comprehensive analysis based on AWS Well-Architected Framework best practices.</p>
                     <p>For questions or additional support, please contact your AWS account team.</p>
@@ -2011,21 +2011,21 @@ The generated HTML report must include:
 </html_structure_requirements>
 
 
-## Your Instructions - AWS Service Screener Well-Architected Framework Analysis
+## Your Instructions - Quadra Recon Well-Architected Framework Analysis
 
-You are a cloud architecture expert and AWS Well-Architected Framework specialist. Your task is to analyze AWS Service Screener output data located at `{SERVICE_SCREENER_DIR}` and generate a comprehensive Well-Architected Framework analysis report as per the HTML format provided in the <wa_html_summary_report> section.
+You are a cloud architecture expert and AWS Well-Architected Framework specialist. Your task is to analyze Quadra Recon output data located at `{SERVICE_SCREENER_DIR}` and generate a comprehensive Well-Architected Framework analysis report as per the HTML format provided in the <wa_html_summary_report> section.
 
-### Service Screener Data Structure
+### Quadra Recon Data Structure
 
-The AWS Service Screener data is organized as provided in the example within the <service_screener_results_tree> section above.
+The Quadra Recon data is organized as provided in the example within the <service_screener_results_tree> section above.
 
-### Navigating and retrieving information from the AWS Service Screener output directory
+### Navigating and retrieving information from the Quadra Recon output directory
 
-Before and while generating the HTML report, follow the methods and recommendations for retrieving AWS Service Screener data as described within the <navigating_service_screener_data> section above.
+Before and while generating the HTML report, follow the methods and recommendations for retrieving Quadra Recon data as described within the <navigating_service_screener_data> section above.
 
 ### Analysis Requirements
 
-1. **Analyze the Service Screener data** as described within the <navigating_service_screener_data> section above to identify security issues, performance optimization opportunities, and other findings across all six Well-Architected Framework pillars.
+1. **Analyze the Quadra Recon data** as described within the <navigating_service_screener_data> section above to identify security issues, performance optimization opportunities, and other findings across all six Well-Architected Framework pillars.
 
 2. **Focus on the TOP 5 services with the most findings**, prioritized by severity (High, then Medium, then Low). Always include IAM findings regardless of their ranking. Used the methods as described within the <navigating_service_screener_data> section above to pull this information effectively.
 
@@ -2038,11 +2038,11 @@ Before and while generating the HTML report, follow the methods and recommendati
 
 Based on the information you have extracted from the TOP-5 services, generate an HTML report following the guidelines below without creating or executing separate scripts (As reference, within the square brackets in each step below, you have the different section headers from the provided <wa_html_summary_report> example): 
 
-1) ["AWS Service Screener Well-Architected Framework Analysis Report", "Service Screener Issues Found", "Security Issues Status"] Service Screener Summary Dashboard (Overall assessment and Security Issues Status score with Critical/High/Medium/Low findings count breakdown and SPIP compliance status overview).
+1) ["Quadra Recon Well-Architected Framework Analysis Report", "Quadra Recon Issues Found", "Security Issues Status"] Quadra Recon Summary Dashboard (Overall assessment and Security Issues Status score with Critical/High/Medium/Low findings count breakdown and SPIP compliance status overview).
 
-2) ["Well-Architected Framework 6 Pillars Analysis"] Well-Architected Framework Analysis based on Service Screener findings - Operational Excellence Assessment (Monitoring and logging findings, Automation opportunities, Change management recommendations, Performance monitoring gaps), Security Assessment (Identity and access findings, Data protection recommendations, Network security gaps, Incident response improvements), Reliability Assessment (Fault tolerance findings, Backup and recovery gaps, Monitoring and alerting recommendations, Capacity planning improvements), Performance Efficiency Assessment (Resource optimization opportunities, Scaling recommendations, Technology modernization suggestions, Performance monitoring enhancements), Cost Optimization Assessment (Cost reduction opportunities, Resource rightsizing recommendations, Reserved instance optimization, Unused resource identification), Sustainability Assessment (Resource efficiency improvements, Carbon footprint reduction opportunities, Sustainable architecture patterns, Green computing recommendations)
+2) ["Well-Architected Framework 6 Pillars Analysis"] Well-Architected Framework Analysis based on Quadra Recon findings - Operational Excellence Assessment (Monitoring and logging findings, Automation opportunities, Change management recommendations, Performance monitoring gaps), Security Assessment (Identity and access findings, Data protection recommendations, Network security gaps, Incident response improvements), Reliability Assessment (Fault tolerance findings, Backup and recovery gaps, Monitoring and alerting recommendations, Capacity planning improvements), Performance Efficiency Assessment (Resource optimization opportunities, Scaling recommendations, Technology modernization suggestions, Performance monitoring enhancements), Cost Optimization Assessment (Cost reduction opportunities, Resource rightsizing recommendations, Reserved instance optimization, Unused resource identification), Sustainability Assessment (Resource efficiency improvements, Carbon footprint reduction opportunities, Sustainable architecture patterns, Green computing recommendations)
 
-3) ["Service Screener Results Analysis"] Detailed Findings Analysis (Service-specific recommendations with priority levels, Resource-specific improvement opportunities, Configuration optimization suggestions, Best practices alignment gaps)
+3) ["Quadra Recon Results Analysis"] Detailed Findings Analysis (Service-specific recommendations with priority levels, Resource-specific improvement opportunities, Configuration optimization suggestions, Best practices alignment gaps)
 
 4) ["Priority-based Improvement Recommendations"] Risk Assessment and Prioritization. Prioritize recommendations based on business impact and implementation complexity (High-impact findings requiring immediate attention, Medium-priority improvements for planning, Low-priority enhancements for future consideration, Business risk assessment and mitigation strategies). Provide actionable improvement steps with AWS CLI commands.
 
@@ -2067,4 +2067,4 @@ Use the following CSS styling for the report:
 5. Make the report responsive and readable on different devices.
 6. Provide realistic cost estimates and timelines.
 
-Analyze the Service Screener data thoroughly and generate a comprehensive Well-Architected Framework analysis HTML report that follows the provided guidelines and instructions. The report should be in HTML format and saved as `wa_summary_report_{YYYYMMDD_HHMMSS}.html` in the current location's `{DEFAULT_OUTPUT_DIR}` folder (Timezone: UTC).
+Analyze the Quadra Recon data thoroughly and generate a comprehensive Well-Architected Framework analysis HTML report that follows the provided guidelines and instructions. The report should be in HTML format and saved as `wa_summary_report_{YYYYMMDD_HHMMSS}.html` in the current location's `{DEFAULT_OUTPUT_DIR}` folder (Timezone: UTC).

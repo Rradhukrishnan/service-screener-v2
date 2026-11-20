@@ -14,7 +14,7 @@ set -e
 REGION="${AWS_REGION:-${REGION:-us-east-1}}"
 
 echo "=========================================="
-echo "EFS Service Screener - Test Resource Cleanup"
+echo "EFS Quadra Recon - Test Resource Cleanup"
 echo "Region: $REGION"
 echo "=========================================="
 

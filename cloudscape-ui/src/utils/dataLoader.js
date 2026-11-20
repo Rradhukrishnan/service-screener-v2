@@ -1,4 +1,4 @@
-// Data loading utilities for Service Screener
+// Data loading utilities for Quadra Recon
 
 /**
  * Load report data from window.__REPORT_DATA__ or fetch from JSON file

@@ -66,7 +66,7 @@ def setup_logging():
     sys.stdout = TeeOutput(sys.stdout, log_filepath)
     
     # Write initial log entries
-    print(f"=== Service Screener v2 - Scan Started ===")
+    print(f"=== Quadra Recon - Scan Started ===")
     print(f"Log file: {log_filepath}")
     print(f"Timestamp: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 50)
@@ -601,7 +601,7 @@ if beta:
 
 # Log completion
 print("=" * 50)
-print(f"=== Service Screener v2 - Scan Completed ===")
+print(f"=== Quadra Recon - Scan Completed ===")
 print(f"Total execution time: {scriptTimeSpent}s")
 print(f"Log saved to: {log_filepath}")
 print(f"Completed at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")

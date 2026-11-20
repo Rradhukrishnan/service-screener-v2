@@ -1,10 +1,10 @@
-# Using Suppressions in Service Screener
+# Using Suppressions in Quadra Recon
 
-Service Screener allows you to suppress specific findings using a JSON suppression file. This is useful when you have known exceptions or when certain findings are not relevant to your environment.
+Quadra Recon allows you to suppress specific findings using a JSON suppression file. This is useful when you have known exceptions or when certain findings are not relevant to your environment.
 
 ## Basic Usage
 
-To use suppressions, provide the path to your suppression file when running Service Screener:
+To use suppressions, provide the path to your suppression file when running Quadra Recon:
 
 ```bash
 screener --regions ap-southeast-1 --suppress_file ./suppressions.json

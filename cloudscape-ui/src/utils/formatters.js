@@ -1,4 +1,4 @@
-// Formatting utilities for Service Screener data
+// Formatting utilities for Quadra Recon data
 
 import { 
   CRITICALITY, 

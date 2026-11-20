@@ -1,6 +1,6 @@
-# Service Screener v2 - Service Update Guide
+# Quadra Recon v2 - Service Update Guide
 
-**Purpose**: Comprehensive guide for reviewing AWS services and implementing new checks in Service Screener v2
+**Purpose**: Comprehensive guide for reviewing AWS services and implementing new checks in Quadra Recon v2
 
 **Created**: February 24, 2026  
 **Based on**: Successful implementation of 26 new checks across Glue, SageMaker, and CloudFront
@@ -34,7 +34,7 @@ This directory contains the complete methodology for analyzing AWS services and 
 
 Use this guide when you want to:
 - Add new checks to an existing AWS service
-- Review a new AWS service for Service Screener
+- Review a new AWS service for Quadra Recon
 - Understand the check implementation process
 - Ensure consistent quality across implementations
 - Follow proven methodology
@@ -212,7 +212,7 @@ All analysis documents are archived in:
 All implementations following this guide should meet:
 
 ### Code Quality
-- [ ] Follows Service Screener conventions
+- [ ] Follows Quadra Recon conventions
 - [ ] Proper error handling
 - [ ] Clear variable names
 - [ ] Appropriate comments

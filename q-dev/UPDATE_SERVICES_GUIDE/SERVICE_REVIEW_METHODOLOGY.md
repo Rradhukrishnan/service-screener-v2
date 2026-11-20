@@ -1,6 +1,6 @@
 # Service Review Methodology Guide
 
-**Purpose**: Step-by-step process to analyze AWS service best practices and identify new checks for Service Screener v2
+**Purpose**: Step-by-step process to analyze AWS service best practices and identify new checks for Quadra Recon v2
 
 **Based on**: Successful implementation for Glue, SageMaker, and CloudFront services
 
@@ -579,7 +579,7 @@ echo "✅ Cleanup complete"
 # {Service} Service Simulation
 
 ## Purpose
-Test Service Screener checks against real AWS resources.
+Test Quadra Recon checks against real AWS resources.
 
 ## Resources Created
 | Resource | Configuration | Validates Checks |
@@ -599,7 +599,7 @@ Test Service Screener checks against real AWS resources.
 # Create
 ./create_test_resources.sh
 
-# Run Service Screener
+# Run Quadra Recon
 cd ../../..
 python3 main.py --regions us-east-1 --services {service} --beta 1 --sequential 1
 
@@ -692,13 +692,13 @@ python -m pytest tests/ -v
 **Actions**:
 1. Run create script
 2. Wait for resources to be ready
-3. Run Service Screener
+3. Run Quadra Recon
 4. Verify expected results
 5. Run cleanup script
 
 **Validation Checklist**:
 - ✅ Resources created successfully
-- ✅ Service Screener detects all issues
+- ✅ Quadra Recon detects all issues
 - ✅ Check results match expectations
 - ✅ Cleanup removes all resources
 - ✅ No unexpected costs

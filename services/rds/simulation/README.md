@@ -8,7 +8,7 @@ Scripts to create AWS resources that trigger the majority of RDS service review 
 # Create all test resources
 ./create_test_resources.sh --region us-east-1
 
-# Run Service Screener
+# Run Quadra Recon
 cd ../../..
 python screener.py --regions us-east-1 --services rds
 

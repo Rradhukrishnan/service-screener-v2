@@ -72,7 +72,7 @@ AWS_REGION=us-west-2 ./cleanup_test_resources.sh
        --query 'ReplicationGroups[?starts_with(ReplicationGroupId, `test-rg`)].{ID:ReplicationGroupId,Status:Status}'
    ```
 
-3. **Run Service Screener:**
+3. **Run Quadra Recon:**
    ```bash
    cd ../../../
    python screener.py --services elasticache --regions us-east-1

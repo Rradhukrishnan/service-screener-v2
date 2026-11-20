@@ -1,10 +1,10 @@
-# Service Screener - Cloudscape UI
+# Quadra Recon - Cloudscape UI
 
-Modern, lightweight UI for AWS Service Screener built with React and AWS Cloudscape Design System.
+Modern, lightweight UI for Quadra Recon built with React and AWS Cloudscape Design System.
 
 ## Overview
 
-The Cloudscape UI is a complete redesign of the Service Screener reporting interface, offering:
+The Cloudscape UI is a complete redesign of the Quadra Recon reporting interface, offering:
 
 - **90% smaller bundle size** - Single 2MB HTML file vs 20MB+ AdminLTE
 - **Modern design** - AWS Cloudscape Design System components
@@ -417,7 +417,7 @@ When contributing to the Cloudscape UI:
 
 ## License
 
-Same as Service Screener main project.
+Same as Quadra Recon main project.
 
 ## Support
 

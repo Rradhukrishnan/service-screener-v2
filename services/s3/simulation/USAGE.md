@@ -2,7 +2,7 @@
 
 ## Overview
 
-Single consolidated script that creates **26 test scenarios** covering all S3 checks in Service Screener v2.
+Single consolidated script that creates **26 test scenarios** covering all S3 checks in Quadra Recon v2.
 
 ## Files
 
@@ -19,7 +19,7 @@ cd service-screener-v2/services/s3/simulation
 # 2. Create all test resources (26 scenarios)
 ./create_test_resources.sh
 
-# 3. Run Service Screener
+# 3. Run Quadra Recon
 cd ../../..
 python screener.py --services s3 --regions us-east-1
 

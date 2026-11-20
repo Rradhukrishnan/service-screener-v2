@@ -1,11 +1,11 @@
 # Service Review Quick Reference Card
 
-**Quick guide for reviewing AWS services for new Service Screener checks**
+**Quick guide for reviewing AWS services for new Quadra Recon checks**
 
 ---
 
 ## 🎯 Goal
-Compare AWS best practices against current Service Screener implementation to identify and implement new checks.
+Compare AWS best practices against current Quadra Recon implementation to identify and implement new checks.
 
 ---
 

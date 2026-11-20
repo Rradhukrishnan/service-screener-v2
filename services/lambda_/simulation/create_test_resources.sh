@@ -31,7 +31,7 @@ TRUST_POLICY='{
 aws iam create-role \
   --role-name "$ROLE_NAME" \
   --assume-role-policy-document "$TRUST_POLICY" \
-  --description "Test role for Lambda Service Screener checks" \
+  --description "Test role for Lambda Quadra Recon checks" \
   > /dev/null
 
 aws iam attach-role-policy \
@@ -64,7 +64,7 @@ cat > "$TEMP_DIR/index.py" << 'EOF'
 def lambda_handler(event, context):
     return {
         'statusCode': 200,
-        'body': 'Test function for Service Screener'
+        'body': 'Test function for Quadra Recon'
     }
 EOF
 
@@ -367,7 +367,7 @@ echo ""
 echo "16. Saving resource information..."
 RESOURCE_FILE="test_resources_${TIMESTAMP}.txt"
 cat > "$RESOURCE_FILE" << EOF
-# Lambda Service Screener Test Resources
+# Lambda Quadra Recon Test Resources
 # Created: $(date)
 # Region: $REGION
 # Prefix: $PREFIX

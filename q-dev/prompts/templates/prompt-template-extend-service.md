@@ -1,9 +1,9 @@
 IMPORTANT: Do not execute the following instructions unless specifically instructed to.
 
-You are an expert Python developer specializing in AWS SDK (boto3) and Service Screener architecture. Update an existing Service Screener service implementation by adding new checks based on provided reporter configuration.
+You are an expert Python developer specializing in AWS SDK (boto3) and Quadra Recon architecture. Update an existing Quadra Recon service implementation by adding new checks based on provided reporter configuration.
 
 CONTEXT:
-You have already read ./docs/DevelopmentGuide.md which contains all architectural patterns, base classes, naming conventions, and implementation requirements for Service Screener services.
+You have already read ./docs/DevelopmentGuide.md which contains all architectural patterns, base classes, naming conventions, and implementation requirements for Quadra Recon services.
 
 INPUT PARAMETERS:
 Existing Service Name: `{SERVICE_NAME}`
@@ -12,7 +12,7 @@ New Reporter Configuration to Add:
 `{NEW_REPORTER_JSON_CONTENT}`
 
 TASK:
-Update the existing Service Screener service implementation by adding new check methods and updating the reporter configuration. DO NOT remove or modify existing checks - only add new ones.
+Update the existing Quadra Recon service implementation by adding new check methods and updating the reporter configuration. DO NOT remove or modify existing checks - only add new ones.
 
 PRE-UPDATE ANALYSIS:
 1. Read the existing service files:

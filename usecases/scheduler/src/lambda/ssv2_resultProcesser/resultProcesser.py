@@ -9,8 +9,8 @@ import openpyxl
 import logging
 
 ## Initialization
-SnsEmailSubject = "[AWS] Service Screener Scheduler Report"
-SnsEmailBodyPrefix = "Here is your Service Screener report.\n\n"
+SnsEmailSubject = "[AWS] Quadra Recon Scheduler Report"
+SnsEmailBodyPrefix = "Here is your Quadra Recon report.\n\n"
 snsPrefix = os.environ['SSV2_SNSARN_PREFIX']
 
 

@@ -1,4 +1,4 @@
-// Constants for Service Screener Cloudscape UI
+// Constants for Quadra Recon Cloudscape UI
 
 // Criticality levels
 export const CRITICALITY = {

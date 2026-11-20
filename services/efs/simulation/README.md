@@ -1,6 +1,6 @@
-# EFS Service Screener - Simulation Scripts
+# EFS Quadra Recon - Simulation Scripts
 
-This directory contains scripts to create and clean up AWS EFS test resources for validating the Service Screener checks.
+This directory contains scripts to create and clean up AWS EFS test resources for validating the Quadra Recon checks.
 
 ## Overview
 
@@ -52,9 +52,9 @@ The script will:
 
 **Important:** Save the resource IDs output at the end. You can copy the provided command to create a `test_resources.env` file.
 
-### 2. Run Service Screener
+### 2. Run Quadra Recon
 
-After creating the test resources, run the Service Screener against your AWS account:
+After creating the test resources, run the Quadra Recon against your AWS account:
 
 ```bash
 # Navigate to the service-screener-v2 directory
@@ -66,7 +66,7 @@ python screener.py --region us-east-1 --services efs
 
 ### 3. Verify Results
 
-Compare the Service Screener output against the expected results:
+Compare the Quadra Recon output against the expected results:
 
 #### Test Case 1: Compliant File System
 **Expected:** Should PASS all checks
@@ -237,7 +237,7 @@ aws ec2 delete-vpc --vpc-id <VPC_ID> --region us-east-1
 ## Support
 
 For issues or questions:
-1. Check the Service Screener documentation
+1. Check the Quadra Recon documentation
 2. Review AWS EFS documentation
 3. Verify AWS CLI is properly configured
 4. Check AWS service quotas and limits

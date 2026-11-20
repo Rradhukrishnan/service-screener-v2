@@ -1,4 +1,4 @@
-# EC2 Service Screener - Simulation Scripts
+# EC2 Quadra Recon - Simulation Scripts
 
 Simulation scripts to create AWS resources that trigger both PASS and FAIL scenarios for all 18 EC2 checks (Tier 1, 2, and 3).
 
@@ -23,9 +23,9 @@ Simulation scripts to create AWS resources that trigger both PASS and FAIL scena
 
 The script will prompt for confirmation before creating any resources.
 
-### Run Service Screener
+### Run Quadra Recon
 
-After creating resources, run Service Screener to validate the checks:
+After creating resources, run Quadra Recon to validate the checks:
 
 ```bash
 cd ../../..  # Navigate to service-screener-v2 root

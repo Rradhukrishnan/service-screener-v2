@@ -1,4 +1,4 @@
-# SOC2 Framework for Service Screener
+# SOC2 Framework for Quadra Recon
 
 This framework maps AWS service configurations to SOC2 Trust Service Criteria (TSC) requirements.
 

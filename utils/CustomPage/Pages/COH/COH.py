@@ -873,13 +873,13 @@ class COH(CustomObject):
     
     def cross_reference_with_service_screener(self):
         """
-        Create cross-references between cost optimization recommendations and Service Screener findings.
+        Create cross-references between cost optimization recommendations and Quadra Recon findings.
         
         Returns:
             dict: Cross-reference analysis with integrated recommendations and conflicts
         """
         try:
-            # Get Service Screener findings from Config (if available)
+            # Get Quadra Recon findings from Config (if available)
             service_screener_data = Config.get('service_screener_findings', {})
             
             integrated_recommendations = []
@@ -962,7 +962,7 @@ class COH(CustomObject):
             }
             
         except Exception as e:
-            _warn(f"Error in Service Screener cross-reference: {str(e)}")
+            _warn(f"Error in Quadra Recon cross-reference: {str(e)}")
             return {
                 'integrated_recommendations': [],
                 'cost_security_conflicts': [],
@@ -992,7 +992,7 @@ class COH(CustomObject):
         
         # Search through service screener data for overlapping resources
         # This is a simplified implementation - in practice, you'd need to match
-        # the actual structure of Service Screener findings
+        # the actual structure of Quadra Recon findings
         for service, findings in service_screener_data.items():
             if isinstance(findings, dict) and 'findings' in findings:
                 for finding in findings['findings']:

@@ -1,4 +1,4 @@
-import argparse
+﻿import argparse
 
 class ArguParser:
     OPTLISTS = {
@@ -23,7 +23,7 @@ class ArguParser:
         "services": {
             "required": False,
             "emptymsg": "Missing --services, using default value: $defaultValue",
-            "default": "rds,ec2,iam,s3,efs,lambda,guardduty,cloudfront,cloudtrail,elasticache,eks,dynamodb,opensearch,kms,cloudwatch,redshift,apigateway,sqs,glue,sagemaker,awsconfig,inspector,ecs,ecr,elasticbeanstalk,securityhub,secretsmanager,wafv2,codebuild,codepipeline,codecommit,codedeploy,controltower,acm,route53,ses,costexplorer,workspaces,athena,fsx",
+            "default": "rds,ec2,iam,s3,efs,lambda,guardduty,cloudfront,cloudtrail,elasticache,eks,dynamodb,opensearch,kms,cloudwatch,redshift,apigateway,sqs,glue,sagemaker,awsconfig,inspector,ecs,ecr,elasticbeanstalk,securityhub,secretsmanager,wafv2,codebuild,codepipeline,codecommit,codedeploy,controltower,acm,route53,ses,costexplorer,workspaces,athena,fsx,sftp",
             "help": "--services ec2,iam"
         },
         "debug": {
@@ -100,7 +100,7 @@ class ArguParser:
 
     @staticmethod
     def Load():
-        parser = argparse.ArgumentParser(prog='Screener', description='Service-Screener, open-source to check your AWS environment against AWS Well-Architected Pillars')
+        parser = argparse.ArgumentParser(prog='QuadraRecon', description='Quadra Recon, open-source to check your AWS environment against AWS Well-Architected Pillars')
     
         for k, v in ArguParser.CLI_ARGUMENT_RULES.items():
             # Get the short option from OPTLISTS if available, otherwise no short option
@@ -121,7 +121,7 @@ class ArguParser:
         return args
         
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(prog='Screener', description='Service-Screener, open-source to check your AWS environment against AWS Well-Architected Pillars')
+    parser = argparse.ArgumentParser(prog='QuadraRecon', description='Quadra Recon, open-source to check your AWS environment against AWS Well-Architected Pillars')
     
     for k, v in ArguParser.CLI_ARGUMENT_RULES.items():
         parser.add_argument('-' + k[:1], '--' + k, required=v['required'], default=v['default'], help=v.get('help', None))

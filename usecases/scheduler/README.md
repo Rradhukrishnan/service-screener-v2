@@ -112,7 +112,7 @@ chmod +x ./deploy.sh
 ./deploy.sh
 ```
 
-After the item has been inserted into DynamoDB, an EventBridge Scheduler and SNS topic will be created. Check the email you exported as environment variable previously and confirm the subscription. This email will receive the updates whenever Service Screener runs.
+After the item has been inserted into DynamoDB, an EventBridge Scheduler and SNS topic will be created. Check the email you exported as environment variable previously and confirm the subscription. This email will receive the updates whenever Quadra Recon runs.
 
 ## Configuration
 The configuration setup is to be done in DynamoDB, a table called: <TODO>

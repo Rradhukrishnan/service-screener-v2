@@ -4,7 +4,7 @@ from utils.Tools import _warn, _info
 
 class SuppressionsManager:
     """
-    Manages suppressions for Service Screener findings.
+    Manages suppressions for Quadra Recon findings.
     Loads suppressions from a JSON file and provides methods to check if a finding should be suppressed.
     """
     

@@ -2,14 +2,14 @@
 
 ## Introduction
 
-This guide provides step-by-step instructions for implementing the SOC2 framework with Service Screener to assess your AWS environment against SOC2 Trust Service Criteria (TSC).
+This guide provides step-by-step instructions for implementing the SOC2 framework with Quadra Recon to assess your AWS environment against SOC2 Trust Service Criteria (TSC).
 
 > **Important Note**: Implementing SOC2 controls may have cost and operational impacts on your AWS environment. This guide includes notes about potential cost implications and downtime considerations to help you plan your implementation strategy.
 
 ## Prerequisites
 
 1. AWS account with appropriate permissions
-2. Service Screener installed (follow the main README.md instructions)
+2. Quadra Recon installed (follow the main README.md instructions)
 3. Basic understanding of SOC2 requirements
 4. Budget planning for potential cost increases
 5. Change management process for handling service modifications
@@ -51,7 +51,7 @@ For each non-compliant control:
 
 ### Step 4: Prepare for SOC2 Audit
 
-1. Compile evidence of compliance from the Service Screener reports
+1. Compile evidence of compliance from the Quadra Recon reports
 2. Document your control environment based on the assessment results
 3. Create a mapping document between SOC2 TSC and your implemented AWS controls
 4. Prepare additional documentation required for SOC2 audit
@@ -59,7 +59,7 @@ For each non-compliant control:
 ## Implementation Roadmap
 
 ### Phase 1: Initial Assessment and Planning (Week 1)
-- Run Service Screener with SOC2 framework
+- Run Quadra Recon with SOC2 framework
 - Identify compliance gaps
 - Prioritize remediation efforts
 - **Cost Planning**: Estimate budget impact of required changes
@@ -73,7 +73,7 @@ For each non-compliant control:
 - **Downtime Management**: Implement changes requiring restarts during maintenance windows
 
 ### Phase 3: Verification (Week 5)
-- Re-run Service Screener assessment
+- Re-run Quadra Recon assessment
 - Verify remediation effectiveness
 - Address any remaining issues
 - **Performance Testing**: Ensure changes haven't negatively impacted performance
@@ -87,11 +87,11 @@ For each non-compliant control:
 ## Common Implementation Challenges
 
 ### Challenge 1: Multi-Region Compliance
-**Solution**: Run Service Screener across all regions where you have workloads and consolidate findings.
+**Solution**: Run Quadra Recon across all regions where you have workloads and consolidate findings.
 **Cost Impact**: High - Implementing controls across multiple regions multiplies costs.
 
 ### Challenge 2: Custom Controls
-**Solution**: For controls not covered by Service Screener, document manual processes and controls separately.
+**Solution**: For controls not covered by Quadra Recon, document manual processes and controls separately.
 **Cost Impact**: Medium - May require custom development or third-party solutions.
 
 ### Challenge 3: Legacy Systems
@@ -143,4 +143,4 @@ For each non-compliant control:
 
 ## Conclusion
 
-Implementing the SOC2 framework with Service Screener provides a structured approach to achieving and maintaining SOC2 compliance in your AWS environment. By following this guide and carefully considering cost and operational impacts, you can systematically assess, remediate, and document your compliance posture to prepare for SOC2 audits while managing your AWS spending effectively.
+Implementing the SOC2 framework with Quadra Recon provides a structured approach to achieving and maintaining SOC2 compliance in your AWS environment. By following this guide and carefully considering cost and operational impacts, you can systematically assess, remediate, and document your compliance posture to prepare for SOC2 audits while managing your AWS spending effectively.

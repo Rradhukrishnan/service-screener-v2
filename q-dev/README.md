@@ -1,6 +1,6 @@
 # Development with Q CLI
 
-This guide shows how to use Amazon Q Developer CLI to efficiently develop and maintain the Service Screener codebase using pre-built prompt templates.
+This guide shows how to use Amazon Q Developer CLI to efficiently develop and maintain the Quadra Recon codebase using pre-built prompt templates.
 
 ## Table of Contents
 1. [Initializing Chat Session](#initializing-chat-session) (DO THIS IN EVERY NEW SESSION)
@@ -139,7 +139,7 @@ cd services/sagemaker/simulation
 # 1. Create insecure test resources
 ./create_test_resources.sh
 
-# 2. Run Service Screener
+# 2. Run Quadra Recon
 cd ../../..
 python3 main.py --regions us-east-1 --services sagemaker --beta 1 --sequential 1
 

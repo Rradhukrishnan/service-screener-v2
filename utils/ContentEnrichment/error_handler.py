@@ -2,7 +2,7 @@
 Error Handler for Content Enrichment
 
 Provides comprehensive error handling and graceful degradation for the content
-enrichment system to ensure the Service Screener continues to function even
+enrichment system to ensure the Quadra Recon continues to function even
 when content fetching fails.
 """
 
@@ -122,7 +122,7 @@ class ContentEnrichmentErrorHandler:
     
     def should_continue_scan(self) -> bool:
         """
-        Determine if the Service Screener scan should continue despite content enrichment failures
+        Determine if the Quadra Recon scan should continue despite content enrichment failures
         
         Returns:
             True (scan should always continue)

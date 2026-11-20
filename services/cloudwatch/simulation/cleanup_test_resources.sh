@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# CloudWatch Service Screener Simulation - Cleanup Test Resources
+# CloudWatch Quadra Recon Simulation - Cleanup Test Resources
 # This script deletes all test resources created by create_test_resources.sh
 # Safe to run multiple times (idempotent)
 
@@ -19,7 +19,7 @@ ALARM_WITH_SNS="test-alarm-with-sns"
 ALARM_WITHOUT_SNS="test-alarm-without-sns"
 BILLING_ALARM="test-billing-alarm"
 
-echo -e "${GREEN}=== CloudWatch Service Screener Test Resource Cleanup ===${NC}"
+echo -e "${GREEN}=== CloudWatch Quadra Recon Test Resource Cleanup ===${NC}"
 echo "Region: $REGION"
 echo ""
 

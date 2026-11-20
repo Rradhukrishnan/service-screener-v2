@@ -31,7 +31,7 @@ else:
     serviceTemplatePath = os.getcwd() + '/utils/services-template/'
     
     if not os.path.isdir(serviceTemplatePath):
-        print("Service template is missing. Please reach out to service screener team for further support")
+        print("Service template is missing. Please reach out to Quadra Recon team for further support")
     else:
         shutil.copyfile(serviceTemplatePath + 'Service.py', servicePath + serviceName.capitalize() + '.py')
         shutil.copyfile(serviceTemplatePath + 'service.reporter.json', servicePath + serviceName + '.reporter.json')

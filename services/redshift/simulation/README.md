@@ -1,10 +1,10 @@
-# Redshift Service Screener Simulation
+# Redshift Quadra Recon Simulation
 
-This directory contains simulation scripts to create test AWS resources for validating Redshift Service Screener checks.
+This directory contains simulation scripts to create test AWS resources for validating Redshift Quadra Recon checks.
 
 ## Overview
 
-The simulation scripts create real AWS resources to test Redshift Service Screener checks:
+The simulation scripts create real AWS resources to test Redshift Quadra Recon checks:
 
 ### Implemented Checks
 1. **VpcDeployment** (Tier 1) - Validates that Redshift clusters are deployed in VPC for network isolation
@@ -95,9 +95,9 @@ AWS_REGION=us-west-2 ./create_test_resources.sh
 
 **Creation time**: 5-10 minutes
 
-### 2. Run Service Screener
+### 2. Run Quadra Recon
 
-Navigate to the Service Screener root directory and run:
+Navigate to the Quadra Recon root directory and run:
 
 ```bash
 cd ../../..  # Go to service-screener-v2 root
@@ -111,7 +111,7 @@ python screener.py --regions us-west-2 --services redshift
 
 ### 3. Verify Results
 
-Check the Service Screener output for the following expected results:
+Check the Quadra Recon output for the following expected results:
 
 #### VpcDeployment Check
 - **Should PASS**: `test-screener-redshift` (cluster is deployed in VPC)
@@ -187,7 +187,7 @@ The cleanup script is **idempotent** - safe to run multiple times even if resour
 
 **Cleanup time**: 5-10 minutes (cluster deletion)
 
-## Expected Service Screener Results
+## Expected Quadra Recon Results
 
 ### VpcDeployment Check
 
@@ -371,9 +371,9 @@ Deletes all test resources:
 - **Error Handling**: Continues even if resources don't exist
 - **Output**: Confirms each deletion with detailed summary
 
-## Integration with Service Screener
+## Integration with Quadra Recon
 
-These simulation scripts are designed to work with the Redshift Service Screener checks:
+These simulation scripts are designed to work with the Redshift Quadra Recon checks:
 
 1. **VpcDeployment** (Tier 1) - Implemented in `drivers/RedshiftCluster.py`
    - Method: `_checkCluster()`
@@ -410,12 +410,12 @@ These simulation scripts are designed to work with the Redshift Service Screener
 For issues or questions:
 1. Check the Troubleshooting section above
 2. Verify AWS credentials and permissions
-3. Review Service Screener logs for detailed error messages
+3. Review Quadra Recon logs for detailed error messages
 4. Consult AWS Redshift documentation
 
 ## Version
 
 - **Version**: 2.0
 - **Last Updated**: 2024
-- **Compatible with**: Service Screener v2
+- **Compatible with**: Quadra Recon v2
 - **Checks Covered**: VpcDeployment, AdvisorRecommendations, EventNotifications, QueryMonitoringRules, SecurityGroups (5 checks total)

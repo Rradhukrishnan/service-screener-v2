@@ -53,9 +53,9 @@ This creates:
 
 **Creation time**: 10-15 minutes for domains to become active
 
-### 2. Run Service Screener
+### 2. Run Quadra Recon
 
-After domains are active, run the Service Screener:
+After domains are active, run the Quadra Recon:
 
 ```bash
 cd ../../..  # Navigate to service-screener-v2 root

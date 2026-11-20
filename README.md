@@ -1,10 +1,10 @@
-# Service Screener
+# Quadra Recon
 
 An open source guidance tool for the AWS environment. Click [here](https://d3si63niga8mq9.cloudfront.net/961319563195/index.html) for sample report.
 
 ***Important note***: *The generated report has to be hosted locally and MUST NOT be internet accessible*
 
-This version of Service Screener may not compatible with the Greater China region. Our community folks have made it work [here](https://github.com/lijh-aws-tools/service-screener-cn). 
+This version of Quadra Recon may not compatible with the Greater China region. Our community folks have made it work [here](https://github.com/lijh-aws-tools/service-screener-cn). 
 
 ## 🎉 NEW: Enhanced Beta Features (v2.5.0-beta)
 
@@ -31,14 +31,14 @@ This version of Service Screener may not compatible with the Greater China regio
 Enable beta features with: `--beta 1` (legacy AdminLTE remains default for backward compatibility)
 
 ## Overview
-Service Screener is a tool that runs automated checks on AWS environments and provides recommendations based on AWS and community best practices. 
+Quadra Recon is a tool that runs automated checks on AWS environments and provides recommendations based on AWS and community best practices. 
 
 AWS customers can use this tool on their own environments and use the recommendations to improve the Security, Reliability, Operational Excellence, Performance Efficiency and Cost Optimisation at the service level. 
 
 This tool aims to complement the [AWS Well Architected Tool](https://aws.amazon.com/well-architected-tool/). 
 
 ## How does it work?
-Service Screener uses [AWS CloudShell](https://aws.amazon.com/cloudshell/), a free service that provides a browser-based shell to run scripts using the AWS CLI. It runs multiple `describe` and `get` API calls to determine the configuration of your environment.
+Quadra Recon uses [AWS CloudShell](https://aws.amazon.com/cloudshell/), a free service that provides a browser-based shell to run scripts using the AWS CLI. It runs multiple `describe` and `get` API calls to determine the configuration of your environment.
 
 ## How much does it cost?
 Running this tool is free as it is covered under the AWS Free Tier. If you have exceeded the free tier limits, each run will cost less than $0.01.
@@ -56,10 +56,10 @@ Running this tool is free as it is covered under the AWS Free Tier. If you have 
 
 ### Why CloudFormation Permissions Are Required
 
-Service Screener creates a temporary, empty CloudFormation stack during each run for audit and compliance purposes. This stack:
+Quadra Recon creates a temporary, empty CloudFormation stack during each run for audit and compliance purposes. This stack:
 
 - **Contains no actual resources** - It's an empty "marker" stack that incurs no cost
-- **Provides audit trail** - Creates a record in CloudFormation history of when Service Screener was executed
+- **Provides audit trail** - Creates a record in CloudFormation history of when Quadra Recon was executed
 - **Enables compliance tracking** - Allows organizations to track security assessment activities
 - **Supports partner integrations** - Enables tracking for AWS Partner evaluations (MPE)
 
@@ -97,10 +97,10 @@ The stack is automatically created at the start of each run with a unique name (
    
    **Important:** If you skip the Cloudscape UI build step, the `--beta 1` flag will still work but will only generate the legacy AdminLTE UI. To use the new Cloudscape UI features, you must complete the build step above.
 
-## Using Service Screener
-When running Service Screener, you will need to specify the regions and services you would like it to run on. For the full list of services currently supported, please see "SERVICES_IDENTIFIER_MAPPING" in [Config.py](./utils/Config.py).
+## Using Quadra Recon
+When running Quadra Recon, you will need to specify the regions and services you would like it to run on. For the full list of services currently supported, please see "SERVICES_IDENTIFIER_MAPPING" in [Config.py](./utils/Config.py).
 
-We recommend running it in all regions where you have workloads deployed in. Adjust the commands below to suit your needs then copy and paste it into CloudShell to run Service Screener. 
+We recommend running it in all regions where you have workloads deployed in. Adjust the commands below to suit your needs then copy and paste it into CloudShell to run Quadra Recon. 
 
 **Example 1: (Recommended) Run in the Singapore region, check all services with NEW Cloudscape UI enabled**
 ``` bash

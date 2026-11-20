@@ -308,7 +308,7 @@ echo "Note: KeyCentralizedManagement check requires multi-account setup (cannot 
 echo ""
 echo "All keys are tagged with: $TAG_KEY=$TAG_VALUE"
 echo ""
-echo "To run Service Screener on these keys:"
+echo "To run Quadra Recon on these keys:"
 echo "  python3 main.py --regions $REGION --services kms --tags $TAG_KEY=$TAG_VALUE"
 echo ""
 echo "To cleanup these resources:"

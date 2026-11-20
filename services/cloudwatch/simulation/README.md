@@ -1,10 +1,10 @@
-# CloudWatch Service Screener Simulation
+# CloudWatch Quadra Recon Simulation
 
-This directory contains simulation scripts to create test AWS resources for validating CloudWatch Service Screener checks.
+This directory contains simulation scripts to create test AWS resources for validating CloudWatch Quadra Recon checks.
 
 ## Overview
 
-The simulation scripts create real AWS resources to test CloudWatch Service Screener checks across three tiers:
+The simulation scripts create real AWS resources to test CloudWatch Quadra Recon checks across three tiers:
 
 ### Tier 1 Checks (Initial Implementation)
 1. **alarmsWithoutSNS** - Validates that CloudWatch alarms have SNS notifications configured
@@ -101,9 +101,9 @@ AWS_REGION=us-west-2 ./create_test_resources.sh
 - 2 Log groups (untagged, no insights usage)
 - 1 Dashboard (single-account, non-vended)
 
-### 2. Run Service Screener
+### 2. Run Quadra Recon
 
-Navigate to the Service Screener root directory and run:
+Navigate to the Quadra Recon root directory and run:
 
 ```bash
 cd ../../..  # Go to service-screener-v2 root
@@ -117,7 +117,7 @@ python screener.py --regions us-west-2 --services cloudwatch
 
 ### 3. Verify Results
 
-Check the Service Screener output for the following expected results:
+Check the Quadra Recon output for the following expected results:
 
 #### alarmsWithoutSNS Check
 - **Should PASS**: `test-alarm-with-sns` (has SNS notification configured)
@@ -143,7 +143,7 @@ AWS_REGION=us-west-2 ./cleanup_test_resources.sh
 
 The cleanup script is **idempotent** - safe to run multiple times even if resources are already deleted. It will clean up all Tier 1, 2, and 3 test resources.
 
-## Expected Service Screener Results
+## Expected Quadra Recon Results
 
 ### Tier 1 Checks
 
@@ -311,9 +311,9 @@ Deletes all test resources (Tier 1, 2, and 3):
 - **Comprehensive**: Removes alarms, log groups, dashboards, and SNS topics
 - **Output**: Confirms each deletion with detailed summary
 
-## Integration with Service Screener
+## Integration with Quadra Recon
 
-These simulation scripts are designed to work with the CloudWatch Service Screener checks:
+These simulation scripts are designed to work with the CloudWatch Quadra Recon checks:
 
 1. **alarmsWithoutSNS** - Implemented in `drivers/CloudwatchAlarms.py`
    - Method: `_checkSNSNotifications()`
@@ -335,11 +335,11 @@ These simulation scripts are designed to work with the CloudWatch Service Screen
 For issues or questions:
 1. Check the Troubleshooting section above
 2. Verify AWS credentials and permissions
-3. Review Service Screener logs for detailed error messages
+3. Review Quadra Recon logs for detailed error messages
 4. Consult AWS CloudWatch documentation
 
 ## Version
 
 - **Version**: 1.0
 - **Last Updated**: 2024
-- **Compatible with**: Service Screener v2
+- **Compatible with**: Quadra Recon v2

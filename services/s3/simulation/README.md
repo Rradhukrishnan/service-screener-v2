@@ -1,10 +1,10 @@
 # S3 Simulation Scripts
 
-This directory contains scripts to create and cleanup test S3 resources for validating the new Tier 1, Tier 2, and Tier 3 security checks implemented in Service Screener v2.
+This directory contains scripts to create and cleanup test S3 resources for validating the new Tier 1, Tier 2, and Tier 3 security checks implemented in Quadra Recon v2.
 
 ## Overview
 
-The simulation scripts create various S3 bucket configurations that test both passing and failing scenarios for ALL 26 implemented checks in Service Screener v2.
+The simulation scripts create various S3 bucket configurations that test both passing and failing scenarios for ALL 26 implemented checks in Quadra Recon v2.
 
 ### Security Checks (14 checks)
 1. **ServerSideEncrypted** - SSE encryption enabled
@@ -126,21 +126,21 @@ The script creates a JSON file with all resource IDs:
 simulation/test_resources_<timestamp>.json
 ```
 
-### 2. Run Service Screener
+### 2. Run Quadra Recon
 
-After creating test resources, run Service Screener to validate the checks:
+After creating test resources, run Quadra Recon to validate the checks:
 
 ```bash
-# Navigate to Service Screener root
+# Navigate to Quadra Recon root
 cd ../../..
 
-# Run Service Screener for S3
+# Run Quadra Recon for S3
 python screener.py --services s3 --regions us-east-1
 ```
 
 ### 3. Verify Results
 
-Check the Service Screener output to verify all checks detect the expected pass/fail scenarios.
+Check the Quadra Recon output to verify all checks detect the expected pass/fail scenarios.
 
 ### 4. Cleanup Test Resources
 
@@ -279,16 +279,16 @@ These test resources incur minimal AWS costs:
 
 - [S3 Best Practices](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html)
 - [S3 Security](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security.html)
-- [Service Screener Documentation](../../../README.md)
+- [Quadra Recon Documentation](../../../README.md)
 
 ## Support
 
 For issues or questions:
 1. Check the troubleshooting section above
-2. Review Service Screener logs
+2. Review Quadra Recon logs
 3. Verify AWS CLI configuration and permissions
-4. Check the main Service Screener documentation
+4. Check the main Quadra Recon documentation
 
 ## License
 
-These scripts are part of Service Screener v2 and follow the same license.
+These scripts are part of Quadra Recon v2 and follow the same license.

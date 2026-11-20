@@ -1,4 +1,4 @@
-# IRDAI Compliance Framework for Service Screener v2
+# IRDAI Compliance Framework for Quadra Recon v2
 
 ## Overview
 
@@ -176,7 +176,7 @@ cp -r IRDAI/ /path/to/service-screener-v2/frameworks/
 
 ## Usage
 
-Run Service Screener with the IRDAI framework:
+Run Quadra Recon with the IRDAI framework:
 
 ```bash
 # Scan Mumbai region (typical for India-based insurers)

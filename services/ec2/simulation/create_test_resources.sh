@@ -1,9 +1,9 @@
 #!/bin/bash
 ###############################################################################
-# EC2 Service Screener - Simulation Resource Creator
+# EC2 Quadra Recon - Simulation Resource Creator
 #
 # Creates AWS resources that trigger both PASS and FAIL scenarios for the
-# 12 Tier 1 EC2 checks implemented in Service Screener v2.
+# 12 Tier 1 EC2 checks implemented in Quadra Recon v2.
 #
 # Prerequisites:
 #   - AWS CLI v2 configured with appropriate permissions
@@ -220,7 +220,7 @@ log "--- Check 5: EC2EbsOptimized ---"
 # Create a security group for our test instances
 SG_ID=$(aws_ec2 create-security-group \
     --group-name "ss-ec2-sim-sg" \
-    --description "Service Screener EC2 simulation SG" \
+    --description "Quadra Recon EC2 simulation SG" \
     --vpc-id "$DEFAULT_VPC_ID" \
     --tag-specifications "$(tag_spec security-group)" \
     --query 'GroupId' --output text)

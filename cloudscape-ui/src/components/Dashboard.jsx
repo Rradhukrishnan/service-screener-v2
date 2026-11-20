@@ -208,7 +208,7 @@ const Dashboard = ({ data }) => {
   return (
     <SpaceBetween size="l">
       <Header variant="h1" description="AWS Well-Architected Assessment Report">
-        Service Screener Dashboard
+        Quadra Recon Dashboard
       </Header>
 
       {/* Account-wide totals */}

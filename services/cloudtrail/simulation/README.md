@@ -1,6 +1,6 @@
 # CloudTrail Test Resources Simulation
 
-This directory contains scripts to create and cleanup test CloudTrail resources for validating the 6 new Tier 1 Service Screener checks:
+This directory contains scripts to create and cleanup test CloudTrail resources for validating the 6 new Tier 1 Quadra Recon checks:
 
 1. **GuardDutyIntegration** - Validates GuardDuty is enabled for threat detection
 2. **SecurityHubIntegration** - Validates Security Hub is enabled for security posture management
@@ -69,7 +69,7 @@ aws cloudtrail create-trail \
   --region us-east-1
 ```
 
-### 3. Run Service Screener
+### 3. Run Quadra Recon
 
 ```bash
 cd ../../..  # Back to service-screener-v2 root
@@ -268,7 +268,7 @@ set -e
 cd services/cloudtrail/simulation
 ./create_test_resources.sh
 
-# Run Service Screener
+# Run Quadra Recon
 cd ../../..
 python screener.py --regions us-east-1 --services cloudtrail --output-format json > results.json
 
@@ -295,7 +295,7 @@ If you prefer to test individual checks manually:
 # Enable GuardDuty
 aws guardduty create-detector --enable --region us-east-1
 
-# Run Service Screener
+# Run Quadra Recon
 python screener.py --regions us-east-1 --services cloudtrail
 
 # Cleanup
@@ -312,7 +312,7 @@ aws securityhub batch-enable-standards \
   --standards-subscription-requests StandardsArn=arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0 \
   --region us-east-1
 
-# Run Service Screener
+# Run Quadra Recon
 python screener.py --regions us-east-1 --services cloudtrail
 
 # Cleanup
@@ -328,7 +328,7 @@ aws iam attach-user-policy \
   --user-name test-cloudtrail-user \
   --policy-arn arn:aws:iam::aws:policy/AWSCloudTrail_FullAccess
 
-# Run Service Screener
+# Run Quadra Recon
 python screener.py --regions us-east-1 --services cloudtrail
 
 # Cleanup
@@ -353,7 +353,7 @@ aws cloudtrail create-trail \
   --s3-bucket-name <existing-bucket> \
   --kms-key-id $KEY_ID
 
-# Run Service Screener
+# Run Quadra Recon
 python screener.py --regions us-east-1 --services cloudtrail
 
 # Cleanup
@@ -386,7 +386,7 @@ aws cloudwatch put-metric-alarm \
   --threshold 1 \
   --comparison-operator GreaterThanOrEqualToThreshold
 
-# Run Service Screener
+# Run Quadra Recon
 python screener.py --regions us-east-1 --services cloudtrail
 
 # Cleanup
@@ -399,7 +399,7 @@ aws logs delete-log-group --log-group-name /aws/cloudtrail/test
 
 For issues or questions:
 1. Check the troubleshooting section above
-2. Review the Service Screener documentation
+2. Review the Quadra Recon documentation
 3. Check AWS CloudTrail documentation for configuration details
 
 ## References

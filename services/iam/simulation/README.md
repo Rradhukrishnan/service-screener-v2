@@ -72,7 +72,7 @@ chmod +x create_test_resources.sh cleanup_test_resources.sh
 ./create_test_resources.sh
 ```
 
-### 2. Run Service Screener
+### 2. Run Quadra Recon
 ```bash
 cd ../../..
 python screener.py --services iam --regions us-east-1

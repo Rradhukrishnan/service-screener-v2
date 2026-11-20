@@ -104,7 +104,7 @@ function App() {
       <Box textAlign="center" padding={{ vertical: 'xxl' }}>
         <Spinner size="large" />
         <Box variant="h2" padding={{ top: 'm' }}>
-          Loading Service Screener Report...
+          Loading Quadra Recon Report...
         </Box>
       </Box>
     );

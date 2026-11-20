@@ -12,7 +12,7 @@ This document provides a detailed mapping between SOC2 Trust Service Criteria (T
 
 ## How to Use This Framework
 
-To use the SOC2 framework with Service Screener:
+To use the SOC2 framework with Quadra Recon:
 
 ```bash
 screener --regions YOUR_REGION --beta 1 --frameworks SOC2
@@ -30,20 +30,20 @@ screener --regions us-east-1 --beta 1 --frameworks SOC2
 
 #### CC1.0 - Control Environment
 
-| SOC2 Criteria | AWS Services | Service Screener Checks |
+| SOC2 Criteria | AWS Services | Quadra Recon Checks |
 |---------------|-------------|-------------------------|
 | CC1.5 - Enforces accountability | IAM | iam.passwordPolicy, iam.rootMfaActive |
 
 #### CC2.0 - Communication and Information
 
-| SOC2 Criteria | AWS Services | Service Screener Checks |
+| SOC2 Criteria | AWS Services | Quadra Recon Checks |
 |---------------|-------------|-------------------------|
 | CC2.1 - Information to support internal control | CloudTrail | cloudtrail.multiRegionTrailEnabled, cloudtrail.logFileValidationEnabled |
 | CC2.3 - Communication with external parties | IAM | iam.hasAlternateContact |
 
 #### CC3.0 - Risk Assessment
 
-| SOC2 Criteria | AWS Services | Service Screener Checks |
+| SOC2 Criteria | AWS Services | Quadra Recon Checks |
 |---------------|-------------|-------------------------|
 | CC3.2 - Identifies and analyzes risk | GuardDuty, Security Hub | guardduty.isEnabled, securityhub.isEnabled |
 | CC3.3 - Considers potential for fraud | CloudTrail | cloudtrail.cloudwatchLogsEnabled |
@@ -51,14 +51,14 @@ screener --regions us-east-1 --beta 1 --frameworks SOC2
 
 #### CC4.0 - Monitoring Activities
 
-| SOC2 Criteria | AWS Services | Service Screener Checks |
+| SOC2 Criteria | AWS Services | Quadra Recon Checks |
 |---------------|-------------|-------------------------|
 | CC4.1 - Evaluates and communicates deficiencies | CloudWatch | cloudwatch.hasAlarms |
 | CC4.2 - Evaluates and communicates deficiencies | CloudTrail | cloudtrail.cloudwatchLogsEnabled |
 
 #### CC5.0 - Control Activities
 
-| SOC2 Criteria | AWS Services | Service Screener Checks |
+| SOC2 Criteria | AWS Services | Quadra Recon Checks |
 |---------------|-------------|-------------------------|
 | CC5.1 - Selects and develops control activities | IAM | iam.hasOrganization |
 | CC5.2 - Selects and develops general controls over technology | IAM | iam.accessKeysRotated, iam.mfaEnabledForConsoleUsers |
@@ -66,7 +66,7 @@ screener --regions us-east-1 --beta 1 --frameworks SOC2
 
 #### CC6.0 - Logical and Physical Access Controls
 
-| SOC2 Criteria | AWS Services | Service Screener Checks |
+| SOC2 Criteria | AWS Services | Quadra Recon Checks |
 |---------------|-------------|-------------------------|
 | CC6.1 - Restricts logical access to authorized users | IAM | iam.usersMfaEnabled, iam.noInlinePolicy, iam.noUserPolicies |
 | CC6.2 - Manages identification and authentication | IAM | iam.passwordPolicy |
@@ -77,7 +77,7 @@ screener --regions us-east-1 --beta 1 --frameworks SOC2
 
 #### CC7.0 - System Operations
 
-| SOC2 Criteria | AWS Services | Service Screener Checks |
+| SOC2 Criteria | AWS Services | Quadra Recon Checks |
 |---------------|-------------|-------------------------|
 | CC7.1 - Manages infrastructure, software, and data | EC2 | ec2.instanceDetailedMonitoringEnabled, ec2.ebsOptimizedEnabled |
 | CC7.2 - Manages security incidents | GuardDuty, Security Hub | guardduty.isEnabled, securityhub.isEnabled |
@@ -86,13 +86,13 @@ screener --regions us-east-1 --beta 1 --frameworks SOC2
 
 #### CC8.0 - Change Management
 
-| SOC2 Criteria | AWS Services | Service Screener Checks |
+| SOC2 Criteria | AWS Services | Quadra Recon Checks |
 |---------------|-------------|-------------------------|
 | CC8.1 - Manages changes to infrastructure, software, and data | CloudTrail | cloudtrail.multiRegionTrailEnabled |
 
 #### CC9.0 - Risk Mitigation
 
-| SOC2 Criteria | AWS Services | Service Screener Checks |
+| SOC2 Criteria | AWS Services | Quadra Recon Checks |
 |---------------|-------------|-------------------------|
 | CC9.1 - Identifies, selects, and develops risk mitigation activities | KMS | kms.cmkBackingKeyRotationEnabled, kms.keyRotationEnabled |
 
@@ -100,7 +100,7 @@ screener --regions us-east-1 --beta 1 --frameworks SOC2
 
 #### A1.0 - Availability
 
-| SOC2 Criteria | AWS Services | Service Screener Checks |
+| SOC2 Criteria | AWS Services | Quadra Recon Checks |
 |---------------|-------------|-------------------------|
 | A1.1 - Maintains, monitors, and evaluates current processing capacity | CloudWatch, EC2 | cloudwatch.hasAlarms, ec2.instanceDetailedMonitoringEnabled |
 | A1.2 - Maintains redundancy, data backup, and disaster recovery | RDS, EC2, AWS Backup | rds.instanceMultiAZ, ec2.instanceEbsBackupEnabled, backup.resourcesProtectedByBackupPlan |
@@ -108,14 +108,14 @@ screener --regions us-east-1 --beta 1 --frameworks SOC2
 
 #### C1.0 - Confidentiality
 
-| SOC2 Criteria | AWS Services | Service Screener Checks |
+| SOC2 Criteria | AWS Services | Quadra Recon Checks |
 |---------------|-------------|-------------------------|
 | C1.1 - Identifies confidential information | S3 | s3.bucketTaggingEnabled |
 | C1.2 - Protects confidential information | S3, RDS, KMS | s3.bucketEncryption, rds.instanceEncryptionEnabled, kms.cmkBackingKeyRotationEnabled |
 
 #### P4.0 - Use, Retention, and Disposal (Privacy)
 
-| SOC2 Criteria | AWS Services | Service Screener Checks |
+| SOC2 Criteria | AWS Services | Quadra Recon Checks |
 |---------------|-------------|-------------------------|
 | P4.1 - Limits use of personal information | S3 | s3.bucketLifecycleEnabled |
 | P4.2 - Retains personal information consistent with objectives | S3 | s3.bucketLifecycleEnabled |
@@ -123,13 +123,13 @@ screener --regions us-east-1 --beta 1 --frameworks SOC2
 
 #### P8.0 - Monitoring and Enforcement (Privacy)
 
-| SOC2 Criteria | AWS Services | Service Screener Checks |
+| SOC2 Criteria | AWS Services | Quadra Recon Checks |
 |---------------|-------------|-------------------------|
 | P8.1 - Monitors compliance with privacy policies | CloudTrail | cloudtrail.multiRegionTrailEnabled, cloudtrail.cloudwatchLogsEnabled |
 
 #### PI1.0 - Processing Integrity
 
-| SOC2 Criteria | AWS Services | Service Screener Checks |
+| SOC2 Criteria | AWS Services | Quadra Recon Checks |
 |---------------|-------------|-------------------------|
 | PI1.1 - Processes inputs accurately, completely, and timely | CloudWatch | cloudwatch.hasAlarms |
 | PI1.2 - Maintains integrity during processing | CloudTrail | cloudtrail.logFileValidationEnabled |
@@ -148,7 +148,7 @@ To extend this framework:
 ## SOC2 Compliance Recommendations
 
 1. **Documentation**: Maintain comprehensive documentation of AWS configurations and controls
-2. **Regular Assessment**: Run Service Screener regularly to identify compliance gaps
+2. **Regular Assessment**: Run Quadra Recon regularly to identify compliance gaps
 3. **Remediation**: Address identified issues promptly
-4. **Evidence Collection**: Use Service Screener reports as evidence for SOC2 audits
+4. **Evidence Collection**: Use Quadra Recon reports as evidence for SOC2 audits
 5. **Continuous Monitoring**: Implement continuous monitoring using CloudWatch and other AWS services

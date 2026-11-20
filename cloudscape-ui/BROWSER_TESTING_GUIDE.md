@@ -23,7 +23,7 @@ open adminlte/aws/956288449190/index.html
 **Expected Elements:**
 
 #### Top Navigation Bar
-- **Left:** "Service Screener" logo and title
+- **Left:** "Quadra Recon" logo and title
 - **Right:** 
   - 🟡 **"Suppressions Active"** button (if suppressions exist)
   - Account dropdown showing your AWS account ID

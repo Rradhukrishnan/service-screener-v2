@@ -1,10 +1,10 @@
 # Glue Service Simulation
 
-This directory contains scripts to create and cleanup intentionally insecure AWS Glue resources for testing Service Screener checks.
+This directory contains scripts to create and cleanup intentionally insecure AWS Glue resources for testing Quadra Recon checks.
 
 ## Purpose
 
-These scripts create real AWS resources with security misconfigurations that should trigger FAIL (-1) status in Service Screener. This allows you to validate that all Glue security checks are working correctly.
+These scripts create real AWS resources with security misconfigurations that should trigger FAIL (-1) status in Quadra Recon. This allows you to validate that all Glue security checks are working correctly.
 
 ## Resources Created
 
@@ -54,7 +54,7 @@ chmod +x create_test_resources.sh
 ./create_test_resources.sh
 ```
 
-### Run Service Screener
+### Run Quadra Recon
 
 ```bash
 cd ../../..  # Back to service-screener-v2 root
@@ -71,7 +71,7 @@ chmod +x cleanup_test_resources.sh
 
 ## Expected Results
 
-When you run Service Screener after creating these resources, you should see:
+When you run Quadra Recon after creating these resources, you should see:
 
 - **12 FAIL checks** (red flags) for the resources created
 - **3 checks** may show PASS if your account has secure Data Catalog settings (this is expected)
@@ -89,6 +89,6 @@ The scripts require AWS CLI configured with permissions to:
 
 **IAM role already exists**: If you see warnings about existing roles, the script will continue using the existing role.
 
-**Resources not appearing**: Wait 10-15 seconds after creation for resources to be fully provisioned before running Service Screener.
+**Resources not appearing**: Wait 10-15 seconds after creation for resources to be fully provisioned before running Quadra Recon.
 
 **Crawler not showing schedule issue**: The check validates that crawlers have a schedule configured. A crawler without a schedule will trigger the FAIL status.

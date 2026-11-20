@@ -114,7 +114,7 @@ chmod +x *.sh
 
 Wait for all tables to be created (typically 2-5 minutes).
 
-### Step 2: Run Service Screener
+### Step 2: Run Quadra Recon
 
 ```bash
 cd ../../..  # Back to service-screener-v2 root
@@ -253,7 +253,7 @@ aws dynamodb create-table \
 - [DynamoDB Encryption at Rest](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/EncryptionAtRest.html)
 - [Global Tables Version Comparison](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html)
 - [DynamoDB Table Classes](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.TableClasses.html)
-- [Service Screener Documentation](../../README.md)
+- [Quadra Recon Documentation](../../README.md)
 
 ## Support
 

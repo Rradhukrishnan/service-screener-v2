@@ -1,8 +1,8 @@
-# Service Screener Development Guide
+# Quadra Recon Development Guide
 
-This guide will walk you through creating new services and checks for the Service Screener project. By the end of this tutorial, you'll understand how to contribute new AWS service assessments to the project.
+This guide will walk you through creating new services and checks for the Quadra Recon project. By the end of this tutorial, you'll understand how to contribute new AWS service assessments to the project.
 
-**Quick Start**: Service Screener includes a `CreateService.py` script that automatically generates boilerplate code for new services, significantly speeding up development. See the [Using the CreateService.py Script](#using-the-createservicepy-script) section to get started quickly.
+**Quick Start**: Quadra Recon includes a `CreateService.py` script that automatically generates boilerplate code for new services, significantly speeding up development. See the [Using the CreateService.py Script](#using-the-createservicepy-script) section to get started quickly.
 
 ## Table of Contents
 1. [Understanding the Architecture](#understanding-the-architecture)
@@ -17,7 +17,7 @@ This guide will walk you through creating new services and checks for the Servic
 
 ## Understanding the Architecture
 
-Service Screener follows a modular architecture:
+Quadra Recon follows a modular architecture:
 
 - **Service Classes**: Main service coordinators that handle AWS API calls and resource discovery
 - **Driver Classes**: Individual check implementations that inherit from `Evaluator`
@@ -51,7 +51,7 @@ services/
 
 ## Creating a New Service
 
-Service Screener includes a convenient script called `CreateService.py` that automatically generates the boilerplate code for new services.
+Quadra Recon includes a convenient script called `CreateService.py` that automatically generates the boilerplate code for new services.
 
 ### Using the CreateService.py Script
 
@@ -352,7 +352,7 @@ Edit the generated `services/logs/logs.reporter.json` and replace the template w
 
 All check methods must start with `_check` and use descriptive names in camelCase.
 
-Note: Service Screener was migrated from PHP, hence the naming convension in camelCase over snake_case.
+Note: Quadra Recon was migrated from PHP, hence the naming convension in camelCase over snake_case.
 
 ```python
 def _checkRetentionPolicy(self):     # Good
