@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################################################################
-# AppSync Service Screener - Test Resource Cleanup Script
+# AppSync Quadra Recon - Test Resource Cleanup Script
 # Deletes only the API IDs recorded in a create_test_resources.sh manifest.
 # Usage: ./cleanup_test_resources.sh [RESOURCE_FILE] [--region REGION] [--force]
 ################################################################################

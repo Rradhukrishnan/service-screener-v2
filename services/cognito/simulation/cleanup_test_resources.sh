@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# Cognito Service Screener - Test Resource Cleanup Script
+# Cognito Quadra Recon - Test Resource Cleanup Script
 #
 # Deletes user pools + Lambda + IAM roles created by create_test_resources.sh.
 # App clients and groups are deleted implicitly when the pool is deleted.

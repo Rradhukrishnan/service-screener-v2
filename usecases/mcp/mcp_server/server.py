@@ -1,5 +1,5 @@
 """
-Service Screener v2 — MCP Server
+Quadra Recon v2 — MCP Server
 Well-Architected assessment of running AWS accounts via Model Context Protocol.
 
 Usage:

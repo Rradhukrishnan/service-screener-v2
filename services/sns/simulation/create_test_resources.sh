@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# SNS Service Screener - Test Resource Creation Script
+# SNS Quadra Recon - Test Resource Creation Script
 #
 # Creates two intentionally-insecure SNS topics that exercise every `sns*`
 # service-screener check that can be forced through the AWS API. Covers

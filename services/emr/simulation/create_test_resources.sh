@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# Amazon EMR Service Screener - Test Resource Creation Script
+# Amazon EMR Quadra Recon - Test Resource Creation Script
 #
 # Creates a real, minimal, intentionally-misconfigured EMR cluster.
 #

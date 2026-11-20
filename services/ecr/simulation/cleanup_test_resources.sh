@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# ECR Service Screener - Test Resource Cleanup Script
+# ECR Quadra Recon - Test Resource Cleanup Script
 #
 # Deletes all ECR repositories listed in a manifest produced by
 # create_test_resources.sh. `--force` deletes non-empty repos (i.e. deletes

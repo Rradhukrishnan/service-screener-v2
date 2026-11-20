@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# Kinesis Data Streams - Service Screener Simulation Cleanup
+# Kinesis Data Streams - Quadra Recon Simulation Cleanup
 #
 # Deletes the two Kinesis streams created by create_test_resources.sh.
 # Usage: ./cleanup_test_resources.sh [RESOURCE_FILE] [--region REGION] [--force]

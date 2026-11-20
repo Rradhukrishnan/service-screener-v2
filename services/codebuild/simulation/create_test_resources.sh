@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# CodeBuild Service Screener - Test Resource Creation Script
+# CodeBuild Quadra Recon - Test Resource Creation Script
 #
 # Creates intentionally-misconfigured CodeBuild projects plus a report group.
 #

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# Firehose Service Screener - Test Resource Creation Script
+# Firehose Quadra Recon - Test Resource Creation Script
 #
 # Creates an intentionally-insecure Amazon Data Firehose delivery stream plus
 # its required S3 bucket + IAM role, so every `firehose*` service-screener

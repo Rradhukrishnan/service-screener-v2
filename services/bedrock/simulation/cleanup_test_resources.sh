@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# Bedrock Service Screener - Test Resource Cleanup Script
+# Bedrock Quadra Recon - Test Resource Cleanup Script
 #
 # Deletes resources created by create_test_resources.sh. Reads the resource
 # file emitted by the creation script and processes each line.

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# Bedrock Service Screener - Test Resource Creation Script
+# Bedrock Quadra Recon - Test Resource Creation Script
 #
 # Creates intentionally-insecure Bedrock resources to trigger FAIL findings
 # on service-screener bedrock checks. Uses AWS CLI only (no boto3/Python).
@@ -125,7 +125,7 @@ EOF
 aws iam create-role \
     --role-name "$ROLE_NAME" \
     --assume-role-policy-document file:///tmp/${PREFIX}-trust-policy.json \
-    --description "Service Screener bedrock simulation - intentionally overprivileged" \
+    --description "Quadra Recon bedrock simulation - intentionally overprivileged" \
     > /dev/null
 
 aws iam put-role-policy \

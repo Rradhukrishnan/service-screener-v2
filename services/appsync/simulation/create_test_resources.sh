@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################################################################
-# AppSync Service Screener - Test Resource Creation Script
+# AppSync Quadra Recon - Test Resource Creation Script
 #
 # Creates an intentionally-misconfigured AppSync GraphQL API.
 #

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# Step Functions Service Screener - Test Resource Creation Script
+# Step Functions Quadra Recon - Test Resource Creation Script
 #
 # Creates FOUR intentionally-insecure state machines that exercise every
 # `sfn*` service-screener check that can be forced through the AWS API:

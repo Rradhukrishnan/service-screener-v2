@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################################################################
-# CloudFormation Service Screener - Test Resource Creation Script
+# CloudFormation Quadra Recon - Test Resource Creation Script
 #
 # Creates one minimal, intentionally-unprotected stack.
 #

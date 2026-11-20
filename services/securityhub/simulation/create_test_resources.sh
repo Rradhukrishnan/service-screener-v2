@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################################################################
-# AWS Security Hub Service Screener - Read-Only Posture Report
+# AWS Security Hub Quadra Recon - Read-Only Posture Report
 #
 # Creates NOTHING. Every shub* check reads account/region-level Security Hub
 # state. Enabling Security Hub or a standard is an account-level action with

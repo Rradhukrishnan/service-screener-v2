@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# AWS Config Service Screener - Test Resource Creation Script
+# AWS Config Quadra Recon - Test Resource Creation Script
 #
 # READ THIS FIRST: this script creates NOTHING by default, and that is
 # deliberate.

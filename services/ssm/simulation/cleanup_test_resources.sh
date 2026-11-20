@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# Systems Manager Service Screener - Test Resource Cleanup Script
+# Systems Manager Quadra Recon - Test Resource Cleanup Script
 #
 # Deletes the SSM parameters recorded in a create_test_resources.sh manifest.
 #

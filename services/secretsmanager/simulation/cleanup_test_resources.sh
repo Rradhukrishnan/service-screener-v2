@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# Secrets Manager Service Screener - Test Resource Cleanup Script
+# Secrets Manager Quadra Recon - Test Resource Cleanup Script
 #
 # Deletes the secrets recorded in a create_test_resources.sh manifest.
 #

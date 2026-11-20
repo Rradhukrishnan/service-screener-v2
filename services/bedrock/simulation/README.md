@@ -1,12 +1,12 @@
 # Bedrock Simulation Testing
 
 Scripts that create intentionally-insecure Amazon Bedrock resources so
-Service Screener's bedrock checks can be validated end-to-end. Uses AWS CLI
+Quadra Recon's bedrock checks can be validated end-to-end. Uses AWS CLI
 only (no boto3/Python), consistent with the SageMaker simulation.
 
 ## Purpose
 
-Running Service Screener against a clean account produces mostly passing
+Running Quadra Recon against a clean account produces mostly passing
 results — you can't confirm that the FAIL path of each check actually fires.
 These scripts stand up bad configurations that should each trigger a `-1`
 finding in the report, then let you tear it all down when you're done.
@@ -151,7 +151,7 @@ Options:
 The script writes a resource manifest to `created_resources_<TIMESTAMP>.txt`
 in the current directory. That file is the input for cleanup.
 
-### Run Service Screener
+### Run Quadra Recon
 
 ```bash
 cd ../../..                   # back to repo root

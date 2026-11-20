@@ -485,7 +485,7 @@ const ServiceDetail = () => {
           The AWS CLI commands shown are suggestions based on AWS best practices, generated
           from the check metadata rather than from your account's configuration. Review each
           command, test it in a non-production environment, and take a backup before applying
-          it. Service Screener is not responsible for unintended impact from running them.
+          it. Quadra Recon is not responsible for unintended impact from running them.
         </Alert>
       )}
 

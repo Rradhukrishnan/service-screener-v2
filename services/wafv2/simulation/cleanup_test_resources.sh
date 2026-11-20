@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# WAFv2 Service Screener - Test Resource Cleanup Script (Phase 1 + Phase 2)
+# WAFv2 Quadra Recon - Test Resource Cleanup Script (Phase 1 + Phase 2)
 #
 # Deletes every ss-test-* resource created by the extended create script.
 # Order matters: WAFv2 objects that reference each other must be untangled

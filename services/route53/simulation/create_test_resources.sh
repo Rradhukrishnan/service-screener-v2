@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# Route 53 Service Screener - Test Resource Creation Script
+# Route 53 Quadra Recon - Test Resource Creation Script
 #
 # Creates intentionally-misconfigured Route 53 resources to validate the
 # route53* service-screener checks that can be forced via the AWS API.

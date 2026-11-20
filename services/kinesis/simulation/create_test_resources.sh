@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# Kinesis Data Streams - Service Screener Simulation Setup
+# Kinesis Data Streams - Quadra Recon Simulation Setup
 #
 # Creates two intentionally-suboptimal Kinesis Data Streams that exercise
 # every `kinesis*` service-screener check that can be forced through the

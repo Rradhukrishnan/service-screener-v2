@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# Secrets Manager Service Screener - Test Resource Creation Script
+# Secrets Manager Quadra Recon - Test Resource Creation Script
 #
 # Creates intentionally-misconfigured Secrets Manager secrets that exercise
 # every `sm*` check reachable through the AWS API without mutating any

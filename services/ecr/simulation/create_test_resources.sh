@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# ECR Service Screener - Test Resource Creation Script
+# ECR Quadra Recon - Test Resource Creation Script
 #
 # Creates two intentionally-insecure ECR repositories that exercise most of
 # the `ecr*` service-screener checks. Also pushes lightweight test images

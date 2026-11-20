@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# Cognito Service Screener - Test Resource Creation Script
+# Cognito Quadra Recon - Test Resource Creation Script
 #
 # Creates THREE intentionally-insecure Cognito user pools plus supporting
 # Lambda / IAM roles that exercise every `cognito*` service-screener check

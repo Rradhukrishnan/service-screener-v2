@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################################################################
-# Amazon GuardDuty Service Screener - Read-Only Posture Report
+# Amazon GuardDuty Quadra Recon - Read-Only Posture Report
 #
 # Creates NOTHING, deliberately. The gd* checks read whether GuardDuty and its
 # protection FEATURES (Runtime Monitoring, S3 Protection, Malware Protection,

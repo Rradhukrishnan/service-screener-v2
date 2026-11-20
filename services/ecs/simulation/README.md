@@ -1,4 +1,4 @@
-# ECS Service Screener Simulation
+# ECS Quadra Recon Simulation
 
 Scripts to spin up an intentionally-misconfigured Amazon ECS cluster, task
 definition, and service that exercise the majority of the 42 checks in the

@@ -80,7 +80,7 @@ TOOLS = [
     Tool(
         name="list_rules",
         description=(
-            "List all available Service Screener checks/rules. "
+            "List all available Quadra Recon checks/rules. "
             "Can filter by service, pillar, or criticality. "
             "No AWS credentials or prior scan needed."
         ),

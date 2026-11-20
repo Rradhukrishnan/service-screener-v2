@@ -1,5 +1,5 @@
 """
-Cache manager for Service Screener scan results.
+Cache manager for Quadra Recon scan results.
 
 Reads from:
   - __fork/          (intermediate per-service results)

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# ECS Service Screener - Test Resource Creation Script
+# ECS Quadra Recon - Test Resource Creation Script
 #
 # Creates a Fargate ECS cluster + task definition + service with intentional
 # misconfigurations that exercise the majority of the 42 ECS checks:

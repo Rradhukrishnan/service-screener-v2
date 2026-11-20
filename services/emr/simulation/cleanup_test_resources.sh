@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# Amazon EMR Service Screener - Test Resource Cleanup Script
+# Amazon EMR Quadra Recon - Test Resource Cleanup Script
 #
 # Terminates the cluster recorded in a manifest, and removes the EMR default IAM
 # roles ONLY if the create script recorded that it created them (a pre-existing

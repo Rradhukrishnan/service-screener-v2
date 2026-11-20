@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# Firehose Service Screener - Test Resource Cleanup Script
+# Firehose Quadra Recon - Test Resource Cleanup Script
 #
 # Deletes Firehose delivery stream + IAM role + S3 bucket (and its objects).
 # Usage: ./cleanup_test_resources.sh [RESOURCE_FILE] [--region REGION] [--force]

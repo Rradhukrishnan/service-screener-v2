@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# ECS Service Screener - Test Resource Cleanup Script
+# ECS Quadra Recon - Test Resource Cleanup Script
 #
 # Deletes, in order:
 #   1. ECS service   (must be scaled to 0 before delete; --force works too)

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# Systems Manager Service Screener - Test Resource Creation Script
+# Systems Manager Quadra Recon - Test Resource Creation Script
 #
 # Creates intentionally-misconfigured SSM Parameter Store parameters.
 #

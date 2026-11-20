@@ -59,7 +59,7 @@ AWS_REGION=us-east-1 ./create_test_resources.sh
 The script prints a tag value like `acm-test-20260702-152500`. Keep it — you
 need it for cleanup.
 
-Run Service Screener against just the ACM checks:
+Run Quadra Recon against just the ACM checks:
 
 ```bash
 cd ../../../   # back to project root

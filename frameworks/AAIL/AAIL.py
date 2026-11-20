@@ -9,7 +9,7 @@ class AAIL(Framework):
     AWS Well-Architected Framework — Agentic AI Lens (AAIL).
 
     The lens maps lens-defined best practice IDs (AGENT<PILLAR>NN.BPNN) to
-    Service Screener checks. Compliance evaluation follows the base Framework
+    Quadra Recon checks. Compliance evaluation follows the base Framework
     logic in frameworks/Framework.py.
     """
 

@@ -1,10 +1,10 @@
-# Service Screener MCP Server
+# Quadra Recon MCP Server
 
 An MCP (Model Context Protocol) server that exposes AWS Well-Architected assessment capabilities through AI assistants.
 
 ## What makes this different?
 
-Unlike security-only tools (Prowler, Security Hub), Service Screener assesses **all 5 Well-Architected pillars**:
+Unlike security-only tools (Prowler, Security Hub), Quadra Recon assesses **all 5 Well-Architected pillars**:
 - **Security** — IAM, encryption, network exposure
 - **Reliability** — HA, backups, fault tolerance
 - **Operational Excellence** — monitoring, alerting, automation

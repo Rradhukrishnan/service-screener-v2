@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# IAM Access Analyzer Service Screener - Read-Only Posture Report
+# IAM Access Analyzer Quadra Recon - Read-Only Posture Report
 #
 # Creates NOTHING. Every aa* check reads account/region-level Access Analyzer
 # state (which analyzers exist, their findings, their archive rules), so there is

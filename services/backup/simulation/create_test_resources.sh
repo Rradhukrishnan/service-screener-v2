@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# AWS Backup Service Screener - Test Resource Creation Script
+# AWS Backup Quadra Recon - Test Resource Creation Script
 #
 # Creates an intentionally-insecure AWS Backup vault + plan + selection that
 # exercises every `backup*` service-screener check that can be forced through

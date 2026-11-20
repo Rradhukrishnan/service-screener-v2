@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################################################################
-# Athena Service Screener - Test Resource Creation Script
+# Athena Quadra Recon - Test Resource Creation Script
 #
 # Creates an intentionally-misconfigured Athena workgroup.
 #

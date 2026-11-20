@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# EventBridge Service Screener - Test Resource Creation Script
+# EventBridge Quadra Recon - Test Resource Creation Script
 #
 # Creates an intentionally-misconfigured custom event bus plus rules, a
 # connection and an API destination, exercising every `eb*` check that can be

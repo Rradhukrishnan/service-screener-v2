@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# WAFv2 Service Screener - Test Resource Creation Script (Phase 1 + Phase 2)
+# WAFv2 Quadra Recon - Test Resource Creation Script (Phase 1 + Phase 2)
 #
 # Creates a suite of intentionally-misconfigured WAFv2 resources that trigger
 # both the original 12 checks and the Phase 2 additions (25-41).

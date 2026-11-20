@@ -23,7 +23,7 @@
   },
   "CTAccessDenied": {
     "category": "O",
-    "^description": "Insufficient permissions to check Control Tower status. The IAM role used by Service Screener does not have permission to call Control Tower APIs. Add controltower:ListLandingZones and related permissions to fully assess Control Tower configuration.",
+    "^description": "Insufficient permissions to check Control Tower status. The IAM role used by Quadra Recon does not have permission to call Control Tower APIs. Add controltower:ListLandingZones and related permissions to fully assess Control Tower configuration.",
     "shortDesc": "Grant permissions to check Control Tower",
     "criticality": "L",
     "downtime": 0,

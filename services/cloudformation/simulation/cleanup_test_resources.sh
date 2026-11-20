@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################################################################
-# CloudFormation Service Screener - Test Resource Cleanup Script
+# CloudFormation Quadra Recon - Test Resource Cleanup Script
 # Deletes only the stacks recorded in a manifest.
 # Usage: ./cleanup_test_resources.sh [RESOURCE_FILE] [--region REGION] [--force]
 ################################################################################

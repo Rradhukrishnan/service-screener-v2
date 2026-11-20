@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################################################################
-# Amazon Inspector Service Screener - Read-Only Posture Report
+# Amazon Inspector Quadra Recon - Read-Only Posture Report
 #
 # Creates NOTHING. Every inspector* check reads account/region-level Inspector
 # state via batch_get_account_status, list_coverage_statistics and

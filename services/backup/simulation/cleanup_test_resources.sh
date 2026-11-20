@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# AWS Backup Service Screener - Test Resource Cleanup Script
+# AWS Backup Quadra Recon - Test Resource Cleanup Script
 #
 # Deletes vaults, backup plan, and IAM role created by create_test_resources.sh.
 #

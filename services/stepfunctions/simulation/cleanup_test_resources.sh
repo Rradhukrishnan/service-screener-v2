@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# Step Functions Service Screener - Test Resource Cleanup Script
+# Step Functions Quadra Recon - Test Resource Cleanup Script
 #
 # Reads the manifest emitted by create_test_resources.sh and deletes:
 #   1. state machines (up to four)

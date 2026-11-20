@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# AWS Config Service Screener - Test Resource Cleanup Script
+# AWS Config Quadra Recon - Test Resource Cleanup Script
 #
 # Intentionally a no-op.
 #

@@ -84,7 +84,7 @@ def run_scan(
     timeout: int = 600,
 ) -> dict:
     """
-    Run a Service Screener scan synchronously (blocking).
+    Run a Quadra Recon scan synchronously (blocking).
     """
     cmd = _build_scan_cmd(regions, services, frameworks, profile)
 
@@ -121,7 +121,7 @@ def run_scan_async(
     profile: str = None,
 ) -> dict:
     """
-    Start a Service Screener scan in the background (non-blocking).
+    Start a Quadra Recon scan in the background (non-blocking).
     Returns immediately with status. Use get_scan_progress() to check.
     """
     global _scan_state

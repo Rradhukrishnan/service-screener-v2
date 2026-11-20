@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# CodeBuild Service Screener - Test Resource Cleanup Script
+# CodeBuild Quadra Recon - Test Resource Cleanup Script
 #
 # Deletes the resources recorded in a create_test_resources.sh manifest, in
 # dependency order: report groups -> projects -> S3 bucket -> IAM role.

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# Route 53 Service Screener - Test Resource Cleanup Script
+# Route 53 Quadra Recon - Test Resource Cleanup Script
 #
 # Deletes every hosted zone and health check listed in a manifest produced
 # by create_test_resources.sh. Deletes records first, then the zone.

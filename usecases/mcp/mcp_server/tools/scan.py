@@ -1,5 +1,5 @@
 """
-Scan tools — trigger and manage Service Screener scans.
+Scan tools — trigger and manage Quadra Recon scans.
 
 run_scan starts the scan asynchronously (non-blocking) and returns immediately.
 Use get_scan_status to poll for completion.
@@ -20,7 +20,7 @@ TOOLS = [
     Tool(
         name="run_scan",
         description=(
-            "Start a Service Screener scan on the current AWS account. "
+            "Start a Quadra Recon scan on the current AWS account. "
             "The scan runs in the background (non-blocking) and typically takes 60-120 seconds. "
             "Use get_scan_status to check progress. "
             "Once complete, results are cached for query tools."
@@ -55,7 +55,7 @@ TOOLS = [
     Tool(
         name="list_supported_services",
         description=(
-            "List all AWS services that Service Screener can scan. "
+            "List all AWS services that Quadra Recon can scan. "
             "No AWS credentials needed."
         ),
         annotations=ToolAnnotations(readOnlyHint=True),
@@ -64,7 +64,7 @@ TOOLS = [
     Tool(
         name="list_supported_frameworks",
         description=(
-            "List all compliance frameworks supported by Service Screener "
+            "List all compliance frameworks supported by Quadra Recon "
             "(e.g., CIS, NIST, RMiT, FTR). No AWS credentials needed."
         ),
         annotations=ToolAnnotations(readOnlyHint=True),

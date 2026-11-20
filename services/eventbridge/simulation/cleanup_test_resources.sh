@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# EventBridge Service Screener - Test Resource Cleanup Script
+# EventBridge Quadra Recon - Test Resource Cleanup Script
 #
 # Deletes the resources recorded in a create_test_resources.sh manifest, in
 # dependency order:

@@ -1,10 +1,10 @@
-# Service Screener MCP Server
+# Quadra Recon MCP Server
 
 A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that exposes AWS Well-Architected assessment capabilities to AI assistants.
 
-Unlike security-only scanners, Service Screener MCP provides **deterministic findings across all 5 Well-Architected pillars** — Security, Reliability, Operational Excellence, Performance Efficiency, and Cost Optimization.
+Unlike security-only scanners, Quadra Recon MCP provides **deterministic findings across all 5 Well-Architected pillars** — Security, Reliability, Operational Excellence, Performance Efficiency, and Cost Optimization.
 
-> **Current Limitation:** This MCP server currently supports **single-account scanning** only — it scans whichever account the configured AWS credentials belong to. Service Screener itself supports multi-account and organization-wide scanning (see [crossAccounts](../crossAccounts/) and [accountsWithinOrganization](../accountsWithinOrganization/) usecases) — MCP support for these is planned.
+> **Current Limitation:** This MCP server currently supports **single-account scanning** only — it scans whichever account the configured AWS credentials belong to. Quadra Recon itself supports multi-account and organization-wide scanning (see [crossAccounts](../crossAccounts/) and [accountsWithinOrganization](../accountsWithinOrganization/) usecases) — MCP support for these is planned.
 
 ## Overview
 
@@ -54,7 +54,7 @@ Unlike security-only scanners, Service Screener MCP provides **deterministic fin
    - Default profile in `~/.aws/credentials`, OR
    - `AWS_PROFILE` environment variable, OR
    - IAM role (EC2/CloudShell)
-3. **Service Screener dependencies** installed:
+3. **Quadra Recon dependencies** installed:
    ```bash
    pip install -r requirements.txt
    ```
@@ -199,11 +199,11 @@ Create `.kiro/settings/mcp.json` in the `service-screener-v2` project root.
 
 ### Integration with AWS Documentation MCP
 
-Service Screener identifies **what's wrong**; pair with AWS Documentation MCP for **how to fix**:
+Quadra Recon identifies **what's wrong**; pair with AWS Documentation MCP for **how to fix**:
 
 ```
 > "What are my Lambda security issues?"
-  → [Service Screener] 12 functions with overly permissive roles
+  → [Quadra Recon] 12 functions with overly permissive roles
 
 > "How do I scope down Lambda execution roles?"
   → [AWS Docs] Use IAM Access Analyzer to generate least-privilege policies...
@@ -241,7 +241,7 @@ Tool call → Check cache (adminlte/aws/{account_id}/api-full.json)
 
 ## How It Differs from Prowler
 
-| Dimension | Service Screener MCP | Prowler MCP |
+| Dimension | Quadra Recon MCP | Prowler MCP |
 |-----------|:---:|:---:|
 | **WA Coverage** | All 5 Pillars | Security only |
 | **Cost** | Free (<$0.01/scan) | Freemium SaaS |
@@ -279,10 +279,10 @@ ls frameworks/        # Each directory = a supported framework
 
 ## License
 
-Apache-2.0 (same as Service Screener V2)
+Apache-2.0 (same as Quadra Recon)
 
 ## Links
 
-- [Service Screener V2](https://github.com/aws-samples/service-screener-v2)
+- [Quadra Recon](https://github.com/aws-samples/service-screener-v2)
 - [Model Context Protocol](https://modelcontextprotocol.io/)
 - [MCP Best Practices](https://github.com/lirantal/awesome-mcp-best-practices)

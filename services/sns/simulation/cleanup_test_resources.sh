@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# SNS Service Screener - Test Resource Cleanup Script
+# SNS Quadra Recon - Test Resource Cleanup Script
 #
 # Deletes SNS topics + subscriptions + SQS subscriber queue.
 # Usage: ./cleanup_test_resources.sh [RESOURCE_FILE] [--region REGION] [--force]
