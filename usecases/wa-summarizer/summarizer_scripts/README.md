@@ -1,6 +1,6 @@
-# Service Screener Summarizer Scripts
+# Quadra Recon Summarizer Scripts
 
-This directory contains specialized scripts for generating comprehensive summary reports from AWS Service Screener results.
+This directory contains specialized scripts for generating comprehensive summary reports from Quadra Recon results.
 
 ## Available Scripts
 
@@ -104,7 +104,7 @@ All scripts support the following command-line options:
 
 | Option | Description | Required | Default |
 |--------|-------------|----------|---------|
-| `-d, --dir` | Service Screener results directory | Yes | - |
+| `-d, --dir` | Quadra Recon results directory | Yes | - |
 | `-o, --output` | Output directory for generated reports | No | `./output` |
 | `-h, --help` | Display help message | No | - |
 
@@ -116,7 +116,7 @@ Before running any script, ensure you have:
 2. **jq** - For JSON parsing (FTR script)
 3. **AWS CLI** - Configured with valid credentials
 4. **Kiro CLI** - Installed and configured
-5. **Service Screener Results** - Complete scan output with required files
+5. **Quadra Recon Results** - Complete scan output with required files
 
 ### Checking Prerequisites
 
@@ -134,9 +134,9 @@ aws sts get-caller-identity
 kiro-cli --version
 ```
 
-## Service Screener Directory Structure
+## Quadra Recon Directory Structure
 
-Your Service Screener results should follow this structure:
+Your Quadra Recon results should follow this structure:
 
 ```
 aws/
@@ -187,11 +187,11 @@ chmod +x run_*.sh
 aws configure
 ```
 
-### Missing Service Screener Files
+### Missing Quadra Recon Files
 
-Ensure you've run Service Screener successfully:
+Ensure you've run Quadra Recon successfully:
 ```bash
-# From Service Screener V2 directory
+# From Quadra Recon directory
 python3 main.py --account-id 012345678901
 ```
 
@@ -218,7 +218,7 @@ brew install jq
 
 - **Main Documentation**: See `../README.md`
 - **Sample Reports**: Check `../output_samples/` directory
-- **Service Screener**: https://github.com/aws-samples/service-screener-v2
+- **Quadra Recon**: https://github.com/aws-samples/service-screener-v2
 - **AWS Well-Architected Framework**: https://aws.amazon.com/architecture/well-architected/
 - **FTR Documentation**: https://aws.amazon.com/partners/programs/ftr/
 

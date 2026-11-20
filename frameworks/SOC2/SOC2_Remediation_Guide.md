@@ -1,6 +1,6 @@
 # SOC2 Remediation Guide
 
-This guide provides remediation steps for common findings identified by the SOC2 framework in Service Screener.
+This guide provides remediation steps for common findings identified by the SOC2 framework in Quadra Recon.
 
 > **Important Note**: Some remediation actions described in this guide may have cost implications or require downtime. Each section includes notes about potential impacts to help you plan your remediation strategy appropriately.
 
@@ -340,7 +340,7 @@ aws configservice start-configuration-recorder --configuration-recorder-name def
 
 ## Conclusion
 
-This remediation guide provides steps to address common SOC2 compliance findings identified by Service Screener. After implementing these remediation steps, re-run the SOC2 framework assessment to verify that the issues have been resolved.
+This remediation guide provides steps to address common SOC2 compliance findings identified by Quadra Recon. After implementing these remediation steps, re-run the SOC2 framework assessment to verify that the issues have been resolved.
 
 Remember to document all changes made for audit purposes and maintain ongoing compliance through regular assessments.
 

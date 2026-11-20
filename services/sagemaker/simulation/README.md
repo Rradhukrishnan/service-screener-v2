@@ -1,10 +1,10 @@
 # SageMaker Service Simulation
 
-This directory contains scripts to create and cleanup intentionally insecure AWS SageMaker resources for testing Service Screener checks.
+This directory contains scripts to create and cleanup intentionally insecure AWS SageMaker resources for testing Quadra Recon checks.
 
 ## Purpose
 
-These scripts create real AWS resources with security misconfigurations that should trigger FAIL (-1) status in Service Screener. This allows you to validate that all SageMaker security checks are working correctly.
+These scripts create real AWS resources with security misconfigurations that should trigger FAIL (-1) status in Quadra Recon. This allows you to validate that all SageMaker security checks are working correctly.
 
 ## Resources Created
 
@@ -47,7 +47,7 @@ chmod +x create_test_resources.sh
 ./create_test_resources.sh
 ```
 
-### Run Service Screener
+### Run Quadra Recon
 
 ```bash
 cd ../../..  # Back to service-screener-v2 root
@@ -64,7 +64,7 @@ chmod +x cleanup_test_resources.sh
 
 ## Expected Results
 
-When you run Service Screener after creating these resources, you should see:
+When you run Quadra Recon after creating these resources, you should see:
 
 - **21 FAIL checks** (red flags) - one for each security/operational misconfiguration
 - All checks should show -1 in the results
@@ -83,7 +83,7 @@ The scripts require AWS CLI configured with permissions to:
 
 **Training job fails**: The training job uses public sample data from `s3://sagemaker-sample-files/`. If this fails, the job will error but won't affect other resources.
 
-**Endpoint takes time to create**: Endpoints typically take 5-10 minutes to be in service. You can run Service Screener before the endpoint is fully ready - it will still detect the configuration issues.
+**Endpoint takes time to create**: Endpoints typically take 5-10 minutes to be in service. You can run Quadra Recon before the endpoint is fully ready - it will still detect the configuration issues.
 
 **Tuning job spawns multiple training jobs**: The tuning job will create up to 10 training jobs. Each will stop automatically, but monitor costs if you don't clean up promptly.
 

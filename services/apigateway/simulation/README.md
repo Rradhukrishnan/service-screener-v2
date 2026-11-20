@@ -1,6 +1,6 @@
 # API Gateway Simulation Scripts
 
-This directory contains scripts to create and cleanup test API Gateway resources for validating the new Tier 1 security checks implemented in Service Screener v2.
+This directory contains scripts to create and cleanup test API Gateway resources for validating the new Tier 1 security checks implemented in Quadra Recon v2.
 
 ## Overview
 
@@ -116,21 +116,21 @@ Example output:
 }
 ```
 
-### 2. Run Service Screener
+### 2. Run Quadra Recon
 
-After creating test resources, run Service Screener to validate the checks:
+After creating test resources, run Quadra Recon to validate the checks:
 
 ```bash
-# Navigate to Service Screener root
+# Navigate to Quadra Recon root
 cd ../../..
 
-# Run Service Screener for API Gateway
+# Run Quadra Recon for API Gateway
 python screener.py --services apigateway --regions us-east-1
 ```
 
 ### 3. Verify Results
 
-Check the Service Screener output to verify:
+Check the Quadra Recon output to verify:
 
 - **ResourcePolicy check** detects APIs without resource policies
 - **IAMAuthentication check** flags methods with NONE authorization
@@ -223,7 +223,7 @@ Private API checks require VPC setup. To test manually:
 1. Create a VPC with private subnets
 2. Create a VPC endpoint for execute-api
 3. Create a private API with VPC endpoint association
-4. Run Service Screener to verify PrivateAPI and VPCEndpointAssociation checks
+4. Run Quadra Recon to verify PrivateAPI and VPCEndpointAssociation checks
 
 ```bash
 # Create VPC endpoint
@@ -245,7 +245,7 @@ Mutual TLS checks require custom domain setup:
 1. Create a custom domain in API Gateway
 2. Configure mutual TLS with a trust store in S3
 3. Map the domain to your API
-4. Run Service Screener to verify MutualTLS check
+4. Run Quadra Recon to verify MutualTLS check
 
 ```bash
 # Create custom domain with mTLS
@@ -263,7 +263,7 @@ To test authorizer checks:
 2. Create a Lambda authorizer in API Gateway
 3. Create a Cognito user pool
 4. Create a Cognito authorizer in API Gateway
-5. Run Service Screener to verify LambdaAuthorizer and CognitoAuthorizer checks
+5. Run Quadra Recon to verify LambdaAuthorizer and CognitoAuthorizer checks
 
 ## Troubleshooting
 
@@ -343,7 +343,7 @@ jobs:
           cd service-screener-v2/services/apigateway/simulation
           ./create_test_resources.sh
       
-      - name: Run Service Screener
+      - name: Run Quadra Recon
         run: |
           cd service-screener-v2
           python screener.py --services apigateway --regions us-east-1
@@ -359,16 +359,16 @@ jobs:
 
 - [API Gateway Best Practices](https://docs.aws.amazon.com/apigateway/latest/developerguide/best-practices.html)
 - [API Gateway Security](https://docs.aws.amazon.com/apigateway/latest/developerguide/security.html)
-- [Service Screener Documentation](../../../README.md)
+- [Quadra Recon Documentation](../../../README.md)
 
 ## Support
 
 For issues or questions:
 1. Check the troubleshooting section above
-2. Review Service Screener logs
+2. Review Quadra Recon logs
 3. Verify AWS CLI configuration and permissions
-4. Check the main Service Screener documentation
+4. Check the main Quadra Recon documentation
 
 ## License
 
-These scripts are part of Service Screener v2 and follow the same license.
+These scripts are part of Quadra Recon v2 and follow the same license.

@@ -1,11 +1,11 @@
 IMPORTANT: Do not execute the following instructions unless specifically instructed to.
 
 You are an AWS security and best practices expert. 
-Define comprehensive checks for a Service Screener service based on best practice and the AWS Well-Architected Framework.
+Define comprehensive checks for a Quadra Recon service based on best practice and the AWS Well-Architected Framework.
 
 CONTEXT: 
 Before you begin, please read the following document ./docs/context.md if you haven't done so already. 
-This will give you an understanding of Service Screener.
+This will give you an understanding of Quadra Recon.
 
 REQUIREMENTS:
 Define checks for service: `{AWS_SERVICE_NAME}`

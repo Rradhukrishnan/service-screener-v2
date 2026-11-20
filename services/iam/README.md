@@ -47,7 +47,7 @@ python -m pytest tests/test_iam_new_checks.py -v
 ```bash
 cd services/iam/simulation
 ./create_test_resources.sh
-# Run Service Screener
+# Run Quadra Recon
 ./cleanup_test_resources.sh
 ```
 
@@ -64,4 +64,4 @@ See `simulation/README.md` for detailed testing instructions.
 1. Original Author: KuetTai
 2. PHP to Python Convertor: KuetTai
 3. Reviewer: HoonSin
-4. Tier 1 Enhancement (2025-02-25): Service Screener v2 Team
+4. Tier 1 Enhancement (2025-02-25): Quadra Recon v2 Team

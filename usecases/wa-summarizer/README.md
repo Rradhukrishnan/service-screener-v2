@@ -1,10 +1,10 @@
-# AWS Service Screener Summarizer Tools
+# Quadra Recon Summarizer Tools
 
-Generate actionable summary reports from [AWS Service Screener V2](https://github.com/aws-samples/service-screener-v2) scan results using Kiro CLI.
+Generate actionable summary reports from [Quadra Recon](https://github.com/aws-samples/service-screener-v2) scan results using Kiro CLI.
 
 ## Overview
 
-The AWS Service Screener Summarizer Tools translate Service Screener output data into technology/framework-specific HTML reports with:
+The Quadra Recon Summarizer Tools translate Quadra Recon output data into technology/framework-specific HTML reports with:
 
 - **Well-Architected Framework Analysis** - Comprehensive 6-pillar assessments with priority-based recommendations
 - **Modernization Roadmaps** - Strategic guidance for containerization, database migration, and application modernization
@@ -74,9 +74,9 @@ The AWS Service Screener Summarizer Tools translate Service Screener output data
    kiro-cli --version
    ```
 
-### Service Screener Results
+### Quadra Recon Results
 
-You must have completed Service Screener scan results with the following structure:
+You must have completed Quadra Recon scan results with the following structure:
 
 ```
 service-screener-results/
@@ -119,7 +119,7 @@ The main launcher provides an interactive menu for easy use:
 This will:
 1. Display available report types
 2. Guide you through selecting the appropriate analyzer
-3. Prompt for Service Screener results directory
+3. Prompt for Quadra Recon results directory
 4. Ask for output directory (or use default)
 5. Execute the selected analyzer
 6. Display results and next steps
@@ -134,7 +134,7 @@ For automation or scripting, use command-line arguments:
 
 **Options:**
 - `--report TYPE` - Report type: `wa`, `wa_mod`, or `ftr`
-- `--input-dir PATH` - Path to Service Screener results directory (required)
+- `--input-dir PATH` - Path to Quadra Recon results directory (required)
 - `--output-dir PATH` - Output directory (optional, default: `./output`)
 - `-h, --help` - Show help message
 
@@ -253,7 +253,7 @@ Contributions are welcome! Please:
 1. **Fork the repository**
 2. **Create a feature branch** (`git checkout -b feature/new-analyzer`)
 3. **Follow existing patterns** in script structure
-4. **Test thoroughly** with real Service Screener data
+4. **Test thoroughly** with real Quadra Recon data
 5. **Update documentation** (this README and script READMEs)
 6. **Submit a pull request**
 
@@ -277,4 +277,4 @@ To add a new report type:
 ### Getting Help
 - **Issues**: Open an issue in the GitHub repository
 - **Discussions**: Use GitHub Discussions for questions
-- **AWS Support**: For Service Screener or AWS service questions
+- **AWS Support**: For Quadra Recon or AWS service questions

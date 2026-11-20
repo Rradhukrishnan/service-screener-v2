@@ -18,7 +18,7 @@ class CfnTrail():
         self.defaultRegion = "us-east-1"
         self.ymlBody='''
 AWSTemplateFormatVersion: '2010-09-09'
-Description: '[aws-gh-ss-v2] Service Screener V2{}'
+Description: '[aws-gh-ss-v2] Quadra Recon{}'
 
 Conditions:
   HasNot: !Equals [ 'true', 'false' ]

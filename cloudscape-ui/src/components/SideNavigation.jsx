@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { formatServiceName } from '../utils/formatters';
 
 /**
- * SideNavigation component for Service Screener
+ * SideNavigation component for Quadra Recon
  * Displays navigation links for Dashboard, Services, Pages, and Frameworks
  */
 const ServiceScreenerSideNav = ({ services = [], frameworks = [], customPages = [], data = null }) => {

@@ -120,7 +120,7 @@ Enhanced EKS service with 14 new checks across Security, Reliability, and Cost O
 
 ### Implementation Notes
 
-- All checks follow Service Screener conventions
+- All checks follow Quadra Recon conventions
 - Proper error handling for API failures
 - No false positives on permission errors
 - Clear, actionable failure messages

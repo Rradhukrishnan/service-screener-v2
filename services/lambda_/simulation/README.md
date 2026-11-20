@@ -1,6 +1,6 @@
 # Lambda Service - Simulation Scripts
 
-This directory contains scripts to create and cleanup test AWS resources for validating the new Lambda Service Screener checks.
+This directory contains scripts to create and cleanup test AWS resources for validating the new Lambda Quadra Recon checks.
 
 ## Overview
 
@@ -138,20 +138,20 @@ To cleanup resources, run:
   ./cleanup_test_resources.sh test_resources_1234567890.txt
 ```
 
-### Step 3: Run Service Screener
+### Step 3: Run Quadra Recon
 
-Navigate to the Service Screener root directory and run:
+Navigate to the Quadra Recon root directory and run:
 
 ```bash
 cd ../../..  # Go to service-screener-v2 root
 
-# Run Service Screener for Lambda service
+# Run Quadra Recon for Lambda service
 python screener.py --services lambda --regions us-east-1
 ```
 
 ### Step 4: Verify results
 
-Check the Service Screener output for the new checks:
+Check the Quadra Recon output for the new checks:
 
 **Expected findings:**
 
@@ -294,7 +294,7 @@ chmod +x *.sh
 
 2. Wait 5-10 minutes for CloudWatch data to be available
 
-3. Run Service Screener again to detect the issues
+3. Run Quadra Recon again to detect the issues
 
 ### Issue: lambdaRoleTooPermissive not flagging function 9
 
@@ -364,7 +364,7 @@ Expected output should show `"Action": "*"` and `"Resource": "*"`
   aws lambda invoke --function-name ss-lambda-test-*-memory-over /dev/null
   ```
 - **Wait time:** Allow 5-10 minutes for CloudWatch Logs to be available
-- **Check:** Run Service Screener after invocations to detect over-provisioning
+- **Check:** Run Quadra Recon after invocations to detect over-provisioning
 
 ### lambdaTimeoutNotOptimized
 - **Test scenario:** Function with 3s timeout (low)
@@ -375,7 +375,7 @@ Expected output should show `"Action": "*"` and `"Resource": "*"`
   aws lambda invoke --function-name ss-lambda-test-*-timeout-low /dev/null
   ```
 - **Wait time:** Allow 5-10 minutes for CloudWatch Metrics to be available
-- **Check:** Run Service Screener after invocations to detect timeout issues
+- **Check:** Run Quadra Recon after invocations to detect timeout issues
 
 ### lambdaRoleTooPermissive
 - **Test scenario:** IAM role with wildcard permissions (Action: "*", Resource: "*")
@@ -405,4 +405,4 @@ Expected output should show `"Action": "*"` and `"Resource": "*"`
 
 ## Support
 
-For issues or questions about these simulation scripts, please refer to the main Service Screener documentation or create an issue in the project repository.
+For issues or questions about these simulation scripts, please refer to the main Quadra Recon documentation or create an issue in the project repository.

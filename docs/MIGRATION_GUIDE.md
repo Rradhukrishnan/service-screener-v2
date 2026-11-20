@@ -1,6 +1,6 @@
 # Cloudscape UI Migration Guide
 
-This guide helps you transition from the AdminLTE (legacy) UI to the new Cloudscape UI for Service Screener.
+This guide helps you transition from the AdminLTE (legacy) UI to the new Cloudscape UI for Quadra Recon.
 
 ## Overview
 
@@ -253,7 +253,7 @@ aws s3 cp adminlte/aws/{ACCOUNT_ID}/index-legacy.html s3://reports/legacy.html
 
 **Before:**
 ```yaml
-- name: Run Service Screener
+- name: Run Quadra Recon
   run: python3 main.py --regions us-east-1 --services s3,ec2
   
 - name: Upload Report
@@ -265,7 +265,7 @@ aws s3 cp adminlte/aws/{ACCOUNT_ID}/index-legacy.html s3://reports/legacy.html
 
 **After:**
 ```yaml
-- name: Run Service Screener
+- name: Run Quadra Recon
   run: python3 main.py --regions us-east-1 --services s3,ec2 --beta 1
   
 - name: Upload Cloudscape Report
@@ -423,7 +423,7 @@ python3 main.py \
 
 ### Q: Do I need to install anything?
 
-**A:** No. The Cloudscape UI is built into Service Screener. Just use the `--beta 1` flag.
+**A:** No. The Cloudscape UI is built into Quadra Recon. Just use the `--beta 1` flag.
 
 ### Q: Can I customize the Cloudscape UI?
 
@@ -447,7 +447,7 @@ python3 main.py \
 
 - [Cloudscape UI README](cloudscape-ui/README.md) - Technical details
 - [Browser Testing Guide](cloudscape-ui/BROWSER_TESTING_GUIDE.md) - Testing checklist
-- [Main README](README.md) - Service Screener documentation
+- [Main README](README.md) - Quadra Recon documentation
 
 ### Support
 

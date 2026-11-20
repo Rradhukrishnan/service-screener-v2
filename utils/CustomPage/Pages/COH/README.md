@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Cost Optimization Hub feature in Service Screener provides unified cost optimization recommendations across multiple AWS services. This experimental feature requires access to several AWS services to function properly.
+The Cost Optimization Hub feature in Quadra Recon provides unified cost optimization recommendations across multiple AWS services. This experimental feature requires access to several AWS services to function properly.
 
 ## Required AWS Services
 
@@ -325,13 +325,13 @@ Available globally, but data is aggregated in `us-east-1`.
 
 ## Testing Your Setup
 
-After enabling all services, you can test the setup using the Service Screener diagnostic tool:
+After enabling all services, you can test the setup using the Quadra Recon diagnostic tool:
 
 ```bash
 # Run the COH diagnostic script
 python3 diagnose_coh_issues.py
 
-# Or run Service Screener with COH enabled
+# Or run Quadra Recon with COH enabled
 python3 main.py --regions us-east-1 --services coh --beta 1
 ```
 

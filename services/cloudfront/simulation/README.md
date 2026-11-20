@@ -1,10 +1,10 @@
 # CloudFront Service Simulation
 
-This directory contains scripts to create and cleanup intentionally insecure AWS CloudFront resources for testing Service Screener checks.
+This directory contains scripts to create and cleanup intentionally insecure AWS CloudFront resources for testing Quadra Recon checks.
 
 ## Purpose
 
-These scripts create real AWS resources with security and configuration issues that should trigger FAIL (-1) status in Service Screener. This allows you to validate that all CloudFront checks are working correctly.
+These scripts create real AWS resources with security and configuration issues that should trigger FAIL (-1) status in Quadra Recon. This allows you to validate that all CloudFront checks are working correctly.
 
 ## Resources Created
 
@@ -59,7 +59,7 @@ chmod +x create_test_resources.sh
 ./create_test_resources.sh
 ```
 
-**Note**: CloudFront distributions take 15-20 minutes to deploy. Wait for deployment to complete before running Service Screener.
+**Note**: CloudFront distributions take 15-20 minutes to deploy. Wait for deployment to complete before running Quadra Recon.
 
 ### Check Deployment Status
 
@@ -67,9 +67,9 @@ chmod +x create_test_resources.sh
 aws cloudfront get-distribution --id <DISTRIBUTION_ID> --query 'Distribution.Status'
 ```
 
-Status should be "Deployed" before running Service Screener.
+Status should be "Deployed" before running Quadra Recon.
 
-### Run Service Screener
+### Run Quadra Recon
 
 ```bash
 cd ../../..  # Back to service-screener-v2 root
@@ -88,7 +88,7 @@ chmod +x cleanup_test_resources.sh
 
 ## Expected Results
 
-When you run Service Screener after creating these resources, you should see:
+When you run Quadra Recon after creating these resources, you should see:
 
 ### Original Checks (8 FAIL)
 - ❌ accessLogging - No logging enabled
@@ -185,7 +185,7 @@ CloudFront distributions can take 15-20 minutes to deploy or disable. This is no
    - CloudFront distribution must be fully deployed
    - Check status periodically
 
-3. **Run Service Screener** (~1 minute)
+3. **Run Quadra Recon** (~1 minute)
    ```bash
    cd ../../..
    python3 main.py --regions us-east-1 --services cloudfront --beta 1 --sequential 1
@@ -226,4 +226,4 @@ These resources are intentionally insecure for testing purposes:
 
 - [CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/)
 - [CloudFront Security Best Practices](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/security-best-practices.html)
-- [Service Screener Documentation](../../README.md)
+- [Quadra Recon Documentation](../../README.md)

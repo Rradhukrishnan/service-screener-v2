@@ -172,4 +172,4 @@ For beta-related issues:
 
 ---
 
-**Remember**: The goal is to ensure a smooth transition to the new UI while maintaining the reliability and functionality users expect from Service Screener.
+**Remember**: The goal is to ensure a smooth transition to the new UI while maintaining the reliability and functionality users expect from Quadra Recon.

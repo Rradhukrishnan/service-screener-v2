@@ -315,7 +315,7 @@ These drivers contained checks specific to RDS and ECS services, not CloudWatch.
 
 **Test Procedure:**
 1. Run `create_test_resources.sh` to create test alarms
-2. Execute Service Screener against the test account
+2. Execute Quadra Recon against the test account
 3. Verify expected results match actual findings
 4. Run `cleanup_test_resources.sh` to remove test resources
 
@@ -479,4 +479,4 @@ The CloudWatch service review successfully implemented 2 new Tier 1 checks, impr
 
 **Document Version:** 1.0  
 **Last Updated:** February 25, 2026  
-**Author:** Service Screener v2 Development Team
+**Author:** Quadra Recon v2 Development Team

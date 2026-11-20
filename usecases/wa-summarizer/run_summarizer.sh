@@ -1,5 +1,5 @@
 #!/bin/bash
-# AWS Service Screener Summary Report Generator
+# Quadra Recon Summary Report Generator
 # Main launcher script for generating Well-Architected and FTR summary reports
 
 set -e
@@ -20,7 +20,7 @@ SUMMARIZER_SCRIPTS_DIR="${SCRIPT_DIR}/summarizer_scripts"
 # Function to display header
 show_header() {
     echo -e "${BLUE}╔════════════════════════════════════════════════════════════════╗${NC}"
-    echo -e "${BLUE}║${NC}   ${CYAN}AWS Service Screener Summary Report Generator${NC}                ${BLUE}║${NC}"
+    echo -e "${BLUE}║${NC}   ${CYAN}Quadra Recon Summary Report Generator${NC}                ${BLUE}║${NC}"
     echo -e "${BLUE}╚════════════════════════════════════════════════════════════════╝${NC}"
     echo ""
 }
@@ -41,7 +41,7 @@ show_usage() {
     echo "                       wa_mod  = WAF with Modernization Analysis"
     echo "                       ftr     = Foundational Technical Review Summary"
     echo ""
-    echo "  --input-dir PATH     Path to Service Screener results directory (aws/)"
+    echo "  --input-dir PATH     Path to Quadra Recon results directory (aws/)"
     echo "                       This is the directory containing account folders"
     echo ""
     echo "  --output-dir PATH    Output directory for generated reports"
@@ -193,17 +193,17 @@ get_report_description() {
     esac
 }
 
-# Function to get Service Screener directory with validation
+# Function to get Quadra Recon directory with validation
 get_screener_directory() {
     echo "" >&2
     echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}" >&2
-    echo -e "${CYAN}Service Screener Results Directory${NC}" >&2
+    echo -e "${CYAN}Quadra Recon Results Directory${NC}" >&2
     echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}" >&2
     echo "" >&2
-    echo -e "${YELLOW}Please provide the path to your Service Screener results directory.${NC}" >&2
+    echo -e "${YELLOW}Please provide the path to your Quadra Recon results directory.${NC}" >&2
     echo "" >&2
     echo -e "${CYAN}Expected structure:${NC}" >&2
-    echo -e "  aws/                        ${YELLOW}← (Provide path to this) Service Screener results directory${NC}" >&2
+    echo -e "  aws/                        ${YELLOW}← (Provide path to this) Quadra Recon results directory${NC}" >&2
     echo -e "  ├── 123456789012/           ${YELLOW}← Account directory${NC}" >&2
     echo -e "  │   ├── index.html" >&2
     echo -e "  │   ├── CPFindings.html" >&2
@@ -219,7 +219,7 @@ get_screener_directory() {
     echo "" >&2
     
     while true; do
-        read -p "$(echo -e ${CYAN}Enter Service Screener results \"aws\" directory path:${NC} )" screener_dir
+        read -p "$(echo -e ${CYAN}Enter Quadra Recon results \"aws\" directory path:${NC} )" screener_dir
         
         # Handle empty input
         if [ -z "$screener_dir" ]; then
@@ -286,7 +286,7 @@ run_script() {
     echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo ""
     echo -e "${CYAN}Script:${NC} $script_name"
-    echo -e "${CYAN}Service Screener Directory:${NC} $screener_dir"
+    echo -e "${CYAN}Quadra Recon Directory:${NC} $screener_dir"
     echo -e "${CYAN}Output Directory:${NC} $output_dir"
     echo ""
     echo -e "${YELLOW}Starting report generation...${NC}"

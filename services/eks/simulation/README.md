@@ -98,7 +98,7 @@ You need an existing VPC with:
   --cluster-name my-test
 ```
 
-### Step 2: Run Service Screener
+### Step 2: Run Quadra Recon
 
 After all resources are created and active:
 
@@ -109,7 +109,7 @@ python screener.py --regions us-east-1 --services eks
 
 ### Step 3: Verify Results
 
-Check the Service Screener output to confirm all 6 checks are triggered:
+Check the Quadra Recon output to confirm all 6 checks are triggered:
 
 ```
 ✓ eksNoManagedNodeGroups - FAIL (expected)
@@ -227,7 +227,7 @@ Check the Service Screener output to confirm all 6 checks are triggered:
 - Run cleanup script again (it's idempotent)
 - Manually delete resources via AWS Console if needed
 
-### Issue: "Service Screener doesn't detect issues"
+### Issue: "Quadra Recon doesn't detect issues"
 **Possible causes:**
 - Resources not fully created
 - Wrong region specified
@@ -236,7 +236,7 @@ Check the Service Screener output to confirm all 6 checks are triggered:
 **Solution:**
 - Verify all clusters show ACTIVE status
 - Confirm region matches where resources were created
-- Check Service Screener logs for errors
+- Check Quadra Recon logs for errors
 
 ## Manual Verification
 
@@ -291,7 +291,7 @@ aws eks list-addons \
 2. **Use dedicated test account** - Avoid running in production accounts
 3. **Tag resources** - All resources are tagged with `Purpose=ServiceScreenerTest`
 4. **Monitor costs** - Set up billing alerts for the test account
-5. **Document results** - Save Service Screener output for validation
+5. **Document results** - Save Quadra Recon output for validation
 6. **Version control** - Keep resource files for audit trail
 
 ## Support
@@ -300,12 +300,12 @@ For issues or questions:
 1. Check the troubleshooting section above
 2. Review AWS CloudTrail logs for detailed error messages
 3. Verify IAM permissions and VPC configuration
-4. Check Service Screener logs in `service-screener-v2/logs/`
+4. Check Quadra Recon logs in `service-screener-v2/logs/`
 
 ## References
 
 - [Amazon EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/)
 - [Amazon EKS Best Practices Guide](https://docs.aws.amazon.com/eks/latest/best-practices/)
 - [AWS CLI EKS Reference](https://docs.aws.amazon.com/cli/latest/reference/eks/)
-- [Service Screener Documentation](../../../README.md)
+- [Quadra Recon Documentation](../../../README.md)
 - [EKS New Checks Summary](../../../.kiro/specs/service-review-eks/NEW_CHECKS_SUMMARY.md)

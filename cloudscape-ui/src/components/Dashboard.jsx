@@ -223,7 +223,7 @@ const Dashboard = ({ data }) => {
   return (
     <SpaceBetween size="l">
       <Header variant="h1" description="AWS Well-Architected Assessment Report">
-        Service Screener Dashboard
+        Quadra Recon Dashboard
       </Header>
       
       {/* Category Cards - Main KPI Section - Always show all 5 Well-Architected Pillars */}

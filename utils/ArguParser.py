@@ -1,4 +1,4 @@
-import argparse
+﻿import argparse
 
 class ArguParser:
     OPTLISTS = {
@@ -100,7 +100,7 @@ class ArguParser:
 
     @staticmethod
     def Load():
-        parser = argparse.ArgumentParser(prog='Screener', description='Service-Screener, open-source to check your AWS environment against AWS Well-Architected Pillars')
+        parser = argparse.ArgumentParser(prog='QuadraRecon', description='Quadra Recon, open-source to check your AWS environment against AWS Well-Architected Pillars')
     
         for k, v in ArguParser.CLI_ARGUMENT_RULES.items():
             # Get the short option from OPTLISTS if available, otherwise no short option
@@ -121,7 +121,7 @@ class ArguParser:
         return args
         
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(prog='Screener', description='Service-Screener, open-source to check your AWS environment against AWS Well-Architected Pillars')
+    parser = argparse.ArgumentParser(prog='QuadraRecon', description='Quadra Recon, open-source to check your AWS environment against AWS Well-Architected Pillars')
     
     for k, v in ArguParser.CLI_ARGUMENT_RULES.items():
         parser.add_argument('-' + k[:1], '--' + k, required=v['required'], default=v['default'], help=v.get('help', None))

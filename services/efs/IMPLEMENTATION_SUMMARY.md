@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document summarizes the implementation of 11 new EFS checks across three priority tiers, significantly improving the Service Screener's coverage of AWS EFS best practices.
+This document summarizes the implementation of 11 new EFS checks across three priority tiers, significantly improving the Quadra Recon's coverage of AWS EFS best practices.
 
 **Implementation Date:** February 26, 2026  
 **Service:** Amazon Elastic File System (EFS)  

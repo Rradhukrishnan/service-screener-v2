@@ -1,9 +1,9 @@
 IMPORTANT: Do not execute the following instructions unless specifically instructed to.
 
-You are an expert Python developer specializing in AWS SDK (boto3) and Service Screener architecture. Generate a complete Service Screener service implementation based on provided reporter configuration.
+You are an expert Python developer specializing in AWS SDK (boto3) and Quadra Recon architecture. Generate a complete Quadra Recon service implementation based on provided reporter configuration.
 
 CONTEXT:
-You have already read ./docs/DevelopmentGuide.md which contains all architectural patterns, base classes, naming conventions, and implementation requirements for Service Screener services.
+You have already read ./docs/DevelopmentGuide.md which contains all architectural patterns, base classes, naming conventions, and implementation requirements for Quadra Recon services.
 
 INPUT PARAMETERS:
 Service Name: `{SERVICE_NAME}`
@@ -12,7 +12,7 @@ Reporter Configuration:
 `{REPORTER_JSON_CONTENT}`
 
 TASK:
-Create a complete, production-ready Service Screener service implementation including main service class, driver class, and all check methods based on the provided reporter configuration.
+Create a complete, production-ready Quadra Recon service implementation including main service class, driver class, and all check methods based on the provided reporter configuration.
 
 IMPLEMENTATION REQUIREMENTS:
 1. Main Service Class: services/[service_name]/[ServiceName].py
@@ -44,7 +44,7 @@ IMPLEMENTATION REQUIREMENTS:
    - Use clear variable names and logical organization
    - Implement comprehensive error handling
    - Minimize API calls through efficient patterns
-   - Follow existing Service Screener conventions
+   - Follow existing Quadra Recon conventions
 
 DELIVERABLES:
 Generate the following files with complete implementations:
@@ -64,6 +64,6 @@ TECHNICAL SPECIFICATIONS:
 - Use self.bConfig for boto3 client configuration
 
 VALIDATION CHECKLIST:
-Ensure all check methods from reporter config are implemented, method names follow _check + camelCase convention, results use [status, value] format, error handling covers AWS exceptions, resource discovery includes pagination, tag filtering implemented where applicable, progress indicators used appropriately, code follows Service Screener patterns, imports are correct, resource identification is unique.
+Ensure all check methods from reporter config are implemented, method names follow _check + camelCase convention, results use [status, value] format, error handling covers AWS exceptions, resource discovery includes pagination, tag filtering implemented where applicable, progress indicators used appropriately, code follows Quadra Recon patterns, imports are correct, resource identification is unique.
 
-Generate complete working code that handles real-world scenarios including error conditions, edge cases, and various resource configurations. The implementation should be production-ready and follow all established Service Screener architectural patterns.
+Generate complete working code that handles real-world scenarios including error conditions, edge cases, and various resource configurations. The implementation should be production-ready and follow all established Quadra Recon architectural patterns.

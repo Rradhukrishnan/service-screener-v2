@@ -6,7 +6,7 @@
 set -e
 
 echo "=========================================="
-echo "IAM Service Screener - Create Test Resources"
+echo "IAM Quadra Recon - Create Test Resources"
 echo "=========================================="
 echo ""
 
@@ -288,7 +288,7 @@ echo ""
 echo "Resource identifiers saved to: $RESOURCE_FILE"
 echo ""
 echo "Next steps:"
-echo "1. Run Service Screener: python screener.py --services iam --regions us-east-1"
+echo "1. Run Quadra Recon: python screener.py --services iam --regions us-east-1"
 echo "2. Verify the following checks detect issues:"
 echo ""
 echo "   TIER 1 CHECKS:"

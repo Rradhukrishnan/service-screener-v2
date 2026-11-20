@@ -1,8 +1,8 @@
-# Service Screener v2.1.0-beta Release Notes
+# Quadra Recon v2.1.0-beta Release Notes
 
 ## 🎉 Major Addition: AWS Cloudscape UI + Performance Improvements
 
-We're excited to announce significant improvements to Service Screener, including the **newest beta feature**: AWS Cloudscape Design System UI, plus **performance enhancements** that are now standard!
+We're excited to announce significant improvements to Quadra Recon, including the **newest beta feature**: AWS Cloudscape Design System UI, plus **performance enhancements** that are now standard!
 
 ### 🚀 How to Enable Beta Features
 
@@ -59,7 +59,7 @@ These features still require `--beta 1` to enable:
 #### **Trusted Advisor Integration**
 - TA check results organized by Well-Architected pillars
 - Comprehensive pillar-based analysis and recommendations
-- Seamless integration with Service Screener findings
+- Seamless integration with Quadra Recon findings
 
 #### **Framework Compliance Reporting**
 - Enhanced visualization for compliance frameworks (CIS, NIST, SOC2, etc.)

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# CloudWatch Service Screener Simulation - Create Test Resources
+# CloudWatch Quadra Recon Simulation - Create Test Resources
 # This script creates test AWS resources to validate CloudWatch checks:
 # - alarmsWithoutSNS: CloudWatch alarms with and without SNS notifications
 # - missingBillingAlarms: Billing alarms in us-east-1
@@ -20,7 +20,7 @@ ALARM_WITH_SNS="test-alarm-with-sns"
 ALARM_WITHOUT_SNS="test-alarm-without-sns"
 BILLING_ALARM="test-billing-alarm"
 
-echo -e "${GREEN}=== CloudWatch Service Screener Test Resource Creation ===${NC}"
+echo -e "${GREEN}=== CloudWatch Quadra Recon Test Resource Creation ===${NC}"
 echo "Region: $REGION"
 echo ""
 
@@ -56,7 +56,7 @@ echo ""
 echo -e "${YELLOW}Step 2: Creating CloudWatch Alarm WITH SNS Notification${NC}"
 aws cloudwatch put-metric-alarm \
     --alarm-name "$ALARM_WITH_SNS" \
-    --alarm-description "Test alarm with SNS notification for Service Screener validation" \
+    --alarm-description "Test alarm with SNS notification for Quadra Recon validation" \
     --metric-name CPUUtilization \
     --namespace AWS/EC2 \
     --statistic Average \
@@ -74,7 +74,7 @@ echo ""
 echo -e "${YELLOW}Step 3: Creating CloudWatch Alarm WITHOUT SNS Notification${NC}"
 aws cloudwatch put-metric-alarm \
     --alarm-name "$ALARM_WITHOUT_SNS" \
-    --alarm-description "Test alarm without SNS notification for Service Screener validation" \
+    --alarm-description "Test alarm without SNS notification for Quadra Recon validation" \
     --metric-name CPUUtilization \
     --namespace AWS/EC2 \
     --statistic Average \
@@ -92,7 +92,7 @@ if [ "$REGION" = "us-east-1" ]; then
     echo -e "${YELLOW}Step 4: Creating Billing Alarm (us-east-1 only)${NC}"
     aws cloudwatch put-metric-alarm \
         --alarm-name "$BILLING_ALARM" \
-        --alarm-description "Test billing alarm for Service Screener validation" \
+        --alarm-description "Test billing alarm for Quadra Recon validation" \
         --metric-name EstimatedCharges \
         --namespace AWS/Billing \
         --statistic Maximum \
@@ -122,7 +122,7 @@ if [ "$REGION" = "us-east-1" ]; then
 fi
 echo ""
 echo -e "${YELLOW}Next steps:${NC}"
-echo "  1. Run Service Screener: python screener.py --regions $REGION --services cloudwatch"
+echo "  1. Run Quadra Recon: python screener.py --regions $REGION --services cloudwatch"
 echo "  2. Verify results:"
 echo "     - alarmsWithoutSNS check should flag: $ALARM_WITHOUT_SNS"
 echo "     - alarmsWithoutSNS check should pass: $ALARM_WITH_SNS"
@@ -271,7 +271,7 @@ echo "    - 2 Log groups (untagged, no insights usage)"
 echo "    - 1 Dashboard (single-account, non-vended)"
 echo ""
 echo -e "${YELLOW}Next steps:${NC}"
-echo "  1. Run Service Screener: python screener.py --regions $REGION --services cloudwatch"
+echo "  1. Run Quadra Recon: python screener.py --regions $REGION --services cloudwatch"
 echo "  2. Verify Tier 1 results:"
 echo "     - alarmsWithoutSNS check should flag: $ALARM_WITHOUT_SNS"
 echo "     - alarmsWithoutSNS check should pass: $ALARM_WITH_SNS"

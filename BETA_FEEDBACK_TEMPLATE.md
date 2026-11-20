@@ -163,4 +163,4 @@ screener --regions your-region --beta 1
 
 ## Thank You!
 
-Your feedback is invaluable in making the Cloudscape UI the best possible experience for all Service Screener users.
+Your feedback is invaluable in making the Cloudscape UI the best possible experience for all Quadra Recon users.

@@ -5,8 +5,8 @@ from utils.Config import Config, dashboard
 
 class ExcelBuilder:
     # XLSX_FILENAME = 'adminlte/html/workItem.xlsx'
-    XLSX_CREATOR = "Service Screener - AWS Malaysia"
-    XLSX_TITLE = "Service Screener WorkList"
+    XLSX_CREATOR = "Quadra Recon - AWS Malaysia"
+    XLSX_TITLE = "Quadra Recon WorkList"
     SHEET_TRACKER = []
     SHEET_HEADER = [[
         'Region',

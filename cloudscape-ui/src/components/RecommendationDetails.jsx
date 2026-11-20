@@ -884,7 +884,7 @@ const RecommendationDetails = ({
           )}
         </Container>
 
-        {/* Related Service Screener Findings */}
+        {/* Related Quadra Recon Findings */}
         {relatedFindings.length > 0 && (
           <Container
             header={
@@ -893,7 +893,7 @@ const RecommendationDetails = ({
                 counter={`(${relatedFindings.length})`}
                 description="Related security and compliance findings that may be relevant"
               >
-                Related Service Screener Findings
+                Related Quadra Recon Findings
               </Header>
             }
           >

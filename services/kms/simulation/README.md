@@ -74,16 +74,16 @@ Note: KeyCentralizedManagement check requires multi-account setup (cannot simula
 
 All keys are tagged with: ServiceScreenerTest=kms-test-20240101-120000
 
-To run Service Screener on these keys:
+To run Quadra Recon on these keys:
   python3 main.py --regions us-east-1 --services kms --tags ServiceScreenerTest=kms-test-20240101-120000
 
 To cleanup these resources:
   ./cleanup_test_resources.sh kms-test-20240101-120000
 ```
 
-### 2. Run Service Screener
+### 2. Run Quadra Recon
 
-After creating test resources, run Service Screener to validate the checks:
+After creating test resources, run Quadra Recon to validate the checks:
 
 ```bash
 cd ../../../  # Back to service-screener-v2 root
@@ -252,7 +252,7 @@ If you see "alias already exists" errors:
 
 **Test Duration:**
 - Creating resources: ~2-3 minutes
-- Running Service Screener: ~1-2 minutes
+- Running Quadra Recon: ~1-2 minutes
 - Total test time: ~5 minutes
 
 **Estimated Cost:**
@@ -301,7 +301,7 @@ These scripts can be integrated into CI/CD pipelines:
 - name: Create KMS test resources
   run: ./services/kms/simulation/create_test_resources.sh
 
-- name: Run Service Screener
+- name: Run Quadra Recon
   run: python3 main.py --regions us-east-1 --services kms --tags ServiceScreenerTest=kms-test-${{ github.run_id }}
 
 - name: Cleanup test resources
@@ -313,4 +313,4 @@ These scripts can be integrated into CI/CD pipelines:
 
 - [AWS KMS Best Practices](https://docs.aws.amazon.com/kms/latest/developerguide/best-practices.html)
 - [AWS KMS API Reference](https://docs.aws.amazon.com/kms/latest/APIReference/)
-- [Service Screener Documentation](../../README.md)
+- [Quadra Recon Documentation](../../README.md)

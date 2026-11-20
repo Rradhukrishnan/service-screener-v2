@@ -2,7 +2,7 @@
 The purpose of this document is to provide an overview of this codebase to AI development tools.
 
 ## Project Overview
-Service Screener is an open-source AWS environment assessment tool that runs automated checks against AWS services and provides recommendations based on AWS best 
+Quadra Recon is an open-source AWS environment assessment tool that runs automated checks against AWS services and provides recommendations based on AWS best 
 practices. It's designed to complement the AWS Well-Architected Tool by focusing on service-level configurations.
 
 ## Tech Stack
@@ -86,11 +86,11 @@ The tool is designed to be lightweight and run within AWS CloudShell's free tier
 
 ## Simulation Testing Framework
 
-Service Screener includes a simulation testing framework that allows developers to validate security checks with real AWS resources. This is a critical part of the development workflow to ensure checks work correctly in production.
+Quadra Recon includes a simulation testing framework that allows developers to validate security checks with real AWS resources. This is a critical part of the development workflow to ensure checks work correctly in production.
 
 ### What is Simulation Testing?
 
-Simulation testing creates intentionally insecure AWS resources that should trigger FAIL (-1) status in Service Screener checks. This validates that:
+Simulation testing creates intentionally insecure AWS resources that should trigger FAIL (-1) status in Quadra Recon checks. This validates that:
 1. The service discovery logic correctly finds resources
 2. The driver classes properly evaluate configurations
 3. The checks accurately identify security misconfigurations
@@ -121,7 +121,7 @@ Currently implemented:
 ### Simulation Workflow
 
 1. **Create Resources**: Run `create_test_resources.sh` to create intentionally insecure AWS resources
-2. **Run Service Screener**: Execute Service Screener against the test resources
+2. **Run Quadra Recon**: Execute Quadra Recon against the test resources
 3. **Validate Results**: Verify that all expected checks show FAIL (-1) status
 4. **Cleanup**: Run `cleanup_test_resources.sh` to remove resources and avoid costs
 
@@ -132,7 +132,7 @@ Currently implemented:
 cd services/sagemaker/simulation
 ./create_test_resources.sh
 
-# Run Service Screener
+# Run Quadra Recon
 cd ../../..
 python3 main.py --regions us-east-1 --services sagemaker --beta 1 --sequential 1
 
@@ -206,7 +206,7 @@ Simulation testing integrates with the standard development workflow:
 3. Create simulation scripts to validate checks
 4. Run unit tests (pytest)
 5. Run simulation tests (real AWS resources)
-6. Review Service Screener HTML report
+6. Review Quadra Recon HTML report
 7. Iterate until all checks work correctly
 
 See `./SIMULATION_TESTING.md` for complete documentation.

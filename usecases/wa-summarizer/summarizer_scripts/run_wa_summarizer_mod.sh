@@ -1,6 +1,6 @@
 #!/bin/bash
-# AWS Service Screener Well-Architected Summarizer (MOD) Analysis
-# A tool to analyze AWS Service Screener output and generate Well-Architected Framework analysis reports
+# Quadra Recon Well-Architected Summarizer (MOD) Analysis
+# A tool to analyze Quadra Recon output and generate Well-Architected Framework analysis reports
 # Usage: ./run_wa_summarizer_mod.sh -d <service-screener-dir> [-o <output-dir>]
 
 set -e
@@ -39,14 +39,14 @@ trap cleanup EXIT
 
 # Help function
 show_help() {
-    echo -e "${BLUE}AWS Service Screener Well-Architected Summarizer (with Modernization)${NC}"
+    echo -e "${BLUE}Quadra Recon Well-Architected Summarizer (with Modernization)${NC}"
     echo ""
-    echo "A tool to analyze AWS Service Screener output and generate Well-Architected Framework analysis reports."
+    echo "A tool to analyze Quadra Recon output and generate Well-Architected Framework analysis reports."
     echo ""
     echo "Usage: $0 [options]"
     echo ""
     echo "Options:"
-    echo "  -d, --dir DIRECTORY     Service Screener results directory (required)"
+    echo "  -d, --dir DIRECTORY     Quadra Recon results directory (required)"
     echo "  -o, --output DIRECTORY  Output directory for reports (default: ./output)"
     echo "  -h, --help              Display this help message"
     echo ""
@@ -85,39 +85,39 @@ main() {
 
     # Check if service_screener_dir is provided
     if [ -z "$service_screener_dir" ]; then
-        echo -e "${RED}❌ Service Screener directory is required.${NC}"
+        echo -e "${RED}❌ Quadra Recon directory is required.${NC}"
         show_help
         exit 1
     fi
 
-    # Validate that the Service Screener directory exists
+    # Validate that the Quadra Recon directory exists
     if [ ! -d "$service_screener_dir" ]; then
-        echo -e "${RED}❌ Service Screener directory does not exist: $service_screener_dir${NC}"
+        echo -e "${RED}❌ Quadra Recon directory does not exist: $service_screener_dir${NC}"
         exit 1
     fi
 
-    # Check for required Service Screener files and structure
+    # Check for required Quadra Recon files and structure
     # Look for at least one account directory
     account_dirs=$(find "$service_screener_dir" -maxdepth 1 -type d -not -path "$service_screener_dir" | wc -l)
     if [ "$account_dirs" -eq 0 ]; then
-        echo -e "${RED}❌ No account directories found in Service Screener directory.${NC}"
-        echo -e "${YELLOW}ℹ️ Service Screener directory should contain at least one account directory.${NC}"
+        echo -e "${RED}❌ No account directories found in Quadra Recon directory.${NC}"
+        echo -e "${YELLOW}ℹ️ Quadra Recon directory should contain at least one account directory.${NC}"
         exit 1
     fi
 
     # Check for index.html in at least one account directory
     index_files=$(find "$service_screener_dir" -maxdepth 2 -name "index.html" | wc -l)
     if [ "$index_files" -eq 0 ]; then
-        echo -e "${RED}❌ No index.html files found in Service Screener directory.${NC}"
-        echo -e "${YELLOW}ℹ️ Service Screener directory should contain index.html files in account directories.${NC}"
+        echo -e "${RED}❌ No index.html files found in Quadra Recon directory.${NC}"
+        echo -e "${YELLOW}ℹ️ Quadra Recon directory should contain index.html files in account directories.${NC}"
         exit 1
     fi
 
     # Check for CPFindings.html in at least one account directory
     findings_files=$(find "$service_screener_dir" -maxdepth 2 -name "CPFindings.html" | wc -l)
     if [ "$findings_files" -eq 0 ]; then
-        echo -e "${RED}❌ No CPFindings.html files found in Service Screener directory.${NC}"
-        echo -e "${YELLOW}ℹ️ Service Screener directory should contain CPFindings.html files in account directories.${NC}"
+        echo -e "${RED}❌ No CPFindings.html files found in Quadra Recon directory.${NC}"
+        echo -e "${YELLOW}ℹ️ Quadra Recon directory should contain CPFindings.html files in account directories.${NC}"
         exit 1
     fi
 
@@ -153,7 +153,7 @@ main() {
     report_path="${output_dir}/${report_filename}"
 
     echo -e "${GREEN}📄 Report will be saved in: $report_path${NC}"
-    echo -e "${YELLOW}🚀 Starting AWS Service Screener Well-Architected (MOD) Summarizer...${NC}"
+    echo -e "${YELLOW}🚀 Starting Quadra Recon Well-Architected (MOD) Summarizer...${NC}"
     echo ""
 
     # Check for Kiro CLI
@@ -176,9 +176,9 @@ main() {
         exit 1
     fi
 
-    echo -e "${YELLOW}📊 Analyzing Service Screener data...${NC}"
+    echo -e "${YELLOW}📊 Analyzing Quadra Recon data...${NC}"
     
-    # Prepare the prompt with the Service Screener directory path
+    # Prepare the prompt with the Quadra Recon directory path
     prompt_filename="summarizer-wa-mod-prompt-${timestamp}"
     prompt_file="${KIRO_PROMPTS_DIR}/${prompt_filename}.md"
     sed "s|{SERVICE_SCREENER_DIR}|$service_screener_dir|g" "$PROMPT_FILE" > "$prompt_file"
@@ -194,7 +194,7 @@ main() {
     
     # Check if the command was successful
     if [ $? -eq 0 ]; then
-        echo -e "${GREEN}✅ AWS Service Screener Well-Architected Summarizer (MOD) completed!${NC}"
+        echo -e "${GREEN}✅ Quadra Recon Well-Architected Summarizer (MOD) completed!${NC}"
     else
         echo -e "${RED}❌ Failed to generate report.${NC}"
         exit 1

@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document summarizes the implementation of new KMS security checks for Service Screener v2, completed as part of the KMS service review initiative.
+This document summarizes the implementation of new KMS security checks for Quadra Recon v2, completed as part of the KMS service review initiative.
 
 **Implementation Date:** 2024  
 **Tiers Implemented:** Tier 1, Tier 2, and Tier 3 (All tiers complete)  

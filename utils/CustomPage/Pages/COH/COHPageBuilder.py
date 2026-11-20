@@ -12,7 +12,7 @@ class COHPageBuilder(CustomPageBuilder):
     """
     Page builder for Cost Optimization Hub
     
-    Inherits from CustomPageBuilder to integrate with Service Screener's page generation
+    Inherits from CustomPageBuilder to integrate with Quadra Recon's page generation
     infrastructure. Provides a simple redirect message to the Cloudscape UI.
     """
     

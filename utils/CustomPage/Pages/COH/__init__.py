@@ -1,7 +1,7 @@
 """
 Cost Optimization Hub (COH) Package
 
-This package provides cost optimization functionality for AWS Service Screener,
+This package provides cost optimization functionality for Quadra Recon,
 integrating with multiple AWS cost optimization APIs to provide unified
 recommendations and executive reporting.
 
@@ -28,7 +28,7 @@ from .COHPageBuilder import COHPageBuilder
 from . import constants
 
 __version__ = "1.0.0"
-__author__ = "AWS Service Screener Team"
+__author__ = "Quadra Recon Team"
 
 __all__ = [
     'COH',

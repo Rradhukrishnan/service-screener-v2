@@ -1,10 +1,10 @@
 # Service Simulation Testing
 
-This document explains how to use the simulation testing framework to validate Service Screener security checks with real AWS resources.
+This document explains how to use the simulation testing framework to validate Quadra Recon security checks with real AWS resources.
 
 ## Overview
 
-Each service in `services/{SERVICE_NAME}/simulation/` contains scripts to create intentionally insecure AWS resources. These resources trigger FAIL status in Service Screener checks, allowing you to validate that your security checks are working correctly.
+Each service in `services/{SERVICE_NAME}/simulation/` contains scripts to create intentionally insecure AWS resources. These resources trigger FAIL status in Quadra Recon checks, allowing you to validate that your security checks are working correctly.
 
 ## Available Simulations
 
@@ -44,7 +44,7 @@ cd service-screener-v2/services/glue/simulation
 cd ../../../sagemaker/simulation
 ./create_test_resources.sh
 
-# Run Service Screener
+# Run Quadra Recon
 cd ../../..
 python3 main.py --regions us-east-1 --services glue,sagemaker --beta 1 --sequential 1
 
@@ -119,7 +119,7 @@ aws sagemaker list-endpoint-configs --region us-east-1
 
 ## Expected Results
 
-After creating resources and running Service Screener, you should see:
+After creating resources and running Quadra Recon, you should see:
 
 - **Glue**: 9 FAIL checks (red flags)
 - **SageMaker**: 11 FAIL checks (red flags)
@@ -136,7 +136,7 @@ Your AWS CLI must be configured with permissions to:
 ## Troubleshooting
 
 ### Resources Not Appearing
-Wait 10-15 seconds after creation for resources to be fully provisioned before running Service Screener.
+Wait 10-15 seconds after creation for resources to be fully provisioned before running Quadra Recon.
 
 ### IAM Role Errors
 If you see "Role already exists" warnings, the scripts will continue using the existing role. This is normal if you've run the scripts before.
@@ -153,7 +153,7 @@ SageMaker training jobs cannot be deleted from AWS. They remain in your account 
 2. **Test in non-production**: Use a dedicated test AWS account
 3. **Monitor costs**: Check AWS Cost Explorer after testing
 4. **One service at a time**: Test services individually first before combining
-5. **Check results**: Review the Service Screener HTML report to verify all checks failed as expected
+5. **Check results**: Review the Quadra Recon HTML report to verify all checks failed as expected
 
 ## Adding New Service Simulations
 

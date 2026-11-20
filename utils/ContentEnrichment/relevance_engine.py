@@ -419,7 +419,7 @@ class RelevanceEngine(RelevanceScorer):
         
         Args:
             content_items: List of content items
-            scan_findings: List of scan findings from Service Screener
+            scan_findings: List of scan findings from Quadra Recon
             
         Returns:
             List of content items relevant to scan findings
